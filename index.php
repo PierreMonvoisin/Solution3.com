@@ -13,15 +13,15 @@
   <div id="mainBody" class="row m-0">
     <h1 id="mainTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">
-      <!-- Top Left -->
+      <!-- Top Left - Account -->
       <button id="topLeftButton" type="button" class="btn btn-success mr-3 py-5" data-toggle="tooltip" data-placement="left" title="Compte Personnel"></button>
-      <!-- Top Right -->
+      <!-- Top Right - Timer -->
       <button id="topRightButton" type="button" class="btn btn-primary py-5" data-toggle="tooltip" data-placement="right" title="Chronomètre"></button>
     </div>
     <div class="btn-group bottom-button-group btn-group-lg mb-3 mx-auto col-8" role="group">
-      <!-- Bottom Left -->
+      <!-- Bottom Left - Lessons -->
       <button id="bottomLeftButton" type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-5" data-toggle="tooltip" data-placement="left" title="Apprentissage"></button>
-      <!-- Bottome Right -->
+      <!-- Bottome Right - Multiplayer -->
       <button id="bottomRightButton" type="button" class="btn btn-danger py-5" data-toggle="tooltip" data-placement="right" title="Multijoueurs"></button>
     </div>
   </div>

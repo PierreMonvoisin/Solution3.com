@@ -9,6 +9,7 @@ header a {
 header a:hover {
   color: white;
 }
+/* Drop down button */
 #scrollButton img {
   height: 4vh;
   filter: brightness(0)invert(1);
