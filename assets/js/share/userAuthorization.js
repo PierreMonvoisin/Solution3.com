@@ -2,7 +2,7 @@ $(function(){
   if (typeof(Storage) != "undefined") {
     // Check if the user has already allowed the storage modal
     if (! localStorage.getItem('storageAuthorization')){
-      $('#userAuthorizationModal').modal('show');
+      $('#userAuthorizationModal').modal({backdrop: 'static', keyboard: false});
     } else {
       $('#userAuthorizationModal').modal('hide');
     }

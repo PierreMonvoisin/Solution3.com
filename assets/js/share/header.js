@@ -11,6 +11,11 @@ $(function () {
       headerClosing();
     }
   });
+  $('body').click(function(){
+    if (position === 'open') {
+      headerClosing();
+    }
+  })
   // Open the top menu
   function headerOpening() {
       $('header').slideDown('slow', function () {
