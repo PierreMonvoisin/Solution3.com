@@ -1,0 +1,91 @@
+html, body {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  max-height: 100vh;
+}
+/* Title */
+#mainTitle {
+  cursor: default;
+}
+/* Buttons */
+.btnTooLarge {
+  width: 40%;
+}
+#mainBody .btn {
+  height: 13vw;
+}
+/* Set all background image of the buttons */
+#topLeftButton {
+  background-image: url('https://image.flaticon.com/icons/svg/942/942187.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+#topRightButton {
+  background-image: url('https://image.flaticon.com/icons/svg/149/149322.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 23%;
+}
+#bottomLeftButton {
+  background-image: url('https://image.flaticon.com/icons/svg/1575/1575104.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+}
+#bottomRightButton {
+  background-image: url('https://image.flaticon.com/icons/svg/978/978012.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+}
+/* Media Queries */
+/* Mobile phone */
+@media only screen and (max-width: 768px) {
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0 !important;
+  }
+  #mainBody .btn {
+    width: 100%;
+    margin-bottom: 3%;
+  }
+  html, body {
+    overflow: visible;
+    overflow-x: hidden;
+  }
+  body {
+    padding-bottom: 5%;
+  }
+  #topLeftButton {
+    background-size: 20%;
+  }
+  #topRightButton {
+    background-size: 20%;
+  }
+  #bottomLeftButton {
+    background-size: 20%;
+  }
+  #bottomRightButton {
+    background-size: 20%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #topLeftButton {
+    background-size: 25%;
+  }
+  #topRightButton {
+    background-size: 25%;
+  }
+  #bottomLeftButton {
+    background-size: 25%;
+  }
+  #bottomRightButton {
+    background-size: 25%;
+  }
+}

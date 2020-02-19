@@ -1,0 +1,18 @@
+/* Top menu */
+header {
+  display: none;
+  z-index: 10;
+}
+header a {
+  color: white;
+}
+header a:hover {
+  color: white;
+}
+#scrollButton img {
+  height: 4vh;
+  filter: brightness(0)invert(1);
+}
+#scrollButton {
+  background-color: #463730;
+}
