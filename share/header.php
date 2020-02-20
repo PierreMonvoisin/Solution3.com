@@ -3,16 +3,16 @@
   <div id="topTabs" class="col-xl-11 col-md-10 col-9 p-0">
     <ul class="nav nav-tabs nav-fill">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Accueil</a>
+        <a class="nav-link" href="../index.php">Accueil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="timer.php">Timer</a>
+        <a class="nav-link" href="view/timer.php">Timer</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="learningMenu.php">Leçons</a>
+        <a class="nav-link" href="view/learningMenu.php">Leçons</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="multiplayer.php">Multi-joueurs</a>
+        <a class="nav-link" href="view/multiplayer.php">Multi-joueurs</a>
       </li>
     </ul>
   </div>

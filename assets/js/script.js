@@ -3,15 +3,15 @@ $(function(){
   $('[data-toggle="tooltip"]').tooltip();
   // Relocate the user on click of a button
   $('#topLeftButton').click(function(){
-    window.location = 'user.php';
+    window.location = 'view/user.php';
   });
   $('#topRightButton').click(function(){
-    window.location = 'timer.php';
+    window.location = 'view/timer.php';
   });
   $('#bottomLeftButton').click(function(){
-    window.location = 'learningMenu.php';
+    window.location = 'view/learningMenu.php';
   });
   $('#bottomRightButton').click(function(){
-    window.location = 'multiplayer.php';
+    window.location = 'view/multiplayer.php';
   });
 });

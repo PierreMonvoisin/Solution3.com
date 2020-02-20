@@ -1,0 +1,80 @@
+html, body {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+body, #mainMenu, #mainMenu > .row {
+  height: 100vh;
+  max-height: 100vh;
+}
+#mainMenu {
+  overflow: hidden;
+  position: relative;
+}
+#TopLeft, #TopRight, #BottomLeft, #BottomRight {
+  width: 100%;
+  height: 50%;
+  outline: none;
+  z-index: 2;
+}
+#TopLeft:active, #TopRight:active, #BottomLeft:active, #BottomRight:active {
+  transform: scale(0.99);
+}
+/* Top Left button */
+#TopLeft img {
+  max-width: 80%;
+  position: relative;
+}
+/* Top Right button */
+#TopRight img {
+  max-width: 80%;
+  position: relative;
+}
+/* Bottom Left button */
+#BottomLeft {
+  bottom: 0;
+}
+#BottomLeft img {
+  max-width: 75%;
+  position: relative;
+}
+/* Bottom Right button */
+#BottomRight {
+  bottom: 0;
+}
+#BottomRight img {
+  max-width: 75%;
+  position: relative;
+  /* Flip horizontaly */
+  transform: scaleX(-1);
+}
+/* Main lessons  */
+#mainLesson {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0;
+}
+/* Media Queries */
+@media only screen and (max-width: 992px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  #mainLesson {
+    height: 75vh;
+  }
+  #TopLeft, #TopRight, #BottomLeft, #BottomRight {
+    width: 50%;
+    height: 12.5vh;
+    z-index: 2;
+  }
+  #leftButtons, #rightButtons {
+    display: flex;
+    flex-direction: row;
+  }
+  #TopLeft img, #BottomLeft img, #TopRight img, #BottomRight img {
+    width: auto;
+    height: 12vh;
+  }
+}

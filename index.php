@@ -3,7 +3,14 @@
 <head>
   <!-- ³ = alt + 0179 -->
   <title>Accueil - Solution³</title>
-  <?php require 'share/requiredHeadTags.html'; ?>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/share/scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/share/colorPalette.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/share/header.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/share/userAuthorization.css">
+  <!-- Fonts -->
   <?php include 'share/fonts.html'; ?>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -26,9 +33,12 @@
     </div>
   </div>
   <?php // Local storage authorization modal
-  include 'share/userAuthorization.php';
-  // Mandatory last script links
-  require 'share/requiredScriptTags.html'; ?>
+  include 'share/userAuthorization.php'; ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/share/header.js"></script>
+  <script src="assets/js/share/userAuthorization.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
