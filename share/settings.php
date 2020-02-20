@@ -52,8 +52,8 @@
             <label class="offset-1 col-5 text-center" for="mainFont">Police principale :</label>
             <div class="col-6 d-flex">
               <select name="mainFont" id="mainFont" class="custom-select mx-auto w-auto">
-                <option value="'Roboto', sans-serif" selected>'Roboto', sans-serif</option>
-                <option value="'Bitter', serif">'Bitter', serif</option>
+                <option value='"Roboto", sans-serif' selected>'Roboto', sans-serif</option>
+                <option value='"Bitter", serif'>'Bitter', serif</option>
               </select>
             </div>
           </div>
@@ -61,17 +61,17 @@
             <label class="offset-1 col-5 text-center" for="timerFont">Police du chronomètre :</label>
             <div class="col-6 d-flex">
               <select name="timerFont" id="timerFont" class="custom-select mx-auto w-auto">
-                <option value="'Gugi', cursive" selected>'Gugi', cursive</option>
-                <option value="'Odibee Sans', cursive">'Odibee Sans', cursive</option>
-                <option value="'Black Ops One', cursive">'Black Ops One', cursive</option>
+                <option value='"Gugi", cursive' selected>'Gugi', cursive</option>
+                <option value='"Odibee Sans", cursive'>'Odibee Sans', cursive</option>
+                <option value='"Black Ops One", cursive'>'Black Ops One', cursive</option>
               </select>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer bg-dark">
-        <button type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
-        <button type="submit" class="btn btn-success ml-auto" form="settingsForm">Enregistrer les changements
+        <button id="cancel" type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
+        <button id="submitChanges" type="submit" class="btn btn-success ml-auto" form="settingsForm">Enregistrer les changements
         </button>
       </div>
     </div>

@@ -1,15 +1,22 @@
 $(function () {
-  // Initiate all variables to null value
+  // Initiate all variables to default value
   var mainFontColor, secondaryFontColor, mainBackgroundColor, secondaryBackgroundColor, headerBackgroundColor, statsBackgroundColor, displayTimer, mainFont, timerFont;
-  mainFontColor = secondaryFontColor = mainBackgroundColor = secondaryBackgroundColor = headerBackgroundColor = statsBackgroundColor = displayTimer = mainFont = timerFont = null;
   var current_mainFontColor, current_secondaryFontColor, current_mainBackgroundColor, current_secondaryBackgroundColor, current_headerBackgroundColor, current_statsBackgroundColor, current_displayTimer, current_mainFont, current_timerFont;
-  current_mainFontColor = current_secondaryFontColor = current_mainBackgroundColor = current_secondaryBackgroundColor = current_headerBackgroundColor = current_statsBackgroundColor = current_displayTimer = current_mainFont = current_timerFont = null;
+  mainFontColor = current_mainFontColor = '#000000';
+  secondaryFontColor = current_secondaryFontColor = '#FFFFFF';
+  mainBackgroundColor = current_mainBackgroundColor = '#E8DCD8';
+  secondaryBackgroundColor = current_secondaryBackgroundColor = '#C1C1C1';
+  headerBackgroundColor = current_headerBackgroundColor = '#463730';
+  statsBackgroundColor = current_statsBackgroundColor = '#BF6B44';
+  displayTimer = current_displayTimer = 1;
+  mainFont = current_mainFont = '"Roboto", sans-serif';
+  timerFont = current_timerFont = '"Gugi", cursive';
   // Get the name of the current file open
   var current_file = (window.location.pathname.split('/')).pop();
 
   // Get the current personnalisation value
   if (current_file === 'learningMenu.php'){
-    current_mainFontColor = 'rgb(33, 37, 41)';
+    current_mainFontColor = '#000000';
   } else if (current_file === 'user.php'){
     current_mainFontColor = $('#overviewStats').css('color');
   } else if (current_file === 'timer.php'){
@@ -65,7 +72,7 @@ $(function () {
   $('#headerBackgroundColor').change(function () {
     headerBackgroundColor = $(this).val();
     $('header, #scrollButton').css('background-color', headerBackgroundColor);
-    $('header button').css('background-color', lightenColor(headerBackgroundColor, 15));
+    $('header button').css('background-color', lightenRgbColor(headerBackgroundColor, 15));
     if (current_file === 'user.php') {
       $('#avatarHeader').css('background-color', headerBackgroundColor);
     }
@@ -80,7 +87,7 @@ $(function () {
     $('#sideTimer').css('background-color', statsBackgroundColor);
   });
   // Get the current personnalisation value
-  if (isset(localStorage.getItem('displayTimer'))){
+  if (typeof(localStorage.getItem('displayTimer')) != "undefined" && localStorage.getItem('displayTimer') !== null){
     current_displayTimer = localStorage.getItem('displayTimer');
     current_displayTimer == 'yep' ? current_displayTimer = 1 : current_displayTimer = 0;
   } else {
@@ -108,14 +115,65 @@ $(function () {
     timerFont = $(this).val();
     $('#timer').css('font-family', timerFont);
   })
+  $('#cancel').click(function(){
+    if (current_file == 'learningMenu.php'){
+      // Set the settings back to before the changes
+      $('header a, .sectionTitle').css('color', current_secondaryFontColor);
+      $('body').css('background-color', current_mainBackgroundColor);
+      $('header, #scrollButton').css('background-color', current_headerBackgroundColor);
+      $('header button').css('background-color', lightenDarkenHexColor(current_headerBackgroundColor, 15));
+      $('html, body').css('font-family', current_mainFont);
+      // Set the values in the form back to before the changes
+      $('#mainFontColor').val(current_mainFontColor);
+      $('#secondaryFontColor').val(rgbToHex(current_secondaryFontColor));
+      $('#mainBackgroundColor').val(rgbToHex(current_mainBackgroundColor));
+      $('#secondaryBackgroundColor').val(current_secondaryBackgroundColor);
+      $('#headerBackgroundColor').val(rgbToHex(current_headerBackgroundColor));
+      $('#statsBackgroundColor').val(current_statsBackgroundColor);
+      if (! current_displayTimer){
+        $('#hideTimer').attr("checked", "checked");
+      }
+      // Not working yet
+      $("option[value='" + current_mainFont +"']").attr('selected', true);
+      $("option[value='" + current_timerFont +"']").attr('selected', true);
+    }
+  })
   // Need to learn how to works, but it works
-  function lightenColor(color, percent) {
+  function lightenRgbColor(color, percent) {
     var num = parseInt(color.replace("#",""),16);
-    var amt = Math.round(2.55 * percent);
-    var r = (num >> 16) + amt;
-    var g = (num & 0x0000FF) + amt;
-    var b = (num >> 8 & 0x00FF) + amt;
+    var amount = Math.round(2.55 * percent);
+    var r = (num >> 16) + amount;
+    var g = (num & 0x0000FF) + amount;
+    var b = (num >> 8 & 0x00FF) + amount;
     return "#" + (0x1000000 + (r<255?r<1?0:r:255)*0x10000 + (b<255?b<1?0:b:255)*0x100 + (g<255?g<1?0:g:255)).toString(16).slice(1);
   };
   // Original content : https://gist.github.com/renancouto/4675192
+  function lightenDarkenHexColor(color,amount) {
+    var usePound = false;
+    if ( color[0] == "#" ) {
+      color = color.slice(1);
+      usePound = true;
+    }
+    var num = parseInt(color,16);
+    var r = (num >> 16) + amount;
+    if (r > 255){ r = 255; }
+    else if (r < 0){ r = 0; }
+    var b = ((num >> 8) & 0x00FF) + amount;
+    if (b > 255){ b = 255; }
+    else if (b < 0){ b = 0; }
+    var g = (num & 0x0000FF) + amount;
+    if (g > 255){ g = 255; }
+    else if (g < 0){ g = 0; }
+    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+  }
+  // Original content : https://stackoverflow.com/q/5560248
+  function rgbToHex(rgb) {
+    if (/^#[0-9A-F]{6}$/i.test(rgb)){ return rgb; }
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    function hex(x) {
+      return ("0" + parseInt(x).toString(16)).slice(-2);
+    }
+    return ("#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])).toUpperCase();
+  }
+  // Original content : https://stackoverflow.com/a/3627747
 });
