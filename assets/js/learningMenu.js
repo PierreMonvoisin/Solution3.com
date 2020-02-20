@@ -3,6 +3,7 @@ $(function() {
   $('#default li').mouseover(function(){
     // Get the first class of the list item
     var classList = $(this)[0].className.split(' ');
+    // Use the first class name as a selector and " zoom " on the correct button
     $("#" + classList[0]).css({'transition': '0.5s', 'transform': 'scale(1.1)'});
   });
   // Zoom back to initial on mouseleave

@@ -57,17 +57,15 @@ body, #mainMenu, #mainMenu > .row {
 }
 /* Media Queries */
 @media only screen and (max-width: 992px) {
-  html, body {
-    overflow-x: hidden;
-    overflow-y: auto;
+  #mainMenu, #mainMenu > .row {
+    height: 97vh;
   }
   #mainLesson {
-    height: 75vh;
+    height: 70vh;
   }
   #TopLeft, #TopRight, #BottomLeft, #BottomRight {
     width: 50%;
     height: 12.5vh;
-    z-index: 2;
   }
   #leftButtons, #rightButtons {
     display: flex;
@@ -75,6 +73,6 @@ body, #mainMenu, #mainMenu > .row {
   }
   #TopLeft img, #BottomLeft img, #TopRight img, #BottomRight img {
     width: auto;
-    height: 12vh;
+    height: 11vh;
   }
 }
