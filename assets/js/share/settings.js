@@ -70,10 +70,23 @@ $(function () {
       $('#avatarHeader').css('background-color', headerBackgroundColor);
     }
   });
+  // Get the current personnalisation value
+  if (current_file === 'timer.php'){
+    current_statsBackgroundColor = $('#sideTimer').css('background-color');
+  }
+  // Set the correct value on change
   $('#statsBackgroundColor').change(function() {
     statsBackgroundColor = $(this).val();
     $('#sideTimer').css('background-color', statsBackgroundColor);
   });
+  // Get the current personnalisation value
+  if (isset(localStorage.getItem('displayTimer'))){
+    current_displayTimer = localStorage.getItem('displayTimer');
+    current_displayTimer == 'yep' ? current_displayTimer = 1 : current_displayTimer = 0;
+  } else {
+    current_displayTimer = 1;
+  }
+  // Set the correct value on change
   $('#displayTimer').change(function(){
     $('#timer').css('visibility', 'visible');
     localStorage.setItem('displayTimer', 'yep');
@@ -81,6 +94,12 @@ $(function () {
   $('#hideTimer').change(function(){
     localStorage.setItem('displayTimer', 'nope');
   })
+  // Get the current personnalisation value
+  current_mainFont = $('html, body').css('font-family');
+  if (current_file == 'timer.php'){
+    current_timerFont = $('#timer').css('font-family');
+  }
+  // Set the correct value on change
   $('#mainFont').change(function () {
     mainFont = $(this).val();
     $('html, body').css('font-family', mainFont);
