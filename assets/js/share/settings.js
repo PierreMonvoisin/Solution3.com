@@ -72,7 +72,7 @@ $(function () {
   $('#headerBackgroundColor').change(function () {
     headerBackgroundColor = $(this).val();
     $('header, #scrollButton').css('background-color', headerBackgroundColor);
-    $('header button').css('background-color', lightenRgbColor(headerBackgroundColor, 15));
+    $('header button').css('background-color', lightenDarkenHexColor(headerBackgroundColor, 40));
     if (current_file === 'user.php') {
       $('#avatarHeader').css('background-color', headerBackgroundColor);
     }
@@ -102,7 +102,7 @@ $(function () {
     localStorage.setItem('displayTimer', 'nope');
   })
   // Get the current personnalisation value
-  current_mainFont = $('html, body').css('font-family');
+  current_mainFont = $('html').css('font-family');
   if (current_file == 'timer.php'){
     current_timerFont = $('#timer').css('font-family');
   }
@@ -116,38 +116,35 @@ $(function () {
     $('#timer').css('font-family', timerFont);
   })
   $('#cancel').click(function(){
+    // Set the settings back to before the changes
     if (current_file == 'learningMenu.php'){
-      // Set the settings back to before the changes
       $('header a, .sectionTitle').css('color', current_secondaryFontColor);
       $('body').css('background-color', current_mainBackgroundColor);
       $('header, #scrollButton').css('background-color', current_headerBackgroundColor);
-      $('header button').css('background-color', lightenDarkenHexColor(current_headerBackgroundColor, 15));
+      $('header button').css('background-color', lightenDarkenHexColor(rgbToHex(current_headerBackgroundColor), 40));
       $('html, body').css('font-family', current_mainFont);
-      // Set the values in the form back to before the changes
-      $('#mainFontColor').val(current_mainFontColor);
-      $('#secondaryFontColor').val(rgbToHex(current_secondaryFontColor));
-      $('#mainBackgroundColor').val(rgbToHex(current_mainBackgroundColor));
-      $('#secondaryBackgroundColor').val(current_secondaryBackgroundColor);
-      $('#headerBackgroundColor').val(rgbToHex(current_headerBackgroundColor));
-      $('#statsBackgroundColor').val(current_statsBackgroundColor);
-      if (! current_displayTimer){
-        $('#hideTimer').attr("checked", "checked");
-      }
-      // Not working yet
-      $("option[value='" + current_mainFont +"']").attr('selected', true);
-      $("option[value='" + current_timerFont +"']").attr('selected', true);
+    } else if (current_file == 'user.php'){
+
+    } else if (current_file == 'timer.php'){
+      
     }
+    // Set the values in the form back to before the changes
+    $('#mainFontColor').val(current_mainFontColor);
+    $('#secondaryFontColor').val(rgbToHex(current_secondaryFontColor));
+    $('#mainBackgroundColor').val(rgbToHex(current_mainBackgroundColor));
+    $('#secondaryBackgroundColor').val(current_secondaryBackgroundColor);
+    $('#headerBackgroundColor').val(rgbToHex(current_headerBackgroundColor));
+    $('#statsBackgroundColor').val(current_statsBackgroundColor);
+    // Detect if the timer was not to be displayed
+    if (! current_displayTimer){
+      $('#hideTimer').attr("checked", "checked");
+    }
+    $('#mainFont').val(current_mainFont);
+    $("option[value='" + current_mainFont +"']").attr('selected', true);
+    $('#timerFont').val(current_timerFont);
+    $("option[value='" + current_timerFont +"']").attr('selected', true);
   })
   // Need to learn how to works, but it works
-  function lightenRgbColor(color, percent) {
-    var num = parseInt(color.replace("#",""),16);
-    var amount = Math.round(2.55 * percent);
-    var r = (num >> 16) + amount;
-    var g = (num & 0x0000FF) + amount;
-    var b = (num >> 8 & 0x00FF) + amount;
-    return "#" + (0x1000000 + (r<255?r<1?0:r:255)*0x10000 + (b<255?b<1?0:b:255)*0x100 + (g<255?g<1?0:g:255)).toString(16).slice(1);
-  };
-  // Original content : https://gist.github.com/renancouto/4675192
   function lightenDarkenHexColor(color,amount) {
     var usePound = false;
     if ( color[0] == "#" ) {
