@@ -8,8 +8,9 @@ html, body {
 body {
   max-height: 100vh;
 }
+/* Set all cards height */
 #algoCard, #friendsCard, #newsCard, #battleCard {
-  height: 40vh;
+  height: 41vh;
 }
 #algoCard .card-body {
   overflow-y: auto;
@@ -41,6 +42,7 @@ body {
     flex-direction: column;
     white-space: nowrap;
   }
+  /* Battle buttons */
   #button1v1, #button2v2 {
     display: flex;
     justify-content: space-around;
