@@ -1,4 +1,11 @@
 $(function () {
+  var currentFile = (window.location.pathname.split('/')).pop();
+  if (currentFile == 'index.php'){
+    $('#homeLink').attr('href', 'index.php');
+    $('#timerLink').attr('href', 'view/timer.php.php');
+    $('#lessonsLink').attr('href', 'view/learningMenu.php');
+    $('#multiplayerLink').attr('href', 'view/multiplayer.php');
+  }
   // Set default position as open
   var position = 'open';
   // On button click, execute the right function
