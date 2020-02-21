@@ -35,7 +35,7 @@
   // Settings modal
   require '../share/settings.php';
   // Required scripts
-  require '../share/requiredScriptTags.html' ?>
+  require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/learningMenu.js"></script>
   <script src="../assets/js/share/settings.js"></script>
 </body>

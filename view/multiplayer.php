@@ -121,7 +121,7 @@
   <?php // Local storage authorization modal
   include '../share/userAuthorization.php';
   // Required scripts
-  require '../share/requiredScriptTags.html' ?>
+  require '../share/requiredScriptTags.html'; ?>
   <!-- Mandatory last script links -->
 </body>
 </html>
