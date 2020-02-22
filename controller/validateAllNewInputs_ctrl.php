@@ -23,7 +23,7 @@ function validateAllNewInputs($array){
   $password = filter_var($password, FILTER_VALIDATE_REGEXP, $passwordOptions);
   gettype($password) != 'boolean' ?: $password = null;
   // Create the options array with the reg ex for the url
-  $avatarUrlOptions = ['options'=>['regexp'=>"/^(visualcube\.php\?fmt=png&bg=t&pzl=3&alg=)+([A-Z2']{15,30})+$/"]];
+  $avatarUrlOptions = ['options'=>['regexp'=>"/^(\.\.\/share\/visualcube\.php\?fmt=png&bg=t&pzl=3&alg=)+([A-Z2']{15,30})+$/"]];
   $avatarUrl = filter_var($avatarUrl, FILTER_VALIDATE_REGEXP, $avatarUrlOptions);
   gettype($avatarUrl) != 'boolean' ?: $avatarUrl = null;
   // Check all variables one by one if they are null, and if so, return the associated error message
