@@ -115,6 +115,8 @@ $(function () {
     timerFont = $(this).val();
     $('#timer').css('font-family', timerFont);
   })
+
+  // cancel function
   $('#cancel').click(function(){
     // Set the settings back to before the changes
     if (current_file == 'learningMenu.php'){
@@ -126,15 +128,15 @@ $(function () {
     } else if (current_file == 'user.php'){
 
     } else if (current_file == 'timer.php'){
-      
+
     }
-    // Set the values in the form back to before the changes
-    $('#mainFontColor').val(current_mainFontColor);
+    // Set the values in the form back as hex code to before the changes
+    $('#mainFontColor').val(rgbToHex(current_mainFontColor));
     $('#secondaryFontColor').val(rgbToHex(current_secondaryFontColor));
     $('#mainBackgroundColor').val(rgbToHex(current_mainBackgroundColor));
-    $('#secondaryBackgroundColor').val(current_secondaryBackgroundColor);
+    $('#secondaryBackgroundColor').val(rgbToHex(current_secondaryBackgroundColor));
     $('#headerBackgroundColor').val(rgbToHex(current_headerBackgroundColor));
-    $('#statsBackgroundColor').val(current_statsBackgroundColor);
+    $('#statsBackgroundColor').val(rgbToHex(current_statsBackgroundColor));
     // Detect if the timer was not to be displayed
     if (! current_displayTimer){
       $('#hideTimer').attr("checked", "checked");

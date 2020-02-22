@@ -20,7 +20,7 @@ function addNewUser($userInfos) {
     // Execute query and get the return value in variable
     $stmtStatus = $stmt->execute();
   } catch (PDOException $e) {
-    // If their is an exception, display it
+    // If there is an exception, display it
     echo $e->getMessage();
   }
   // Return the statement return value and the statement

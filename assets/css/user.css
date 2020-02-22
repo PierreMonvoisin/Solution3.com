@@ -1,0 +1,86 @@
+html, body {
+  max-width: 100vw;
+  max-height: 100vh;
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#topAvatar {
+  border-radius: 50%;
+  height: 17vh;
+}
+#userStats h4, #usernameTitle {
+  color: white;
+}
+#userStats {
+  height: auto;
+}
+#overview {
+  height: 35vh;
+}
+#overviewStats {
+  height: 100%;
+}
+#chartContainer {
+  width: 100%;
+  height: auto;
+}
+#settings {
+  max-height: 21vh;
+}
+#settingsButton:hover {
+  background-color: #E55000;
+}
+#signOffButton:hover {
+  background-color: #009B48;
+}
+#history {
+  max-height: 40vh;
+  overflow: hidden;
+}
+#history .card-body {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+#history td {
+  background-color: white;
+}
+/* Settings modal */
+#settingsModal {
+  min-height: 80vh;
+}
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  #overview {
+    height: 65vh;
+  }
+  #overviewStats {
+    height: 30%;
+    min-width: 100%;
+  }
+  #chartContainer {
+    height: 50%;
+    min-width: 100%;
+  }
+  #overview .card-body {
+    flex-direction: column;
+  }
+  #chartContainer {
+    margin-top: 1vh;
+    height: 35vh;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #overview, #settings, #history {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

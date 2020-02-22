@@ -66,8 +66,8 @@ $(function(){
           userAvatarUrl = '../share/visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
           // Set the status of the avatar as set
           $('#avatarUrl').val(JSON.stringify(userAvatarUrl));
-          topAvatar = 'set';
           document.cookie('avatarUrl='+ userAvatarUrl);
+          topAvatar = 'set';
           if (typeof(Storage) != "undefined") {
             // Add url to the local storage
             localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
@@ -85,6 +85,7 @@ $(function(){
       $('.outputMessage').text(message);
     }
   });
+  // Sign off function after redirection from user.php
   // Function to find a cookie and its value from https://www.w3schools.com/js/js_cookies.asp
   function getCookie(cookieName) {
     var name = cookieName + '=';

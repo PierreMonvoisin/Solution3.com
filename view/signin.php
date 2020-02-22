@@ -11,7 +11,7 @@
 </head>
 <body class="bg-silver">
   <?php include '../share/header.php'; ?>
-  <div class="container d-flex" id="loginContainer">
+  <div class="container-fluid d-flex" id="loginContainer">
     <div class="card m-auto pt-3 shadow-lg" id="newUserCard">
       <div class="bg-secondary mx-auto image-upload" id="avatarContainer">
         <img class="card-img-top"
