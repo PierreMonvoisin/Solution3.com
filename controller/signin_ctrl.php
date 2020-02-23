@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newSubmit'])) {
   // Put all values in an associative array
   $newUserInfos = ['avatarUrl'=>$avatarUrl, 'username'=>$newUsername, 'mail'=>$newMail, 'password'=>$newPassword, 'confirmation'=>$newConfirmation];
   // If the array contains a null value, display the error message
-  if (in_array(null, $newUserInfos)){
+  if (in_array(null, $newUserInfos, true)){
     $errorMessage = '- Un des champ est incomplet -';
     $error = true;
   } else {
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newSubmit'])) {
       require 'validateAllNewInputs_ctrl.php';
       // Sanitize and validate all values
       $cleanedNewInfos = validateAllNewInputs($newUserInfos);
-      if (gettype($cleanedNewInfos) != 'string'){
+      if (!is_string($cleanedNewInfos)){
         // Add default value to complete all the parametres of the request
         $cleanedNewInfos['idPersonnalisations'] = 1;
         $userInfos = $cleanedNewInfos;

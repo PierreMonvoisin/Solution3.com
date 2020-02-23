@@ -1,5 +1,6 @@
 <?php
 function addNewUser($userInfos) {
+  $stmtStatus = null; $stmt = null;
   // Initiate connection to database
   require_once 'connection.php';
   $database = connectionToDatabase();
@@ -25,5 +26,4 @@ function addNewUser($userInfos) {
   }
   // Return the statement return value and the statement
   return [$stmtStatus,$stmt];
-}
-?>
+} ?>
