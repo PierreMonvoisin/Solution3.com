@@ -25,6 +25,11 @@ require '../share/session.php'; ?>
   <div id="userStats" class="container w-100">
     <div class="row justify-content-between">
       <!-- General info -->
+      <div id="personnalInfos" class="card my-2 col-12 px-0 bg-copper shadow">
+        <h4 class="text-center font-weight-bold px-0 pt-2">Informations personnelles</h4>
+        <div class="card-body">
+        </div>
+      </div>
       <div id="overview" class="card my-2 col-12 px-0 bg-copper shadow">
         <h4 class="text-center font-weight-bold px-0 pt-2">Statistiques</h4>
         <div class="card-body pt-1 pb-3 px-0 userStat d-flex justify-content-around">
@@ -131,8 +136,8 @@ require '../share/session.php'; ?>
   require '../share/settings.php';
   // Required scripts
   require '../share/requiredScriptTags.html'; ?>
-  <script src="../assets/js/share/settings.js"></script>
   <script src="../assets/js/user.js"></script>
+  <script src="../assets/js/share/settings.js"></script>
   <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="../assets/js/share/graph.js"></script> -->
 </body>

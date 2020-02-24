@@ -85,7 +85,7 @@ $(function(){
       $('.outputMessage').text(message);
     }
   });
-  // Sign off function after redirection from user.php
+  // Sign off functions after redirection from user.php
   // Function to find a cookie and its value from https://www.w3schools.com/js/js_cookies.asp
   function getCookie(cookieName) {
     var name = cookieName + '=';
@@ -102,7 +102,7 @@ $(function(){
     }
     return '';
   }
-  // Check for the clearLocalStorage cookie to delete all solves from localStorage
+  // Check for the clearLocalStorage cookie to delete all solves from localStorage on logOut
   if (getCookie('clearLocalStorage') != ''){
     if (localStorage.getItem('storageAuthorization') == 'true'){
       localStorage.clear();

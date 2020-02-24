@@ -122,14 +122,15 @@ $(function () {
     if (current_file == 'learningMenu.php'){
       $('header a, .sectionTitle').css('color', current_secondaryFontColor);
       $('body').css('background-color', current_mainBackgroundColor);
-      $('header, #scrollButton').css('background-color', current_headerBackgroundColor);
-      $('header button').css('background-color', lightenDarkenHexColor(rgbToHex(current_headerBackgroundColor), 40));
-      $('html, body').css('font-family', current_mainFont);
+      $('#scrollButton').css('background-color', current_headerBackgroundColor);
     } else if (current_file == 'user.php'){
 
     } else if (current_file == 'timer.php'){
 
     }
+    $('header').css('background-color', current_headerBackgroundColor);
+    $('header button').css('background-color', lightenDarkenHexColor(rgbToHex(current_headerBackgroundColor), 40));
+    $('html, body').css('font-family', current_mainFont);
     // Set the values in the form back as hex code to before the changes
     $('#mainFontColor').val(rgbToHex(current_mainFontColor));
     $('#secondaryFontColor').val(rgbToHex(current_secondaryFontColor));

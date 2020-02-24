@@ -1,4 +1,6 @@
 $(function(){
+  // PUT IN LOCAL STORAGE DIRECTORY
+  //////////////////////////////////
   var lastIndex, lastSingle, lastAo5, lastAo12, lastAo50;
   lastIndex = lastSingle = lastAo5 = lastAo12 = lastAo50 = 0;
   // Add avatar if it is set in the localStorage
@@ -132,6 +134,9 @@ $(function(){
   }
   // Render chart on page load
   // renderChart();
+  //////////////////////////////////
+  // PUT IN LOCAL STORAGE DIRECTORY
+
   // signOffModal
   $('#signOffButton').click(function(){
     $('#signOffModal').modal('show');

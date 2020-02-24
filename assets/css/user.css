@@ -18,6 +18,9 @@ html {
 #userStats {
   height: auto;
 }
+#personnalInfos {
+  height: 30vh;
+}
 #overview {
   height: 35vh;
 }

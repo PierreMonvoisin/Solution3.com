@@ -29,7 +29,7 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       // Set CSS properties
 
     } else {
-      // Error message from the database
+      echo 'Chargement de vos données depuis la base de données infructueuse, merci de vous déconnecter/reconnecter<br>Loading your data from the database was unsuccessful, please log out and/or log back in.';
     }
   } else {
     session_start();
