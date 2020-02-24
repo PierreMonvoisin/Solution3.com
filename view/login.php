@@ -1,4 +1,6 @@
-<?php require '../controller/login_ctrl.php'; ?>
+<?php require '../controller/login_ctrl.php';
+// Store user infos in session storage to use them on all pages
+require '../share/session.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>

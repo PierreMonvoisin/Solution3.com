@@ -1,18 +1,6 @@
-<?php
-// Log out
-if (isset($_POST['signOffConfirmation'])) {
-  // Set cookie for one minute to clear the localStorage in JS
-  setcookie('clearLocalStorage', 'true', time() + 60);
-  unset($_POST['signOffConfirmation']);
-  // Empty out the session
-  session_unset();
-  // Delete the cookie for the avatar url and the Session ID by setting its expiration date 1 hour ago
-  setcookie('avatarUrl', '', time() - 3600);
-  setcookie('PHPSESSID', '', time() - 3600);
-  // Redirect directly to the new user page
-  header("Location: signin.php");
-}
-?>
+<?php require '../controller/logOff_ctrl.php';
+// Store user infos in session storage to use them on all pages
+require '../share/session.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -146,6 +134,6 @@ if (isset($_POST['signOffConfirmation'])) {
   <script src="../assets/js/share/settings.js"></script>
   <script src="../assets/js/user.js"></script>
   <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <script src="assets/js/tools/graph.js"></script> -->
+  <script src="../assets/js/share/graph.js"></script> -->
 </body>
 </html>
