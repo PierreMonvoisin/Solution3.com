@@ -15,11 +15,20 @@ html {
 #userStats h4, #usernameTitle {
   color: white;
 }
+#usernameTitle {
+  font-size: 3rem;
+}
 #userStats {
   height: auto;
 }
 #personnalInfos {
-  height: 30vh;
+  max-height: 40vh;
+}
+.userInfosTitle {
+  white-space: nowrap;
+}
+.userPersonnalInfos {
+  width: 65%;
 }
 #overview {
   height: 35vh;
@@ -56,6 +65,11 @@ html {
   min-height: 80vh;
 }
 /* Media Queries */
+@media only screen and (max-width: 992px) {
+  #personnalInfos {
+    max-height: 55vh;
+  }
+}
 @media only screen and (max-width: 767px) {
   html {
     overflow-x: hidden;
@@ -81,7 +95,7 @@ html {
   }
 }
 @media only screen and (max-width: 575px) {
-  #overview, #settings, #history {
+  #personnalInfos, #overview, #settings, #history {
     max-width: 95vw;
     margin-left: auto;
     margin-right: auto;
