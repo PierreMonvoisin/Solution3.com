@@ -1,7 +1,8 @@
 <?php
 // Get avater url if user is connected and the session didn't start yet
 if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
-  if (empty($_COOKIE['PHPSESSID'])){
+  if (empty($_COOKIE['PHPSESSID']) || ! isset($_SESSION['mail'])){
+    session_start();
     $url = $_COOKIE['avatarUrl'];
     require '../model/DBInfosToSessionStorage_mod.php';
     $userInfos = DBInfosToSessionStorage($url);
@@ -15,8 +16,7 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       $cookiePath = '/';
       // Add simple information to get once the user already logged in
       setcookie($cookieName, $cookieValue, $cookieExpDate, $cookiePath);
-      // Start the session
-      session_start();
+      // Set all variables in session
       $_SESSION['username'] = $userInfos['username'];
       $_SESSION['mail'] = $userInfos['mail'];
       $_SESSION['main_font_color'] = $userInfos['main_font_color'];
@@ -31,8 +31,6 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
     } else {
       echo 'Chargement de vos données depuis la base de données infructueuse, merci de vous déconnecter/reconnecter<br>Loading your data from the database was unsuccessful, please log out and/or log back in.';
     }
-  } else {
-    session_start();
   }
 }
 ?>

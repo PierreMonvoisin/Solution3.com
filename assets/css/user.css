@@ -69,6 +69,10 @@ html {
   #personnalInfos {
     max-height: 55vh;
   }
+  .userPersonnalInfos {
+    margin-left: auto;
+    margin-right: 4%;
+  }
 }
 @media only screen and (max-width: 767px) {
   html {
@@ -99,5 +103,8 @@ html {
     max-width: 95vw;
     margin-left: auto;
     margin-right: auto;
+  }
+  .userPersonnalInfos {
+    margin-right: 1%;
   }
 }
