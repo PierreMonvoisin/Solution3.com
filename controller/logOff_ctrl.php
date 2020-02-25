@@ -17,5 +17,6 @@ if (isset($_POST['signOffConfirmation'])) {
   setcookie('avatarUrl', '', time() - 3600, '/');
   // Redirect directly to the new user page
   header("Location: signin.php");
+  exit();
 }
 ?>

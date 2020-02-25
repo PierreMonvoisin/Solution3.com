@@ -1,6 +1,8 @@
 <?php
 // Get avater url if user is connected and the session didn't start yet
 if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
+    $userAvatarUrl = explode('alg=', $_COOKIE['avatarUrl']);
+    $userScramble = array_pop($userAvatarUrl);
   if (empty($_COOKIE['PHPSESSID']) || ! isset($_SESSION['mail'])){
     session_start();
     $url = $_COOKIE['avatarUrl'];
@@ -32,5 +34,7 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       echo 'Chargement de vos données depuis la base de données infructueuse, merci de vous déconnecter/reconnecter<br>Loading your data from the database was unsuccessful, please log out and/or log back in.';
     }
   }
+} else {
+  $userScramble = null;
 }
 ?>

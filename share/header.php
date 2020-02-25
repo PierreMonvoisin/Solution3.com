@@ -18,7 +18,7 @@
   </div>
   <div class="col p-0 ml-2">
     <button type="submit" class="btn btn-block bg-taupe-light h-100">
-      <a href="<?= isset($_COOKIE['avatarUrl']) ? 'user.php' : 'signin.php' ?>" class="text-decoration-none stretched-link">Compte</a>
+      <a id="accountLink" href="<?= isset($_COOKIE['avatarUrl']) ? 'user.php' : 'signin.php' ?>" class="text-decoration-none stretched-link">Compte</a>
     </button>
   </div>
 </header>

@@ -18,13 +18,6 @@
       </ul>
       <ul class="list-group userPersonnalInfos">
         <li class="list-group-item list-group-item-action px-md-3 px-1"><?= $_SESSION['username'] ?? 'Johnny Doey' ?></li>
-        <?php
-        if (isset($_COOKIE['avatarUrl'])){
-          $userAvatarUrl = explode('alg=', $_COOKIE['avatarUrl']);
-          $userScramble = array_pop($userAvatarUrl);
-        } else {
-          $userScramble = null;
-        } ?>
         <li class="list-group-item list-group-item-action px-md-3 px-1"><?= $userScramble ?? 'UFR2URF2B2L2F\'U2R\'ULDL' ?></li>
       </ul>
     </div>

@@ -5,6 +5,11 @@ $(function () {
     $('#timerLink').attr('href', 'view/timer.php.php');
     $('#lessonsLink').attr('href', 'view/learningMenu.php');
     $('#multiplayerLink').attr('href', 'view/multiplayer.php');
+    if ($('#accountLink').attr('href') == 'signin.php'){
+      $('#accountLink').attr('href', 'view/signin.php')
+    } else {
+      $('#accountLink').attr('href', 'view/user.php')
+    }
   }
   // Set default position as open
   var position = 'open';
