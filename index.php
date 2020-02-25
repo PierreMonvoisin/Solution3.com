@@ -39,6 +39,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/share/header.js"></script>
   <script src="assets/js/share/userAuthorization.js"></script>
+  <script src="assets/js/share/getCookie.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>

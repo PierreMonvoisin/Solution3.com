@@ -76,6 +76,7 @@
   require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/share/inputsValidations.js"></script>
   <script src="../assets/js/share/newScramble.js"></script>
+  <script src="../assets/js/share/getCookie.js"></script>
   <script src="../assets/js/signin.js"></script>
 </body>
 </html>
