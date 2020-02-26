@@ -44,8 +44,14 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
           </ul>
           <ul class="list-group userPersonnalInfos">
             <li class="list-group-item px-md-3 px-1 text-muted"><?= $_SESSION['mail'] ?? 'john.doe@mail.com' ?></li>
-            <li class="list-group-item list-group-item-action px-md-3 px-1"><input type="text" name="updatePassword" placeholder="••••••••"></li>
-            <li class="list-group-item list-group-item-action px-md-3 px-1"><input type="text" name="confirmUpdatePassword" placeholder="••••••••"></li>
+            <li class="list-group-item list-group-item-action px-md-3 px-1">
+              <label for="updatePassword" class="sr-only">Entrer votre nouveau mot de passe</label>
+              <input id="updatePassword" type="password" name="updatePassword" placeholder="••••••••">
+            </li>
+            <li class="list-group-item list-group-item-action px-md-3 px-1">
+              <label for="confirmUpdatePassword" class="sr-only">Confirmer votre nouveau mot de passe</label>
+              <input id="confirmUpdatePassword" type="password" name="confirmUpdatePassword" placeholder="••••••••">
+            </li>
           </ul>
         </div>
         <div class="col-lg-6 col-12 d-flex px-0">
@@ -54,13 +60,16 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
             <li class="list-group-item bg-transparent border-0 font-weight-bold text-white">Mélange identifiant</li>
           </ul>
           <ul class="list-group userPersonnalInfos">
-            <li class="list-group-item list-group-item-action px-md-3 px-1"><input type="text" name="updateUsername" placeholder="<?= $_SESSION['username'] ?? 'Johnny Doey' ?>"></li>
+            <li class="list-group-item list-group-item-action px-md-3 px-1">
+              <label for="updateUsername" class="sr-only">Entrer votre nouveau nom d'utilisateur</label>
+              <input id="updateUsername" type="text" name="updateUsername" placeholder="<?= $_SESSION['username'] ?? 'Johnny Doey' ?>">
+            </li>
             <li class="list-group-item px-md-3 px-1 text-muted"><?= $userScramble ?? 'UFR2URF2B2L2F\'U2R\'ULDL' ?></li>
           </ul>
         </div>
       </div>
       <div class="card-footer p-0 m-0">
-        <button id="confirmUpdateForm" type="submit" class="btn btn-success btn-block">Confirmer les modifications</button>
+        <button id="confirmUpdateForm" type="submit" name="confirmUpdateSubmit" class="btn btn-success btn-block">Confirmer les modifications</button>
       </div>
     </form>
   </div>
