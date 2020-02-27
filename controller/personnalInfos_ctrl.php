@@ -55,9 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
   empty(trim($_POST['confirmUpdatePassword'])) ? $confirmation = null : $confirmation = $_POST['confirmUpdatePassword'];
   empty(trim($_POST['updateUsername'])) ? $username = null : $username = $_POST['updateUsername'];
   if ($password == null && $confirmation == null && $username == null){
-    // Form empty, do nothing
+    $errorMessage = 'Aucun changement enregistré';
+    $error = true;
   } else if (($password != null && $confirmation == null) || ($password == null && $confirmation != null)){
-    // Password or confirmation empty
+    $errorMessage = 'Le mot de passe et la confirmation sont différents';
+    $error = true;
   } else if (($password != null && $confirmation != null) || $username != null){
     require 'validateUpdateInputs_ctrl.php';
     if ($username != null){
@@ -74,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
           $passwordHash = password_hash($validatedPassword, PASSWORD_BCRYPT);
         }
       } else {
-        // Password and confirmation different
+        $errorMessage = 'Le mot de passe et la confirmation sont différents';
+        $error = true;
       }
     } else {
       $password = $confirmation = '';
@@ -94,6 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
       $set = '';
       $whichBind = 'none';
       // Display Error
+      $errorMessage = 'Un problème a été rencontré avec le formulaire, veuillez réessayer';
+      $error = true;
     }
     $values = ['password'=>$passwordHash, 'username'=>$validatedUsername];
     require '../model/updateUserInfos_mod.php';
