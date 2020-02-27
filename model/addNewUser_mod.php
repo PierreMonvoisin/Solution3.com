@@ -5,7 +5,7 @@ function addNewUser($userInfos) {
   require_once 'connection.php';
   $database = connectionToDatabase();
   // Hash password to store it safely
-  $userInfos['password'] = password_hash($userInfos['password'], PASSWORD_DEFAULT);
+  $userInfos['password'] = password_hash($userInfos['password'], PASSWORD_BCRYPT);
   try {
     // Declare request with paramaters
     $stmt = $database->prepare(

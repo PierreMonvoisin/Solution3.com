@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateConfirmation'])
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit'])){
   $username = $password = $error = $errorMessage = null;
   $validatedUsername = ''; $validatedPassword = '';
-  $set = []; $whichBind = null;
+  $passwordHash = null; $set = []; $whichBind = null;
+  $mail = $_SESSION['mail'] ?? null;
   empty(trim($_POST['updatePassword'])) ? $password = null : $password = $_POST['updatePassword'];
   empty(trim($_POST['confirmUpdatePassword'])) ? $confirmation = null : $confirmation = $_POST['confirmUpdatePassword'];
   empty(trim($_POST['updateUsername'])) ? $username = null : $username = $_POST['updateUsername'];
@@ -68,7 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
     if ($password != null && $confirmation != null){
       if($password === $confirmation){
         $validatedPassword = validateUpdateInputs('password', $password);
-        $validatedPassword == false ?: $set['password'] = '`password` = :password';
+        if ($validatedPassword != false ){
+          $set['password'] = '`password` = :password';
+          $passwordHash = password_hash($validatedPassword, PASSWORD_BCRYPT);
+        }
       } else {
         // Password and confirmation different
       }
@@ -91,12 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
       $whichBind = 'none';
       // Display Error
     }
-    $values = ['password'=>$password, 'username'=>$username];
+    $values = ['password'=>$passwordHash, 'username'=>$validatedUsername];
     require '../model/updateUserInfos_mod.php';
     [$stmtStatus,$stmt] = updateUserInfos($mail, $set, $values, $whichBind);
-    
-    // Status as true but nothing happening in database
-    var_dump($stmt);
   }
 }
 ?>
