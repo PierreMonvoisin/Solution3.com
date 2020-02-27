@@ -63,8 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
   } else if (($password != null && $confirmation != null) || $username != null){
     require 'validateUpdateInputs_ctrl.php';
     if ($username != null){
-      $validatedUsername = validateUpdateInputs('username', $username);
-      $validatedUsername == false ?: $set['username'] = '`username` = :username';
+      require '../share/profanitiesList.php';
+      if (! in_array($username, $frenchBadWords) && ! in_array($username, $englishBadWords)){
+        $validatedUsername = validateUpdateInputs('username', $username);
+        $validatedUsername == false ?: $set['username'] = '`username` = :username';
+      } else {
+        $errorMessage = 'Merci de ne pas mettre d\'insulte dans votre nom d\'utilisateur !';
+        $error = true;
+        return;
+      }
     } else {
       $username = '';
     }

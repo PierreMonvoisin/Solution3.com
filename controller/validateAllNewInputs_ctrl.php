@@ -27,10 +27,13 @@ function validateAllNewInputs($array){
   $avatarUrl = filter_var($avatarUrl, FILTER_VALIDATE_REGEXP, $avatarUrlOptions);
   gettype($avatarUrl) != 'boolean' ?: $avatarUrl = null;
   // Check all variables one by one if they are null, and if so, return the associated error message
+  require '../share/profanitiesList.php';
   if ($mail == null){
     return 'Email invalide !';
   } else if ($username == null){
     return 'Nom d\'utilisateur invalide !';
+  } else if (in_array($username, $frenchBadWords) || in_array($username, $englishBadWords)){
+    return 'Merci de ne pas mettre d\'insulte dans votre nom d\'utilisateur !';
   } else if ($password == null){
     return 'Mot de passe invalide !';
   } else {
