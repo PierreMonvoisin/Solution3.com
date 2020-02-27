@@ -24,6 +24,9 @@ html {
 #personnalInfos {
   max-height: 40vh;
 }
+.formLabel {
+  color: white;
+}
 .userInfosTitle {
   white-space: nowrap;
 }

@@ -26,7 +26,7 @@ $(function () {
   $('#mainFontColor').change(function () {
     mainFontColor = $(this).val();
     if (current_file === 'user.php') {
-      $('#overviewStats, #history table, #history table th').css('color', mainFontColor);
+      $('.userPersonnalInfos, #overviewStats, #history table, #history table th').css('color', mainFontColor);
     } else if (current_file === 'timer.php') {
       $('#scramble, #timer, #averageOf5, #averageOf12, #statsInMenu, .solveListTitle').css('color', mainFontColor);
       $('#scramble span').css('border-color', mainFontColor);
@@ -40,7 +40,7 @@ $(function () {
     if (current_file === 'learningMenu.php') {
       $('header a, .sectionTitle').css('color', secondaryFontColor);
     } else if (current_file === 'user.php') {
-      $('#userStats h5, #usernameTitle, header a').css('color', secondaryFontColor);
+      $('.formLabel, #userStats h4, #usernameTitle, header a').css('color', secondaryFontColor);
     } else if (current_file === 'timer.php') {
       $('#statsTable, #historyTbody, header a').css('color', secondaryFontColor);
       $('#historyTbody td').css('border-color', secondaryFontColor);
@@ -80,11 +80,17 @@ $(function () {
   // Get the current personnalisation value
   if (current_file === 'timer.php'){
     current_statsBackgroundColor = $('#sideTimer').css('background-color');
+  } else if (current_file === 'user.php'){
+    current_statsBackgroundColor = $('#overview').css('background-color');
   }
   // Set the correct value on change
   $('#statsBackgroundColor').change(function() {
     statsBackgroundColor = $(this).val();
-    $('#sideTimer').css('background-color', statsBackgroundColor);
+    if (current_file === 'timer.php'){
+      $('#sideTimer').css('background-color', statsBackgroundColor);
+    } else if (current_file === 'user.php'){
+      $('#personnalInfos, #overview, #settings, #history').css('background-color', statsBackgroundColor);
+    }
   });
   // Get the current personnalisation value
   if (typeof(localStorage.getItem('displayTimer')) != "undefined" && localStorage.getItem('displayTimer') !== null){
@@ -120,15 +126,21 @@ $(function () {
   $('#cancel').click(function(){
     // Set the settings back to before the changes
     if (current_file == 'learningMenu.php'){
-      $('header a, .sectionTitle').css('color', current_secondaryFontColor);
+      $('.sectionTitle').css('color', current_secondaryFontColor);
       $('body').css('background-color', current_mainBackgroundColor);
-      $('#scrollButton').css('background-color', current_headerBackgroundColor);
     } else if (current_file == 'user.php'){
-
+      $('.userPersonnalInfos, #overviewStats, #history table, #history table th').css('color', current_mainFontColor);
+      $('.formLabel, #userStats h4, #usernameTitle').css('color', current_secondaryFontColor);
+      $('body').css('background-color', current_secondaryBackgroundColor);
+      $('#avatarHeader').css('background-color', current_headerBackgroundColor);
+      $('#personnalInfos, #overview, #settings, #history').css('background-color', current_statsBackgroundColor);
     } else if (current_file == 'timer.php'){
-
+      $('body').css('background-color', current_secondaryBackgroundColor);
     }
+    // Commom settings shared through all pages
+    $('header a').css('color', current_secondaryFontColor);
     $('header').css('background-color', current_headerBackgroundColor);
+    $('#scrollButton').css('background-color', current_headerBackgroundColor);
     $('header button').css('background-color', lightenDarkenHexColor(rgbToHex(current_headerBackgroundColor), 40));
     $('html, body').css('font-family', current_mainFont);
     // Set the values in the form back as hex code to before the changes
