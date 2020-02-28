@@ -39,6 +39,5 @@ require '../share/session.php'; ?>
   // Required scripts
   require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/learningMenu.js"></script>
-  <script src="../assets/js/share/settings.js"></script>
 </body>
 </html>

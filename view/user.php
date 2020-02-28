@@ -116,7 +116,6 @@ require '../share/session.php'; ?>
   // Required scripts
   require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/user.js"></script>
-  <script src="../assets/js/share/settings.js"></script>
   <script src="../assets/js/personnalInfos.js"></script>
   <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="../assets/js/share/graph.js"></script> -->

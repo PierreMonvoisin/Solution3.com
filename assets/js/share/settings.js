@@ -124,7 +124,20 @@ $(function () {
     timerFont = $(this).val();
     $('#timer').css('font-family', timerFont);
   })
-
+  // Media query for button text
+  var windowWidth = $(window).width();
+  mediaQueryButton(windowWidth);
+  $(window).resize(function(){
+    windowWidth = $(window).width();
+    mediaQueryButton(windowWidth);
+  })
+  function mediaQueryButton(windowWidth){
+    if (windowWidth <= 576){
+      $('#submitChanges').text('Enregistrer');
+    } else {
+      $('#submitChanges').text('Enregistrer les changements');
+    }
+  }
   // cancel function
   $('#cancel').click(function(){
     // Set the settings back to before the changes
