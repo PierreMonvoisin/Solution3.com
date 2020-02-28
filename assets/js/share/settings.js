@@ -118,6 +118,9 @@ $(function () {
     $('html, body').css('font-family', mainFont);
   });
   $('#timerFont').change(function() {
+    // Need to be carefull of the size of the font
+    // 14 vw for Odibee Sans and Gugi
+    // 13 vw for Black Ops One
     timerFont = $(this).val();
     $('#timer').css('font-family', timerFont);
   })

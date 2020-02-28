@@ -4,15 +4,6 @@ html, body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
 }
-/* Top buttons */
-#menuToggle {
-  margin-left: 5%;
-  width: 250px;
-}
-#settingsButton {
-  margin-left: 1%;
-  width: 250px;
-}
 /* Main container */
 #timerContainer {
   width: 100vw;
@@ -74,7 +65,7 @@ html, body {
   border-radius: 0.3rem;
 }
 #timer {
-  font-size: 15vw;
+  font-size: 14vw;
   cursor: default;
   white-space: nowrap;
   /* font-family: 'Odibee Sans', cursive; */
@@ -96,10 +87,27 @@ html, body {
     font-size: 3.5vw;
   }
 }
-@media only screen and (max-width: 768px) {
-  #timer {
-    font-size: 20vw;
+@media only screen and (max-width: 880px) {
+  #sideTimer {
+    height: 50vh;
   }
+  #sideStats {
+    width: 100vw;
+    height: 25vh;
+  }
+  #solveList {
+    width: 100vw;
+    height: 25vh;
+    font-size: 1.1rem;
+  }
+  #statsInMenu {
+    font-size: 1.1rem;
+  }
+  #statsTable {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 768px) {
   #averageOf5, #averageOf12 {
     font-size: 5vw;
   }

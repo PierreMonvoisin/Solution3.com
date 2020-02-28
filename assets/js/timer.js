@@ -11,7 +11,6 @@ $(function(){
       $('#sideTimer').slideToggle('fast', function(){
         $('#sideTimer').removeClass('d-flex');
         $('#menuToggle').text('Afficher les statistiques');
-        $('#menuToggle').css('width', '250px');
       });
     } else {
       $('#sideTimer').addClass('d-flex');

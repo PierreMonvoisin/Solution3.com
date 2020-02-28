@@ -15,11 +15,11 @@ require '../share/session.php'; ?>
   <!-- Main container -->
   <div id="timerContainer" class="d-flex">
     <div id="timerBody" class="d-flex flex-column">
-      <div class="">
+      <div class="p-0 m-0 d-flex mt-1">
         <!-- Stats button -->
-        <button id="menuToggle" type="button" class="btn btn-dark">Cacher les statistiques</button>
+        <button id="menuToggle" type="button" class="btn btn-dark btn-block">Cacher les statistiques</button>
         <!-- Settings button -->
-        <button id="settingsButton" type="button" class="btn btn-light">Paramètres</button>
+        <button id="settingsButton" type="button" class="btn btn-light btn-block m-0">Paramètres</button>
       </div>
       <!-- Scramble -->
       <div class="row text-center mb-0 mx-0 mt-xl-2 mt-lg-5 mt-5">
