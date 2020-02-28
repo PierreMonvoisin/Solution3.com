@@ -56,24 +56,24 @@ require '../share/session.php'; ?>
           <div id="statsTable" class="d-flex py-2">
             <div class="text-left ml-4 mr-0 w-50">
               <div>Numéro : </div>
-              <hr class="p-0 mx-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div>Temps : </div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div>Average of 5 : </div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div>Average of 12 : </div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div>Average of 50 : </div>
             </div>
             <div class="text-center mr-3 w-50">
               <div>n° <span id="sideStatIndex">0</span></div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div><span id="sideStatSingle">-</span></div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div><span id="sideStatAo5">-</span></div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div><span id="sideStatAo12">-</span></div>
-              <hr class="p-0 m-0 my-1 statsHr">
+              <hr class="p-0 m-0 statsHr">
               <div><span id="sideStatAo50">-</span></div>
             </div>
           </div>

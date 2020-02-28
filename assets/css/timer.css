@@ -109,6 +109,26 @@ html, body {
 }
 @media only screen and (max-width: 768px) {
   #averageOf5, #averageOf12 {
-    font-size: 5vw;
+    font-size: 6vw;
+  }
+}
+@media only screen and (max-width: 550px) {
+  #sideTimer {
+    height: 65vh;
+  }
+  #sideStats {
+    width: 100vw;
+    height: 30vh;
+  }
+  #solveList {
+    width: 100vw;
+    height: 35vh;
+    font-size: 1rem;
+  }
+  #statsInMenu {
+    font-size: 1rem;
+  }
+  #statsTable {
+    font-size: 1rem;
   }
 }
