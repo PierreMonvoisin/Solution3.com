@@ -124,6 +124,5 @@ require '../share/session.php'; ?>
   include '../share/userAuthorization.php';
   // Required scripts
   require '../share/requiredScriptTags.html'; ?>
-  <!-- Mandatory last script links -->
 </body>
 </html>

@@ -1,0 +1,106 @@
+html, body {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+/* Top buttons */
+#menuToggle {
+  margin-left: 5%;
+  width: 250px;
+}
+#settingsButton {
+  margin-left: 1%;
+  width: 250px;
+}
+/* Main container */
+#timerContainer {
+  width: 100vw;
+  height: 100vh;
+}
+#sideTimer {
+  display: none;
+  height: 30vh;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+}
+/* Timer stats */
+#sideStats {
+  white-space: nowrap;
+  width: 33%;
+  height: 30vh;
+}
+#statsInMenu {
+  font-size: 1.25rem;
+  padding: 0.15rem 0 0.15rem 0;
+}
+#statsTable {
+  font-size: 1.25rem;
+  color: white;
+}
+/* History */
+#solveList {
+  font-size: 1.25rem;
+  width: 67%;
+  height: 30vh;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+.statsHr {
+  background-color: white;
+}
+/*Is not working*/
+#historyTbody {
+  color: white;
+}
+#historyTbody td {
+  height: 10px;
+  border: 1px solid white;
+}
+/* Main scramble and timer */
+#scramble, #timer {
+  position: relative;
+}
+#scramble {
+  height: auto;
+  width: 100vw;
+  font-size: 2.5vw;
+  cursor: default;
+}
+#scramble span {
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+#timer {
+  font-size: 15vw;
+  cursor: default;
+  white-space: nowrap;
+  /* font-family: 'Odibee Sans', cursive; */
+  font-family: 'Gugi', cursive;
+  /* font-family: 'Black Ops One', cursive; */
+}
+/* Hidden button */
+#controls {
+  display: none;
+}
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  #scramble {
+    font-size: 3vw;
+  }
+}
+@media only screen and (max-width: 992px) {
+  #averageOf5, #averageOf12 {
+    font-size: 3.5vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #timer {
+    font-size: 20vw;
+  }
+  #averageOf5, #averageOf12 {
+    font-size: 5vw;
+  }
+}
