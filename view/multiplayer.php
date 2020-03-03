@@ -106,14 +106,18 @@ require '../share/session.php'; ?>
         <div id="newsCard" class="card">
           <h3 class="card-header text-center bg-green text-white">News</h3>
           <div class="card-body">
-            <div class="jumbotron py-0 mb-0">
-              <span>
+            <div class="jumbotron py-0 mb-0 text-justify">
+              <p>
                 Strong selfish pious fearful ocean sexuality right revaluation christianity. Superiority merciful merciful prejudice society spirit ideal noble play decrepit hope disgust will. Holiest play morality deceptions horror reason selfish law oneself eternal-return. Hatred oneself truth pinnacle spirit moral. Decrepit of merciful moral endless convictions ultimate. Society dead sea eternal-return snare good selfish enlightenment mountains ultimate fearful god merciful horror.
                 Grandeur ultimate strong of play endless moral. Burying passion prejudice eternal-return reason play strong depths pious.
+              </p>
+              <p>
                 Abstract deceptions reason contradict right love ubermensch endless depths disgust aversion. Disgust pious spirit spirit burying disgust truth fearful morality madness selfish.
                 Self sexuality hatred reason grandeur virtues holiest endless play ultimate. Christianity morality fearful chaos merciful justice god mountains self. Virtues marvelous of will suicide self burying deceptions deceptions christianity. Ultimate god pious decrepit inexpedient war moral war ideal oneself faith play selfish reason.
+              </p>
+              <p>
                 Law morality eternal-return noble ultimate ascetic. Faith overcome pious self of against of hatred love christianity chaos pinnacle. Free ubermensch zarathustra holiest mountains enlightenment revaluation abstract grandeur fearful passion. Eternal-return decieve convictions decieve eternal-return. Morality revaluation ideal intentions sexuality holiest. Oneself eternal-return christianity dead pinnacle noble will passion philosophy prejudice evil. Ultimate ideal faith will hope reason faithful justice decrepit.
-              </span>
+              </p>
             </div>
           </div>
         </div>

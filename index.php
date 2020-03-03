@@ -18,7 +18,8 @@
   <?php include 'share/header.php'; ?>
   <!-- Buttons -->
   <div id="mainBody" class="row m-0">
-    <h1 id="mainTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
+    <h1 id="mainTitle" class="col-12 mt-5 text-center">Solution³</h1>
+    <h1 id="secondTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">
       <!-- Top Left - Account -->
       <button id="topLeftButton" type="button" class="btn btn-success mr-3 py-5" data-toggle="tooltip" data-placement="left" title="Compte Personnel"></button>

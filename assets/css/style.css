@@ -8,7 +8,7 @@ body {
   max-height: 100vh;
 }
 /* Title */
-#mainTitle {
+#mainTitle, #mainTitle {
   cursor: default;
 }
 /* Buttons */
