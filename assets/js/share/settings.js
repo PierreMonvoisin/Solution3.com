@@ -101,7 +101,6 @@ $(function () {
   }
   // Set the correct value on change
   $('#displayTimer').change(function(){
-    $('#timer').css('visibility', 'visible');
     localStorage.setItem('displayTimer', 'yep');
   })
   $('#hideTimer').change(function(){
@@ -151,7 +150,19 @@ $(function () {
       $('#avatarHeader').css('background-color', current_headerBackgroundColor);
       $('#personnalInfos, #overview, #settings, #history').css('background-color', current_statsBackgroundColor);
     } else if (current_file == 'timer.php'){
+      $('#scramble, #timer, #averageOf5, #averageOf12, #statsInMenu, .solveListTitle').css('color', current_mainFontColor);
+      $('#scramble span').css('border-color', current_mainFontColor);
+      $('#statsTable, #historyTbody').css('color', current_secondaryFontColor);
+      $('#historyTbody td').css('border-color', current_secondaryFontColor);
+      $('.statsHr').css('background-color', current_secondaryFontColor);
       $('body').css('background-color', current_secondaryBackgroundColor);
+      $('#sideTimer').css('background-color', current_statsBackgroundColor);
+      $('#timer').css('font-family', current_timerFont);
+      if (current_displayTimer){
+        localStorage.setItem('displayTimer', 'yep');
+      } else {
+        localStorage.setItem('displayTimer', 'nope');
+      }
     }
     // Commom settings shared through all pages
     $('header a').css('color', current_secondaryFontColor);
