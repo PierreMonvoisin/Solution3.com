@@ -19,6 +19,15 @@ $(function(){
       });
     }
   });
+  // Check if hours and/or minutes are null, not to display them
+  if ($("#hours").html() == '00'){
+    $("#hours, #separatorHours").hide();
+  }
+  if ($("#minutes").html() == '00'){
+    $("#minutes, #separatorMinutes").hide();
+  } else {
+    $("#minutes, #separatorMinutes").show();
+  }
   // settingsModal
   $('#settingsButton').click(function(){
     $('#settingsModal').modal('show');

@@ -117,10 +117,13 @@ $(function () {
     $('html, body').css('font-family', mainFont);
   });
   $('#timerFont').change(function() {
-    // Need to be carefull of the size of the font
-    // 14 vw for Odibee Sans and Gugi
-    // 13 vw for Black Ops One
     timerFont = $(this).val();
+    // Change font size with font to better display it
+    if (timerFont == '"Gugi", cursive' || timerFont == '"Odibee Sans", cursive'){
+      $('#timer').css('font-size', '14vw');
+    } else if (timerFont == '"Black Ops One", cursive'){
+      $('#timer').css('font-size', '13vw');
+    }
     $('#timer').css('font-family', timerFont);
   })
   // Media query for button text
@@ -131,6 +134,7 @@ $(function () {
     mediaQueryButton(windowWidth);
   })
   function mediaQueryButton(windowWidth){
+    // Change the text of the " save " button if the width is higher or lower than 576 px
     if (windowWidth <= 576){
       $('#submitChanges').text('Enregistrer');
     } else {
@@ -157,6 +161,11 @@ $(function () {
       $('.statsHr').css('background-color', current_secondaryFontColor);
       $('body').css('background-color', current_secondaryBackgroundColor);
       $('#sideTimer').css('background-color', current_statsBackgroundColor);
+      if (current_timerFont == '"Gugi", cursive' || current_timerFont == '"Odibee Sans", cursive'){
+        $('#timer').css('font-size', '14vw');
+      } else if (current_timerFont == '"Black Ops One", cursive'){
+        $('#timer').css('font-size', '13vw');
+      }
       $('#timer').css('font-family', current_timerFont);
       if (current_displayTimer){
         localStorage.setItem('displayTimer', 'yep');

@@ -9,6 +9,10 @@ html, body {
   width: 100vw;
   height: 100vh;
 }
+#timerBody {
+  width: 100vw;
+  height: 100vh;
+}
 #sideTimer {
   display: none;
   height: 30vh;
@@ -35,7 +39,7 @@ html, body {
 #solveList {
   font-size: 1.25rem;
   width: 67%;
-  height: 30vh;
+  max-height: 30vh;
   overflow-x: auto;
   overflow-y: scroll;
 }
@@ -43,12 +47,17 @@ html, body {
   background-color: white;
 }
 /*Is not working*/
+#solveList td, #solveList th {
+  height: 10px;
+}
 #historyTbody {
   color: white;
 }
 #historyTbody td {
-  height: 10px;
   border: 1px solid white;
+}
+#noSolve td {
+  border-bottom: 0;
 }
 /* Main scramble and timer */
 #scramble, #timer {

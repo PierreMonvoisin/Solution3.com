@@ -103,7 +103,9 @@ require '../share/session.php'; ?>
   // Settings modal
   require '../share/settings.php';
   // Required scripts
-  require '../share/requiredScriptTags.html'; ?>
+  require '../share/requiredScriptTags.html';
+  // Timer scripts requiredHeadTags
+  require '../share/timerTags.html'; ?>
   <script src="../assets/js/timer.js"></script>
   <!-- <script src="assets/js/tools/timer/stopwatch.js"></script>
   <script src="assets/js/tools/timer/localstorage.js"></script>
