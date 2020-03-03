@@ -40,11 +40,12 @@ $(function(){
       $("#start_stop").button().click();
       return;
     }
+    // On any key up
     if ($("#start_stop").text() == "Stop"){
       $("#start_stop").button().click();
     }
   });
-  // Set var for timer
+  // Set variables for timer
   var hours, minutes, seconds, milliseconds;
   hours = minutes = seconds = milliseconds = 0;
   var prev_hours, prev_minutes, prev_seconds, prev_milliseconds;
@@ -64,7 +65,10 @@ $(function(){
       $(this).html("<span>Start</span>");
       // Stop the timer
       clearInterval(timeUpdate);
+      // Display the time
       displayTimer(hours, minutes, seconds, milliseconds)
+      // Add the solve to the log
+      addToLog(hours, minutes, seconds, milliseconds);
       // Display new scramble
       $('#scramble span').text(scrambler());
     }
@@ -99,5 +103,24 @@ $(function(){
     } else {
       displayTimer(hours, minutes, seconds, milliseconds);
     }
+  }
+  var index, ao5, ao12, ao50;
+  index = ao5 = ao12 = ao50 = 0;
+  // Add solve to stats menu
+  function addToLog(hours, minutes, seconds, milliseconds){
+    // Delete "no solve" message
+    $('#noSolve').hide();
+    // Get index of last solve, if none found, attribute 1 to the current index
+    var index = Number($('#solveList tbody tr:first-child').attr('id'));
+    if (isNaN(index)){
+      index = 1;
+    } else {
+      index++;
+    }
+    // Transform hours, minutes and seconds to milliseconds and return full milliseconds time
+    var time = fullTimeToMilliseconds(hours, minutes, seconds, milliseconds);
+    // Launch averages functions
+    ao5 = averageOf5(time);
+    alert(ao5);
   }
 });
