@@ -25,5 +25,4 @@ function updateUserInfos($mail, $set, $values, $whichBind){
   }
   // Return the statement return value and the statement
   return [$stmtStatus,$stmt];
-}
-?>
+} ?>

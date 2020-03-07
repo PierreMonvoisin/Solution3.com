@@ -3,4 +3,4 @@
 define('USER', 'pierremonvoisin');
 define('PASSWORD', 'monvoisin');
 define('HOST', 'localhost');
-define('DB', 'Solution3');
+define('DB', 'solution3.com');

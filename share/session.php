@@ -21,10 +21,14 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       // Set all variables in session
       $_SESSION['username'] = $userInfos['username'];
       $_SESSION['mail'] = $userInfos['mail'];
+      $_SESSION['avatar_url'] = $userInfos['avatar_url'];
+      $_SESSION['id_personnalisations'] = $userInfos['id_personnalisations'];
       $_SESSION['main_font_color'] = $userInfos['main_font_color'];
       $_SESSION['secondary_font_color'] = $userInfos['secondary_font_color'];
       $_SESSION['main_background_color'] = $userInfos['main_background_color'];
       $_SESSION['secondary_background_color'] = $userInfos['secondary_background_color'];
+      $_SESSION['header_background_color'] = $userInfos['header_background_color'];
+      $_SESSION['stats_background_color'] = $userInfos['stats_background_color'];
       $_SESSION['display_timer'] = $userInfos['display_timer'];
       $_SESSION['main_font'] = $userInfos['main_font'];
       $_SESSION['timer_font'] = $userInfos['timer_font'];

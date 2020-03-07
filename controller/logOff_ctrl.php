@@ -1,11 +1,13 @@
 <?php
 // Log out
-if (isset($_POST['signOffConfirmation'])) {
+function signOff(){
   // Set cookie for one minute to clear the localStorage in JS
   setcookie('clearLocalStorage', 'true', time() + 60, '/');
-  unset($_POST['signOffConfirmation']);
   // Empty out the session
-  session_start();
+  if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+  }
   $_SESSION = [];
   if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
@@ -15,8 +17,12 @@ if (isset($_POST['signOffConfirmation'])) {
   session_write_close();
   // Delete the cookie for the avatar url by setting its expiration date 1 hour ago
   setcookie('avatarUrl', '', time() - 3600, '/');
+}
+if (isset($_POST['signOffConfirmation'])) {
+  unset($_POST['signOffConfirmation']);
+  signOff();
   // Redirect directly to the new user page
-  header("Location: signin.php");
+  header("Location: login.php");
   exit();
 }
 ?>

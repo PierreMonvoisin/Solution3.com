@@ -121,7 +121,7 @@ $(function(){
     var time = fullTimeToMilliseconds(hours, minutes, seconds, milliseconds);
     // Launch averages functions
     ao5 = averageOf5(time);
-    // ao12 = averageOf12(time);
     // ao50 = averageOf50(time);
+    // ao12 = averageOf12(time);
   }
 });

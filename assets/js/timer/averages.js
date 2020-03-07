@@ -32,7 +32,7 @@ function averageOf5(time){
     solves5.splice(solves5.length - 1, 1);
   }
   return ao5;
-};
+}
 // Calculation of the average of 12 solves
 function averageOf12(time){
   ao12 = 0;
@@ -63,7 +63,7 @@ function averageOf12(time){
     solves12.splice(solves12.length - 1, 1);
   }
   return ao12;
-};
+}
 // Calculation of the average of 50 solves
 function averageOf50(time){
   ao50 = 0;
@@ -94,4 +94,4 @@ function averageOf50(time){
     solves50.splice(solves50.length - 1, 1);
   }
   return ao50;
-};
+}

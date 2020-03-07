@@ -6,13 +6,8 @@ function userValidity($userInfos){
   try {
     // Declare request with paramaters
     $stmt = $database->prepare(
-      // Inner join to get all informations on a user on login
-      'SELECT `users`.`username`, `users`.`mail`, `users`.`password`, `users`.`avatar_url`,
-      -- Get all the personnalisations informations
-      `personnalisations`.`main_font_color`, `personnalisations`.`secondary_font_color`, `personnalisations`.`main_background_color`, `personnalisations`.`secondary_background_color`,
-      `personnalisations`.`header_background_color`, `personnalisations`.`display_timer`, `personnalisations`.`main_font`, `personnalisations`.`timer_font`
-      -- Users joined to Personnalisations on the personnalisations ID
-      FROM `users` INNER JOIN `personnalisations` ON `users`.`id_personnalisations` = `personnalisations`.`id`
+      // Select the informations necessary for the connection
+      'SELECT `mail`, `password`, `avatar_url` FROM `users`
       -- Where the mail is the same as the mail in the from
       WHERE `mail` = :mail'
     );
@@ -30,5 +25,4 @@ function userValidity($userInfos){
   } catch (PDOException $e) {
     echo $e->getMessage();
   }
-}
-?>
+} ?>
