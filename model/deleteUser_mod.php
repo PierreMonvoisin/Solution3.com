@@ -17,5 +17,4 @@ function deleteUser($mail){
   }
   // Return the statement return value
   return [$stmtStatus, $stmt];
-}
-?>
+} ?>

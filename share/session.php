@@ -32,13 +32,10 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       $_SESSION['display_timer'] = $userInfos['display_timer'];
       $_SESSION['main_font'] = $userInfos['main_font'];
       $_SESSION['timer_font'] = $userInfos['timer_font'];
-      // Set CSS properties
-
     } else {
       echo 'Chargement de vos données depuis la base de données infructueuse, merci de vous déconnecter/reconnecter<br>Loading your data from the database was unsuccessful, please log out and/or log back in.';
     }
   }
 } else {
   $userScramble = null;
-}
-?>
+} ?>

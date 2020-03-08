@@ -29,5 +29,4 @@ function DBInfosToSessionStorage($url){
   } catch (PDOException $e) {
     echo $e->getMessage();
   }
-}
-?>
+} ?>

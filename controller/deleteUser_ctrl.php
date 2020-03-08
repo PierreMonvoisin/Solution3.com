@@ -38,5 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirma
     $errorMessage = 'Vous n\'êtes pas connecté(e), veuiller vous connecter pour continuer';
     $error = true;
   }
-}
-?>
+} ?>

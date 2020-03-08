@@ -17,5 +17,4 @@ function deleteUserPersonnalisations($id_personnalisations){
   }
   // Return the statement return value
   return $personnalisationsStmtStatus;
-}
-?>
+} ?>
