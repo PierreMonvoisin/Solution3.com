@@ -11,8 +11,7 @@
         <form action="user.php" method="post">
           <div class="d-flex my-5 justify-content-around">
             <button id="cancelSignOff" type="button" class="btn btn-danger btn-lg">Annuler</button>
-            <button id="signOffConfirmation" type="submit" name="signOffConfirmation" class="btn btn-success btn-lg">Se déconnecter
-            </button>
+            <button id="signOffConfirmation" type="submit" name="signOffConfirmation" class="btn btn-success btn-lg">Se déconnecter</button>
           </div>
         </form>
       </div>

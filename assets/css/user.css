@@ -44,7 +44,7 @@ html {
   height: auto;
 }
 #settings {
-  max-height: 21vh;
+  max-height: 29vh;
 }
 #settingsButton:hover {
   background-color: #E55000;

@@ -1,7 +1,8 @@
 <?php require '../controller/logOff_ctrl.php';
 // Store user infos in session storage to use them on all pages
 require '../share/session.php';
-require '../controller/updatePersonnalisations_ctrl.php'; ?>
+require '../controller/updatePersonnalisations_ctrl.php';
+require '../controller/deleteUser_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -75,8 +76,8 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
           <div class="card">
             <div class="btn-group-vertical" role="group">
               <button id="settingsButton" type="button" class="btn btn-secondary btn-lg">Paramètres</button>
-              <button id="signOffButton" type="button" class="btn btn-secondary btn-lg">Se déconnecter
-              </button>
+              <button id="signOffButton" type="button" class="btn btn-secondary btn-lg">Se déconnecter</button>
+              <button id="deleteAccountButton" type="button" class="btn btn-secondary btn-lg">Supprimer votre compte</button>
             </div>
           </div>
         </div>
@@ -106,6 +107,8 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
     </div>
   </div>
   <?php
+  // Sign off confirmation modal
+  require '../share/deleteAccountConfirmation.php';
   // Sign off confirmation modal
   require '../share/signOffConfirmation.php';
   // Update infos confirmation modal

@@ -36,7 +36,7 @@ function updatePersonnalisations($mainFontColor, $secondaryFontColor, $mainBackg
       // If there is an exception, display it
       echo $e->getMessage();
     }
-    // Return the statement return value and the statement
+    // Return the statement return value, the statement and the last id created in the table
     return [$stmtStatus, $stmt, $lastId];
   }
   ?>
