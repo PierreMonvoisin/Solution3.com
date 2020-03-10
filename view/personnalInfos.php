@@ -5,6 +5,12 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
     <h4 class="text-center font-weight-bold px-0 pt-2">Informations personnelles</h4>
     <?php if ($error != false) { ?>
       <h4 class="text-center font-weight-bold px-0 pt-2"><?= $errorMessage ?></h4>
+    <?php } else if ($confirmation != false) { ?>
+      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $confirmationMessage ?></h4>
+    <?php } else if ($updateError != false) { ?>
+      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+    <?php } else if ($updateConfirmation != false) { ?>
+      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateConfirmationMessage ?></h4>
     <?php } ?>
     <div class="card-body d-lg-flex text-center px-2">
       <div class="col-lg-6 col-12 d-flex px-0">
@@ -70,7 +76,7 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
         </div>
       </div>
       <div class="card-footer p-0 m-0">
-        <button id="confirmUpdateForm" type="submit" name="confirmUpdateSubmit" class="btn btn-success btn-block">Confirmer les modifications</button>
+        <button id="confirmUpdateForm" type="submit" name="confirmUpdateForm" class="btn btn-success btn-block">Confirmer les modifications</button>
       </div>
     </form>
   </div>

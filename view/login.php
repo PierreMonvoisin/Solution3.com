@@ -14,7 +14,7 @@
   <div class="container d-flex" id="loginContainer">
     <div class="card m-auto pt-3 shadow-lg" id="loginCard">
       <div class="card-body">
-        <h3 class="card-title text-center mb-4">Connection</h3>
+        <h3 class="card-title text-center mb-4">Connexion</h3>
         <!-- Display the error message if there is one -->
         <?php if ($error) { ?>
           <h4 class="text-center"><?= $errorMessage ?></h4>

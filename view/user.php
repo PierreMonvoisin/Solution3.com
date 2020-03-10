@@ -24,6 +24,12 @@ require '../controller/deleteUser_ctrl.php'; ?>
       <h1 id="usernameTitle" class="col-6 text-center my-auto pr-5 pl-0"><?= $_SESSION['username'] ?? 'Compte personnel' ?></h1>
     </div>
   </div>
+  <?php if ($deleteError != false) { ?>
+    <h4 class="text-center font-weight-bold px-0 pt-2"><?= $deleteErrorMessage ?></h4>
+  <?php } else if ($deleteConfirmation != false) { ?>
+    <h4 class="text-center font-weight-bold px-0 pt-2"><?= $deleteConfirmationMessage ?></h4>
+  <?php } ?>
+  <h4></h4>
   <div id="userStats" class="container w-100">
     <div class="row justify-content-between">
       <!-- General info -->

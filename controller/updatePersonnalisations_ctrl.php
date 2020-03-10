@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
         } else {
           $userStmtStatus = true;
         }
-        if ($stmtStatus && $stmt->rowCount() > 0 && $userStmtStatus){
+        if ($stmtStatus && $userStmtStatus){
           $confirmationMessage = 'Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter pour les mettre en application';
           $confirmation = true;
           signOff();
@@ -84,5 +84,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
     $errorMessage = 'Vous n\'êtes pas connecté(e) !';
     $error = true;
   }
-}
-?>
+} ?>

@@ -1,6 +1,6 @@
 <?php
 // For the update confirmation modal asking for the password //
-$formValidity = false; $error = false; $errorMessage = 'ERROR'; $mail = null;
+$formValidity = false; $error = false; $errorMessage = 'ERROR'; $mail = null; $confirmation = false; $confirmationMessage = 'ERROR';
 // Detect the name of the submit button of the update form query
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateConfirmation'])){
   $mail = $_SESSION['mail'] ?? null;
@@ -46,9 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateConfirmation'])
   }
 }
 // For the update form //
+$username = $password = $updateError = $updateErrorMessage = $updateConfirmation = $updateConfirmationMessage = null;
 // Detect the name of the submit button of the update form query
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit'])){
-  $username = $password = $error = $errorMessage = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm'])){
+  $username = $password = $updateError = $updateErrorMessage = $updateConfirmation = $updateConfirmationMessage = null;
   $validatedUsername = ''; $validatedPassword = '';
   $passwordHash = null; $set = []; $whichBind = null;
   $mail = $_SESSION['mail'] ?? null;
@@ -57,12 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
   empty(trim($_POST['updateUsername'])) ? $username = null : $username = $_POST['updateUsername'];
   // If every input is empty, do nothing
   if ($password == null && $confirmation == null && $username == null){
-    $errorMessage = 'Aucun changement enregistré';
-    $error = true;
+    $updateErrorMessage = 'Aucun changement enregistré';
+    $updateError = true;
   } else if (($password != null && $confirmation == null) || ($password == null && $confirmation != null)){
     // If the password or the confirmation is filled but not the other
-    $errorMessage = 'Le mot de passe et la confirmation sont différents';
-    $error = true;
+    $updateErrorMessage = 'Le mot de passe et la confirmation sont différents';
+    $updateError = true;
   } else if (($password != null && $confirmation != null) || $username != null){
     // If the password/confirmation are filled or the username is filled
     require 'validateUpdateInputs_ctrl.php';
@@ -73,10 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
         // If there are none, sanitize and validate the username
         $validatedUsername = validateUpdateInputs('username', $username);
         // If it is validated, add the username settings to the SQL request
-        $validatedUsername == false ?: $set['username'] = '`username` = :username';
+        if ($validatedUsername != false){
+          $set['username'] = '`username` = :username';
+        }
       } else {
-        $errorMessage = 'Merci de ne pas mettre d\'insulte dans votre nom d\'utilisateur !';
-        $error = true;
+        $updateErrorMessage = 'Merci de ne pas mettre d\'insulte dans votre nom d\'utilisateur !';
+        $updateError = true;
         return;
       }
     } else {
@@ -95,8 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
           $passwordHash = password_hash($validatedPassword, PASSWORD_BCRYPT);
         }
       } else {
-        $errorMessage = 'Le mot de passe et la confirmation sont différents';
-        $error = true;
+        $updateErrorMessage = 'Le mot de passe et la confirmation sont différents';
+        $updateError = true;
       }
     } else {
       $password = $confirmation = '';
@@ -117,8 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
       $set = '';
       $whichBind = 'none';
       // Display Error
-      $errorMessage = 'Un problème a été rencontré avec le formulaire, veuillez réessayer';
-      $error = true;
+      $updateErrorMessage = 'Un problème a été rencontré avec le formulaire, veuillez réessayer';
+      $updateError = true;
       return;
     }
     // Put the infos in an associative array, no matter the value
@@ -126,6 +129,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateSubmit']
     require '../model/updateUserInfos_mod.php';
     // Send the values to the database and get the return value and SQL statement
     [$stmtStatus,$stmt] = updateUserInfos($mail, $set, $values, $whichBind);
+    if ($stmtStatus){
+      $updateConfirmationMessage = "Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter";
+      $updateConfirmation = true;
+      signOff();
+      header('refresh:1;url=signin.php');
+    }
   }
-}
-?>
+} ?>

@@ -1,5 +1,5 @@
 <?php
-$error = false; $confirmation = false; $confirmationMessage = 'ERROR'; $errorMessage = 'ERROR';
+$deleteError = false; $deleteConfirmation = false; $deleteConfirmationMessage = 'ERROR'; $deleteErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirmation'])) {
   $mail = null; $id_personnalisations = null;
   ! empty(trim($_SESSION['mail'])) ? $mail = trim($_SESSION['mail']) : $mail = null;
@@ -25,17 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirma
       [$stmtStatus, $stmt] = deleteUser($mail);
       // $stmtStatus = bool
       if ($stmtStatus && $personnalisationsStmtStatus){
-        $confirmationMessage = 'Votre compte a bien été supprimé. Vous allez être déconnecté(e).<br>Merci pour votre confiance, à bientôt !';
-        $confirmation = true;
+        $deleteConfirmationMessage = 'Votre compte a bien été supprimé. Vous allez être déconnecté(e).<br>Merci pour votre confiance, à bientôt !';
+        $deleteConfirmation = true;
         signOff();
-        header('refresh:3;url=signin.php');
+        header('refresh:2;url=signin.php');
       }
     } else {
-      $errorMessage = 'Une erreur est survenue. Veuillez vous reconnecter';
-      $error = true;
+      $deleteErrorMessage = 'Une erreur est survenue. Veuillez vous reconnecter';
+      $deleteError = true;
     }
   } else {
-    $errorMessage = 'Vous n\'êtes pas connecté(e), veuiller vous connecter pour continuer';
-    $error = true;
+    $deleteErrorMessage = 'Vous n\'êtes pas connecté(e), veuiller vous connecter pour continuer';
+    $deleteError = true;
   }
 } ?>
