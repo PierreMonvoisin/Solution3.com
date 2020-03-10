@@ -52,6 +52,9 @@ html {
 #signOffButton:hover {
   background-color: #009B48;
 }
+#deleteAccountButton:hover {
+  background-color: #ED0427;
+}
 #history {
   max-height: 40vh;
   overflow: hidden;

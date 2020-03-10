@@ -1,10 +1,10 @@
 <?php
-$error = false; $confirmation = false; $confirmationMessage = 'ERROR'; $errorMessage = 'ERROR';
+$updateError = false; $udpateConfirmation = false; $udpateConfirmationMessage = 'ERROR'; $updateErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && isset($_SESSION['id_personnalisations'])){
   $mainFontColor = '#000000'; $secondaryFontColor = '#FFFFFF';
   $mainBackgroundColor = '#E8DCD8'; $secondaryBackgroundColor = '#C1C1C1';
   $headerBackgroundColor = '#463730'; $statsBackgroundColor = '#BF6B44';
-  $mainFont = 'Roboto, sans-serif'; $timerFont = 'Gugi, cursive';
+  $mainFont = 1; $timerFont = 3;
   $displayTimer = 1;
   $id_personnalisations = '';
 
@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
   ! empty(trim($_POST['timerFont'])) ? $timerFont = trim($_POST['timerFont']) : $timerFont = null;
   ! empty(trim($_POST['displayTimer'])) ? $displayTimer = trim($_POST['displayTimer']) : $displayTimer = null;
   ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
-  if ($mainFontColor == '#000000' && $secondaryFontColor == '#FFFFFF' && $mainBackgroundColor == '#E8DCD8' && $secondaryBackgroundColor == '#C1C1C1' && $headerBackgroundColor == '#463730' && $statsBackgroundColor == '#BF6B44' && $mainFont == 'Roboto, sans-serif' && $timerFont == 'Gugi, cursive' && $displayTimer = 1){
-    return;
+  if (strtoupper($mainFontColor) == '#000000' && strtoupper($secondaryFontColor) == '#FFFFFF' && strtoupper($mainBackgroundColor) == '#E8DCD8' && strtoupper($secondaryBackgroundColor) == '#C1C1C1' && strtoupper($headerBackgroundColor) == '#463730' && strtoupper($statsBackgroundColor) == '#BF6B44') {
+    if ($mainFont == 1 && $timerFont == 3 && $displayTimer == 1){
+      return;
+    }
   }
   if ($id_personnalisations != null){
     $colors = ['mainFontColor'=>$mainFontColor, 'secondaryFontColor'=>$secondaryFontColor, 'mainBackgroundColor'=>$mainBackgroundColor, 'secondaryBackgroundColor'=>$secondaryBackgroundColor, 'headerBackgroundColor'=>$headerBackgroundColor, 'statsBackgroundColor'=>$statsBackgroundColor];
@@ -54,34 +56,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
             require '../model/updateUserPersonnalisationID_mod.php';
             $userStmtStatus = updateUserPersonnalisationID($lastId, $avatar_url);
           } else {
-            $errorMessage = 'Vous n\'êtes pas connecté(e) !';
-            $error = true;
+            $updateErrorMessage = 'Vous n\'êtes pas connecté(e) !';
+            $updateError = true;
           }
         } else {
           $userStmtStatus = true;
         }
         if ($stmtStatus && $userStmtStatus){
-          $confirmationMessage = 'Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter pour les mettre en application';
-          $confirmation = true;
+          $udpateConfirmationMessage = 'Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter pour les mettre en application';
+          $udpateConfirmation = true;
           signOff();
           header('refresh:4;url=login.php');
         } else {
-          $errorMessage = 'Une erreur a été rencontré avec la base de donnée<br>Veuillez réessayer plus tard';
-          $error = true;
+          $updateErrorMessage = 'Une erreur a été rencontré avec la base de donnée<br>Veuillez réessayer plus tard';
+          $updateError = true;
           return;
         }
       } else {
-        $errorMessage = 'Un des champs est incorrect, veuillez réessayer';
-        $error = true;
+        $updateErrorMessage = 'Un des champs est incorrect, veuillez réessayer';
+        $updateError = true;
         return;
       }
     } else {
-      $errorMessage = 'Un des champs est incorrect, veuillez réessayer';
-      $error = true;
+      $updateErrorMessage = 'Un des champs est incorrect, veuillez réessayer';
+      $updateError = true;
       return;
     }
   } else {
-    $errorMessage = 'Vous n\'êtes pas connecté(e) !';
-    $error = true;
+    $updateErrorMessage = 'Vous n\'êtes pas connecté(e) !';
+    $updateError = true;
   }
 } ?>

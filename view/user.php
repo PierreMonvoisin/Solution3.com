@@ -28,6 +28,10 @@ require '../controller/deleteUser_ctrl.php'; ?>
     <h4 class="text-center font-weight-bold px-0 pt-2"><?= $deleteErrorMessage ?></h4>
   <?php } else if ($deleteConfirmation != false) { ?>
     <h4 class="text-center font-weight-bold px-0 pt-2"><?= $deleteConfirmationMessage ?></h4>
+  <?php } else if ($updateError != false){ ?>
+    <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+  <?php } else if ($udpateConfirmation != false){ ?>
+    <h4 class="text-center font-weight-bold px-0 pt-2"><?= $udpateConfirmationMessage ?></h4>
   <?php } ?>
   <h4></h4>
   <div id="userStats" class="container w-100">
