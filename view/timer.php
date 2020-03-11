@@ -11,6 +11,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   require '../share/requiredHeadTags.html';
   include '../share/fonts.html'; ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/timer.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/share/solveDetails.css">
 </head>
 <body class="bg-silver">
   <?php include '../share/header.php'; ?>
@@ -88,25 +89,28 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
         </div>
 
         <!-- Solve history -->
-        <table id="solveList" class="table text-center mb-0">
+        <table id="solveList" class="table table-hover text-center mb-0">
           <thead class="bg-light">
             <tr>
               <th class="solveListTitle py-1 px-2 border-bottom-0">N°</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Time</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Ao5</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Ao12</th>
+              <th class="solveListTitle py-1 px-2 border-bottom-0">\</th>
             </tr>
           </thead>
           <tbody id="historyTbody">
             <tr id="noSolve">
-              <td colspan="4" class="border-left-0 border-right-0 border-top-0">Pas de statistique</td>
+              <td colspan="5" class="border-left-0 border-right-0 border-top-0">Pas de statistique</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  <?php // Local storage authorization modal
+  <?php // Solve details modal on solve click
+  include '../share/solveDetails.php';
+  // Local storage authorization modal
   include '../share/userAuthorization.php';
   // Settings modal
   require '../share/settings.php';
@@ -115,9 +119,5 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   // Timer scripts requiredHeadTags
   require '../share/timerTags.html'; ?>
   <script src="../assets/js/timer.js"></script>
-  <!-- <script src="assets/js/tools/timer/stopwatch.js"></script>
-  <script src="assets/js/tools/timer/localstorage.js"></script>
-  <script src="assets/js/tools/timer/averages.js"></script>
-  <script src="assets/js/tools/timer/scrambler.js"></script> -->
 </body>
 </html>

@@ -123,7 +123,7 @@ $(function(){
     ao5 = averageOf5(time);
     ao12 = averageOf12(time);
     ao50 = averageOf50(time);
-    // Display
+    // Display current solve stats
     displayCurrentSolve(index, time, ao5, ao12, ao50);
   }
 });

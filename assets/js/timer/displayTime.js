@@ -29,8 +29,16 @@ function displayCurrentSolve(index, time, ao5, ao12, ao50){
   // Create new line to put the informations in solve history
   var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
   tr = '<tr id="' + index + '">';
-  tdSide = '<td class="py-1 px-2 border-left-0 border-right-0 border-top-0">';
-  td1 = '<td class="py-1 px-2 border-top-0">';
-  td2 = '<td class="py-1 px-2 border-left-0 border-top-0">';
-  $('#solveList tbody').prepend(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + currentTime + _td + td2 + currentAo5 + _td + tdSide + currentAo12 + _td + _tr);
+  tdLeft = '<td class="py-1 px-1 border-left-0 border-right-0 border-top-0">';
+  tdRight = '<td id="solveDetailsButton" class="py-1 px-1 border-left-0 border-right-0 border-top-0">';
+  td1 = '<td class="py-1 px-1 border-top-0">';
+  td2 = '<td class="py-1 px-1 border-left-0 border-top-0 border-right-0">';
+  td3 = '<td class="py-1 px-1 border-top-0">';
+  $('#solveList tbody').prepend(tr + '\n' + tdLeft + '#' + index + _td + '\n' + td1 + currentTime + _td + td2 + currentAo5 + _td + td3 + currentAo12 + _td + tdRight + 'Tools' + _td + _tr);
+  // Put solve in solve statistics
+  $('#sideStatIndex').html(index);
+  $('#sideStatSingle').html(currentTime);
+  $('#sideStatAo5').html(currentAo5);
+  $('#sideStatAo12').html(currentAo12);
+  $('#sideStatAo50').html(currentAo50);
 }

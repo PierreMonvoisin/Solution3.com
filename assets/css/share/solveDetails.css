@@ -1,0 +1,12 @@
+#solveDetailsModal .modal-body {
+  min-height: 60vh;
+}
+#solveDetails input[type='text'] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+#scrambleRepresentation {
+  height: 30vh;
+}

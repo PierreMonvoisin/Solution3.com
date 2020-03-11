@@ -16,7 +16,13 @@ function millisecondsToFullTime(milliseconds){
     return '-';
   }
   var milliInMinutes = Math.floor(milliseconds / 1000 / 60);
+  while (milliInSeconds > 60){
+    milliInSeconds = milliInSeconds - 60;
+  }
   var milliInSeconds = Math.floor(milliseconds / 1000);
+  while (milliInSeconds > 60){
+    milliInSeconds = milliInSeconds - 60;
+  }
   milliseconds = milliseconds.toString();
   var milli = milliseconds.substring(milliseconds.length - 3, milliseconds.length);
   var fullTime = '';
@@ -31,6 +37,7 @@ function millisecondsToFullTime(milliseconds){
 }
 // Prepend zeros to the digits in stopwatch
 function prependZero(time, length) {
-  time = new String(time); // stringify time
+  // stringify time
+  time = new String(time);
   return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
 }

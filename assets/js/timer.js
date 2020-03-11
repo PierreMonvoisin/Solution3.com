@@ -28,6 +28,13 @@ $(function(){
   } else {
     $("#minutes, #separatorMinutes").show();
   }
+  // Solve details modal with collection of solve informations
+  $('#historyTbody').click(function(){ // Need to be #solveDetailsButton
+    var id = $(this).attr('id');
+    // if (id != 'noSolve'){
+    $('#solveDetailsModal').modal('show');
+    // }
+  })
   // settingsModal
   $('#settingsButton').click(function(){
     $('#settingsModal').modal('show');
