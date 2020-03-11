@@ -1,3 +1,4 @@
+// display the timer
 function displayTimer(hours, minutes, seconds, milliseconds){
   $('#seconds, #separatorSeconds').show();
   $("#hours").html(prependZero(hours, 2));
@@ -16,8 +17,20 @@ function displayTimer(hours, minutes, seconds, milliseconds){
     $("#minutes, #separatorMinutes").show();
   }
 }
-// Prepend zeros to the digits in stopwatch
-function prependZero(time, length) {
-  time = new String(time); // stringify time
-  return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
+// Display averages in history
+function displayCurrentSolve(index, time, ao5, ao12, ao50){
+  var currentTime = millisecondsToFullTime(time);
+  var currentAo5 = millisecondsToFullTime(ao5);
+  var currentAo12 = millisecondsToFullTime(ao12);
+  var currentAo50 = millisecondsToFullTime(ao50);
+  // Put averages under timer
+  $('#averageOf5 span').text(currentAo5);
+  $('#averageOf12 span').text(currentAo12);
+  // Create new line to put the informations in solve history
+  var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
+  tr = '<tr id="' + index + '">';
+  tdSide = '<td class="py-1 px-2 border-left-0 border-right-0 border-top-0">';
+  td1 = '<td class="py-1 px-2 border-top-0">';
+  td2 = '<td class="py-1 px-2 border-left-0 border-top-0">';
+  $('#solveList tbody').prepend(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + currentTime + _td + td2 + currentAo5 + _td + tdSide + currentAo12 + _td + _tr);
 }

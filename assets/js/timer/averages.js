@@ -1,16 +1,13 @@
-var solves5, solves12, solves50;
-solves5 = solves12 = solves50 = [];
-var ao5, ao12, ao50;
+var solves5 = [];
 // Calculation of the average of 5 solves
 function averageOf5(time){
-  ao5 = 0;
+  var ao5 = 0;
   // Add time to the average array
   solves5.splice(0, 0, time);
-  console.warn(solves5);
   // Check the length of the array solves5
   if (solves5.length < 5){
     // If there is less than 5 solves
-    return '-';
+    ao5 = '-';
   } else {
     // Get the highest and lowest time ( and their index ) not to calculate them in the average
     var maxValue = Math.max(...solves5);
@@ -33,15 +30,16 @@ function averageOf5(time){
   }
   return ao5;
 }
+var solves12 = [];
 // Calculation of the average of 12 solves
 function averageOf12(time){
-  ao12 = 0;
+  var ao12 = 0;
   // Add time to the average array
   solves12.splice(0, 0, time);
   // Check the length of the array solves12
   if (solves12.length < 12){
     // If there is less than 12 solves
-    return '-';
+    ao12 = '-';
   } else {
     // Get the highest and lowest time ( and their index ) not to calculate them in the average
     var maxValue = Math.max(...solves12);
@@ -64,15 +62,16 @@ function averageOf12(time){
   }
   return ao12;
 }
+var solves50 = [];
 // Calculation of the average of 50 solves
 function averageOf50(time){
-  ao50 = 0;
+  var ao50 = 0;
   // Add time to the average array
   solves50.splice(0, 0, time);
   // Check the length of the array solves50
   if (solves50.length < 50){
     // If there is less than 50 solves
-    return '-';
+    ao50 = '-';
   } else {
     // Get the highest and lowest time ( and their index ) not to calculate them in the average
     var maxValue = Math.max(...solves50);

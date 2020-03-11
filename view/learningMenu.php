@@ -1,5 +1,7 @@
-<?php // Store user infos in session storage to use them on all pages
-require '../share/session.php'; ?>
+<?php require '../controller/logOff_ctrl.php';
+// Store user infos in session storage to use them on all pages
+require '../share/session.php';
+require '../controller/updatePersonnalisations_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -22,6 +24,12 @@ require '../share/session.php'; ?>
         <button id="BottomLeft" type="button" class="btn btn-light shadow" title="Paramètres"><img src="https://image.flaticon.com/icons/svg/1242/1242443.svg" alt="Settings"></button>
       </div>
       <div id="mainLesson" class="col-lg-9 col-12">
+        <!-- Personnalisations modal error and confirmations message -->
+        <?php if ($updateError != false){ ?>
+          <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+        <?php } else if ($udpateConfirmation != false){ ?>
+          <h4 class="text-center font-weight-bold px-0 pt-2"><?= $udpateConfirmationMessage ?></h4>
+        <?php } ?>
         <?php include 'lessons/defaultLesson.php'; ?>
       </div>
       <div id="rightButtons" class="col-lg col-12 p-0 ml-auto mr-0 my-0">

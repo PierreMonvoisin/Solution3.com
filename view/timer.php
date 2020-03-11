@@ -1,5 +1,7 @@
-<?php // Store user infos in session storage to use them on all pages
-require '../share/session.php'; ?>
+<?php require '../controller/logOff_ctrl.php';
+// Store user infos in session storage to use them on all pages
+require '../share/session.php';
+require '../controller/updatePersonnalisations_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -34,6 +36,12 @@ require '../share/session.php'; ?>
           <span id="milliseconds">000</span>
         </h1>
       </div>
+      <!-- Personnalisations modal error and confirmations message -->
+      <?php if ($updateError != false){ ?>
+        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+      <?php } else if ($udpateConfirmation != false){ ?>
+        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $udpateConfirmationMessage ?></h4>
+      <?php } ?>
       <!-- Under timer stats -->
       <div class="row text-center mx-auto mb-2 mt-1">
         <h2 class="p-0 m-0">
