@@ -27,14 +27,24 @@ function displayCurrentSolve(index, time, ao5, ao12, ao50){
   $('#averageOf5 span').text(currentAo5);
   $('#averageOf12 span').text(currentAo12);
   // Create new line to put the informations in solve history
+  var trLine = document.createElement('tr');
+  trLine.setAttribute('id', index);
+  trLine.innerHTML = `
+    <td class="py-1 px-1 border-left-0 border-right-0 border-top-0">#${index}</td>
+    <td class="py-1 px-1 border-top-0">${currentTime}</td>
+    <td class="py-1 px-1 border-left-0 border-top-0 border-right-0">${currentAo5}</td>
+    <td class="py-1 px-1 border-top-0">${currentAo12}</td>
+    <td class="py-1 px-1 border-left-0 border-right-0 border-top-0">
+      <button id="solveDetailsButton" class="btn btn-dark btn-block">Tools</button>
+    </td>`;
   var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
   tr = '<tr id="' + index + '">';
   tdLeft = '<td class="py-1 px-1 border-left-0 border-right-0 border-top-0">';
   tdRight = '<td id="solveDetailsButton" class="py-1 px-1 border-left-0 border-right-0 border-top-0">';
   td1 = '<td class="py-1 px-1 border-top-0">';
   td2 = '<td class="py-1 px-1 border-left-0 border-top-0 border-right-0">';
-  td3 = '<td class="py-1 px-1 border-top-0">';
-  $('#solveList tbody').prepend(tr + '\n' + tdLeft + '#' + index + _td + '\n' + td1 + currentTime + _td + td2 + currentAo5 + _td + td3 + currentAo12 + _td + tdRight + 'Tools' + _td + _tr);
+  $('#solveList tbody').prepend(trLine);
+  // $('#solveList tbody').prepend(tr + '\n' + tdLeft + '#' + index + _td + '\n' + td1 + currentTime + _td + td2 + currentAo5 + _td + td1 + currentAo12 + _td + tdRight + '<button class="btn btn-dark">Tools</button>' + _td + _tr);
   // Put solve in solve statistics
   $('#sideStatIndex').html(index);
   $('#sideStatSingle').html(currentTime);

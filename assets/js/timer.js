@@ -29,11 +29,17 @@ $(function(){
     $("#minutes, #separatorMinutes").show();
   }
   // Solve details modal with collection of solve informations
-  $('#historyTbody').click(function(){ // Need to be #solveDetailsButton
+  $('#historyTbody tr').click(function(){ // #solveDetailsButton
     var id = $(this).attr('id');
+    console.log('proot');
+    console.warn(id);
     // if (id != 'noSolve'){
-    $('#solveDetailsModal').modal('show');
+    // $('#solveDetailsModal').modal('show');
     // }
+  })
+  // DEBUG //
+  $('#solveDetailsButton').click(function(){
+    alert('working button');
   })
   // settingsModal
   $('#settingsButton').click(function(){
