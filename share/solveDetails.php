@@ -8,10 +8,13 @@
           </button>
         </div>
         <div class="modal-body container-fluid mx-0 px-0">
+          <div class="col-12">
+            <h2 id="solveId" class="text-center">N°<span>7</span></h2>
+          </div>
           <div class="d-flex">
-            <div class="col-4">
+            <div class="col-4 text-center">
               <label for="solveChosen" class="sr-only">Temps</label>
-              <input id="solveChosen" class="display-3" type="text" name="solve" value="18.265" readonly>
+              <input id="solveChosen" type="text" name="solve" value="18.265" readonly>
             </div>
             <div class="col-8">
               <label for="scrambleChosen" class="sr-only">Mélange</label>

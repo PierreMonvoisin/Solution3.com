@@ -50,7 +50,7 @@ $(function(){
   hours = minutes = seconds = milliseconds = 0;
   var prev_hours, prev_minutes, prev_seconds, prev_milliseconds;
   prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
-  var timeUpdate;
+  var timeUpdate; var currentScramble;
   // Start/Stop button
   $("#start_stop").button().click(function(){
     // Start button ( if the spacebar was pressed too quickly, the function doesn't launch )
@@ -67,8 +67,9 @@ $(function(){
       clearInterval(timeUpdate);
       // Display the time
       displayTimer(hours, minutes, seconds, milliseconds)
+      currentScramble = $('#scramble span').text();
       // Add the solve to the log
-      addToLog(hours, minutes, seconds, milliseconds);
+      addToLog(hours, minutes, seconds, milliseconds, currentScramble);
       // Display new scramble
       $('#scramble span').text(scrambler());
     }
@@ -107,7 +108,7 @@ $(function(){
   var index, ao5, ao12, ao50;
   index = ao5 = ao12 = ao50 = 0;
   // Add solve to stats menu
-  function addToLog(hours, minutes, seconds, milliseconds){
+  function addToLog(hours, minutes, seconds, milliseconds, currentScramble){
     // Delete "no solve" message
     $('#noSolve').hide();
     // Get index of last solve, if none found, attribute 1 to the current index
@@ -123,7 +124,8 @@ $(function(){
     ao5 = averageOf5(time);
     ao12 = averageOf12(time);
     ao50 = averageOf50(time);
+    currentScramble = currentScramble.replace(/\s/g, '');
     // Display current solve stats
-    displayCurrentSolve(index, time, ao5, ao12, ao50);
+    displayCurrentSolve(index, time, ao5, ao12, ao50, currentScramble);
   }
 });

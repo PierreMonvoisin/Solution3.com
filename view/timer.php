@@ -96,7 +96,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Time</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Ao5</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Ao12</th>
-              <th class="solveListTitle py-1 px-2 border-bottom-0">\</th>
+              <th class="solveListTitle py-1 px-2 border-bottom-0">Ao50</th>
             </tr>
           </thead>
           <tbody id="historyTbody">

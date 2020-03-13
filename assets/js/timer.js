@@ -29,17 +29,21 @@ $(function(){
     $("#minutes, #separatorMinutes").show();
   }
   // Solve details modal with collection of solve informations
-  $('#historyTbody tr').click(function(){ // #solveDetailsButton
+  $('#historyTbody').on('click', 'tr', function(){
     var id = $(this).attr('id');
-    console.log('proot');
-    console.warn(id);
-    // if (id != 'noSolve'){
-    // $('#solveDetailsModal').modal('show');
-    // }
-  })
-  // DEBUG //
-  $('#solveDetailsButton').click(function(){
-    alert('working button');
+    if (id != 'noSolve'){
+      var time = $('#' + id + ' .timeValue').html();
+      var scramble = $('#' + id + ' .timeValue').attr('id');
+      var ao5 = $('#' + id + ' .ao5Value').html();
+      var ao12 = $('#' + id + ' .ao12Value').html();
+      var ao50 = $('#' + id + ' .ao50Value').html();
+
+      $('#solveId span').text(id);
+      $('#solveChosen').val(time);
+      $('#scrambleChosen').val(scramble);
+      $('#scrambleRepresentation img').attr('src', "../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=" + scramble);
+      $('#solveDetailsModal').modal('show');
+    }
   })
   // settingsModal
   $('#settingsButton').click(function(){
