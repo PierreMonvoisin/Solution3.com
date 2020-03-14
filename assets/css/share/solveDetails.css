@@ -7,6 +7,15 @@
   border: none;
   outline: none;
 }
+#scrambleChosen {
+  font-size: 1.3rem;
+}
+#solveChosen {
+  font-size: 1.4rem;
+}
+#dateChosen {
+  font-size: 1.05rem;
+}
 #scrambleRepresentation {
   height: 30vh;
 }

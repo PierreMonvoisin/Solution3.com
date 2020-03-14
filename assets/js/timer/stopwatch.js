@@ -125,7 +125,9 @@ $(function(){
     ao12 = averageOf12(time);
     ao50 = averageOf50(time);
     currentScramble = currentScramble.replace(/\s/g, '');
+    var currentTime = new Date();
+    var dateTime = currentTime.getFullYear() + '-' + prependZero((currentTime.getMonth()+1), 2)  + '-' + prependZero(currentTime.getDate(), 2) + '_' + prependZero(currentTime.getHours(), 2) + ':' + prependZero(currentTime.getMinutes(), 2) + ':' + prependZero(currentTime.getSeconds(), 2);
     // Display current solve stats
-    displayCurrentSolve(index, time, ao5, ao12, ao50, currentScramble);
+    displayCurrentSolve(index, time, ao5, ao12, ao50, currentScramble, dateTime);
   }
 });
