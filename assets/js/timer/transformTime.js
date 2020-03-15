@@ -54,15 +54,18 @@ function millisecondsToFullTime(milliseconds){
     return '-';
   }
   var milliInMinutes = Math.floor(milliseconds / 1000 / 60);
-  while (milliInMinutes > 60){
+  while (milliInMinutes >= 60){
     milliInMinutes = milliInMinutes - 60;
   }
   var milliInSeconds = Math.floor(milliseconds / 1000);
-  while (milliInSeconds > 60){
+  while (milliInSeconds >= 60){
     milliInSeconds = milliInSeconds - 60;
   }
   milliseconds = milliseconds.toString();
   var milli = milliseconds.substring(milliseconds.length - 3, milliseconds.length);
+  while (milliseconds >= 1000){
+    milliseconds = milliseconds - 1000;
+  }
   var fullTime = '';
   if (milliInHours == 0 && milliInMinutes == 0){
     fullTime = prependZero(milliInSeconds, 2) + '. ' + milli;

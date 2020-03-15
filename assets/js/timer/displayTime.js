@@ -54,7 +54,7 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   $('#solveId span').text(id);
   $('#solveChosen').val(time);
   $('#scrambleChosen').val(scramble);
-  $('#scrambleRepresentation img').attr('src', scrambleRepresentation);
+  $('#scrambleRepresentation').attr('src', scrambleRepresentation);
   $('#dateChosen').val(dateTime);
   $('#solveDetailsModal').modal('show');
 }
