@@ -20,6 +20,7 @@ html, body {
   overflow: hidden;
   position: fixed;
   bottom: 0;
+  cursor: default;
 }
 /* Timer stats */
 #sideStats {

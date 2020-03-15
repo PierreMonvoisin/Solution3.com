@@ -19,6 +19,7 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       // Add simple information to get once the user already logged in
       setcookie($cookieName, $cookieValue, $cookieExpDate, $cookiePath);
       // Set all variables in session
+      $_SESSION['id'] = $userInfos['id'];
       $_SESSION['username'] = $userInfos['username'];
       $_SESSION['mail'] = $userInfos['mail'];
       $_SESSION['avatar_url'] = $userInfos['avatar_url'];

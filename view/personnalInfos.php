@@ -19,6 +19,12 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
           <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mot de passe</li>
         </ul>
         <ul class="list-group userPersonnalInfos">
+          <?php if (! empty($_SESSION['mail'])){
+            $fullMail = trim($_SESSION['mail']);
+            $add = '<wbr>';
+            $at = strpos($fullMail, '@');
+            $_SESSION['mail'] = substr_replace($fullMail, $add, $at, 0);
+          } ?>
           <li class="list-group-item px-md-3 px-1"><?= $_SESSION['mail'] ?? 'john.doe@mail.com' ?></li>
           <li class="list-group-item px-md-3 px-1">••••••••</li>
         </ul>
@@ -30,6 +36,12 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
         </ul>
         <ul class="list-group userPersonnalInfos">
           <li class="list-group-item px-md-3 px-1"><?= $_SESSION['username'] ?? 'Johnny Doey' ?></li>
+          <?php if (! empty($userScramble)){
+            $fullScramble = trim($userScramble);
+            $add = '<wbr>';
+            $at = 15;
+            $userScramble = substr_replace($fullScramble, $add, $at, 0);
+          } ?>
           <li class="list-group-item px-md-3 px-1"><?= $userScramble ?? 'UFR2URF2B2L2F\'U2R\'ULDL' ?></li>
         </ul>
       </div>

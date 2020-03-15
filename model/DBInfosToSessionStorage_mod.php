@@ -6,7 +6,7 @@ function DBInfosToSessionStorage($url){
   try {
     $stmt = $database->prepare(
       // Inner join to get all informations on a user on load
-      'SELECT `users`.`username`, `users`.`mail`,`users`.`password`, `users`.`avatar_url`, `users`.`id_personnalisations`,
+      'SELECT `users`.`id`, `users`.`username`, `users`.`mail`,`users`.`password`, `users`.`avatar_url`, `users`.`id_personnalisations`,
       -- Get all the personnalisations informations
       `personnalisations`.`main_font_color`, `personnalisations`.`secondary_font_color`, `personnalisations`.`main_background_color`, `personnalisations`.`secondary_background_color`,
       `personnalisations`.`header_background_color`, `personnalisations`.`stats_background_color`, `personnalisations`.`display_timer`, `mainFont`.`font` AS `main_font`, `timerFont`.`font` AS `timer_font`
