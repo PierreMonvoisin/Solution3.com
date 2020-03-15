@@ -94,3 +94,28 @@ function averageOf50(time){
   }
   return ao50;
 }
+function deleteTimeInAverages(time){
+  var timeToFind = formattedTimeToMilliseconds(time);
+  var indexToDelete = -1;
+  if (solves50.length > 0){
+    indexToDelete = solves50.indexOf(timeToFind);
+    if (indexToDelete != -1){
+      solves50.splice(indexToDelete, 1);
+    }
+    indexToDelete = -1;
+  }
+  if (solves12.length > 0){
+    indexToDelete = solves12.indexOf(timeToFind);
+    if (indexToDelete != -1){
+      solves12.splice(indexToDelete, 1);
+    }
+    indexToDelete = -1;
+  }
+  if (solves5.length > 0){
+    indexToDelete = solves5.indexOf(timeToFind);
+    if (indexToDelete != -1){
+      solves5.splice(indexToDelete, 1);
+    }
+    indexToDelete = -1;
+  }
+}

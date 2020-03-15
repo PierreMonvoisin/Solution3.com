@@ -37,8 +37,9 @@ $(function(){
       dnfPenalty = true;
     }
   })
-  console.log($('#historyTbody *').length);
   $('#deleteSolve').click(function(){
+    var modalTime = $('#solveChosen').val();
+    deleteTimeInAverages(modalTime);
     var currentSolveIndex = $('#solveId span').html();
     var sideStatsIndex = $('#sideStatIndex').html();
     $('#solveId span').html('0');
@@ -56,6 +57,8 @@ $(function(){
     solveIndex = 0;
     if ($('#historyTbody *').length < 5){
       $('#noSolve').show();
+      $('#milliseconds').html('000');
+      $('#seconds').html('00');
     }
   })
 });
