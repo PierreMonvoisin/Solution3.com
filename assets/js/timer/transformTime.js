@@ -68,11 +68,11 @@ function millisecondsToFullTime(milliseconds){
   }
   var fullTime = '';
   if (milliInHours == 0 && milliInMinutes == 0){
-    fullTime = prependZero(milliInSeconds, 2) + '. ' + milli;
+    fullTime = prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
   } else if (milliInHours == 0){
-    fullTime = prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli;
+    fullTime = prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
   } else {
-    fullTime = prependZero(milliInHours, 2) + ': ' + prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli;
+    fullTime = prependZero(milliInHours, 2) + ': ' + prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
   }
   return fullTime;
 }

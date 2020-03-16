@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
   ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
   if (strtoupper($mainFontColor) == '#000000' && strtoupper($secondaryFontColor) == '#FFFFFF' && strtoupper($mainBackgroundColor) == '#E8DCD8' && strtoupper($secondaryBackgroundColor) == '#C1C1C1' && strtoupper($headerBackgroundColor) == '#463730' && strtoupper($statsBackgroundColor) == '#BF6B44') {
     if ($mainFont == 1 && $timerFont == 3 && $displayTimer == 1){
+      $udpateConfirmationMessage = 'Aucune modification enregistrée';
+      $udpateConfirmation = true;
       return;
     }
   }
