@@ -34,7 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
         $date = $correctDateFormat. ' ' .$dateArray[1];
         require '../model/saveSolve_mod.php';
         [$stmtStatus,$stmt] = saveSolve($id, $scramble, $time, $date);
-        var_dump($stmtStatus);
+        if ($stmtStatus != false){
+          $saveConfirmationMessage = 'Votre résolution a bien été enregistré !';
+          $saveConfirmation = true;
+          return;
+        }
       } else {
         $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
         $saveError = true;
