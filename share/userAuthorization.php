@@ -1,3 +1,12 @@
+<?php
+$pageUrl = explode('/', $_SERVER['SCRIPT_NAME']);
+$page = end($pageUrl);
+if ($page == 'index.php'){
+  include 'controller/userAuthorization_ctrl.php'; 
+} else {
+  include '../controller/userAuthorization_ctrl.php';
+}
+?>
 <!-- Modal -->
 <div id="userAuthorizationModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-dialog-centered">
@@ -13,10 +22,11 @@
         <p>Vous pouvez refuser ces conditions en cliquant sur le bouton "Refuser". Pour vous assurer la meilleure utilisation de Solution³, le refus de ces conditions nous amènerons à limiter l’accès à certaines fonctionnalités.</p>
         <p>Merci de votre compréhension.</p>
       </div>
-      <div class="modal-footer bg-dark">
-        <button type="button" class="storageDecline btn btn-block btn-danger my-0 mx-5" data-dismiss="modal">Refuser</button>
-        <button type="button" class="storageAllow btn btn-block btn-success my-0 mx-5" data-dismiss="modal">Autoriser</button>
-      </div>
+        <form class="modal-footer bg-dark" action="#" method="post">
+          <button type="button" class="storageDecline btn btn-block btn-danger my-0 mx-5" data-dismiss="modal">Refuser</button>
+          <button type="submit" name="storageAuthorization" class="storageAllow btn btn-block btn-success my-0 mx-5" data-dismiss="modal">Autoriser</button>
+        </form>
     </div>
   </div>
 </div>
+<script src="../assets/js/share/getCookie.js"></script>

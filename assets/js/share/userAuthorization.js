@@ -3,6 +3,10 @@ $(function(){
     // Check if the user has already allowed the storage modal
     if (! localStorage.getItem('storageAuthorization')){
       $('#userAuthorizationModal').modal({backdrop: 'static', keyboard: false});
+    } else {
+      if (getCookie('storageAuthorization') == ''){
+        document.cookie('storageAuthorization=true');
+      }
     }
   } else {
     alert('Le stockage local n\'est pas disponible sur votre navigateur.\n\tL\'utilisation de Solution³ va être compromise !');
@@ -16,6 +20,7 @@ $(function(){
     $('#userAuthorizationModal').modal('hide');
     if (typeof(Storage) != "undefined") {
       localStorage.setItem('storageAuthorization', 'true');
+      document.cookie('storageAuthorization=true');
     }
   });
 });
