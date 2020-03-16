@@ -70,7 +70,9 @@ $(function(){
           topAvatar = 'set';
           if (typeof(Storage) != "undefined") {
             // Add url to the local storage
-            localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
+            if (localStorage.getItem('storageAuthorization')){
+              localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
+            }
             // Add url value in the form input
           } else {
             // Alert if browser does not support local storage function
@@ -88,11 +90,13 @@ $(function(){
   // Sign off functions after redirection from user.php
   // Check for the clearLocalStorage cookie to delete all solves from localStorage on logOut
   if (getCookie('clearLocalStorage') != ''){
-    if (localStorage.getItem('storageAuthorization') == 'true'){
-      localStorage.clear();
-      localStorage.setItem('storageAuthorization', 'true');
-    } else {
-      localStorage.clear();
+    if (localStorage.getItem('storageAuthorization')){
+      if (localStorage.getItem('storageAuthorization') == 'true'){
+        localStorage.clear();
+        localStorage.setItem('storageAuthorization', 'true');
+      } else {
+        localStorage.clear();
+      }
     }
   }
 });

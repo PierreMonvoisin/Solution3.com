@@ -101,10 +101,14 @@ $(function () {
   }
   // Set the correct value on change
   $('#displayTimer').change(function(){
-    localStorage.setItem('displayTimer', 'yep');
+    if (localStorage.getItem('storageAuthorization')){
+      localStorage.setItem('displayTimer', 'yep');
+    }
   })
   $('#hideTimer').change(function(){
-    localStorage.setItem('displayTimer', 'nope');
+    if (localStorage.getItem('storageAuthorization')){
+      localStorage.setItem('displayTimer', 'nope');
+    }
   })
   // Get the current personnalisation value
   current_mainFont = $('html').css('font-family');
@@ -168,9 +172,13 @@ $(function () {
       }
       $('#timer').css('font-family', current_timerFont);
       if (current_displayTimer){
-        localStorage.setItem('displayTimer', 'yep');
+        if (localStorage.getItem('storageAuthorization')){
+          localStorage.setItem('displayTimer', 'yep');
+        }
       } else {
-        localStorage.setItem('displayTimer', 'nope');
+        if (localStorage.getItem('storageAuthorization')){
+          localStorage.setItem('displayTimer', 'nope');
+        }
       }
     }
     // Commom settings shared through all pages
