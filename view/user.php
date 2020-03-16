@@ -2,7 +2,8 @@
 // Store user infos in session storage to use them on all pages
 require '../share/session.php';
 require '../controller/updatePersonnalisations_ctrl.php';
-require '../controller/deleteUser_ctrl.php'; ?>
+require '../controller/deleteUser_ctrl.php';
+include '../controller/loadSavedSolve_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -114,6 +115,23 @@ require '../controller/deleteUser_ctrl.php'; ?>
           </table>
         </div>
       </div>
+      <?php if ($displaySolve == 1){ ?>
+        <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow">
+          <div class="card-body userStat p-2">
+            <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
+            <div class="col-12 text-center">
+              <p><?= ${$solveToDisplay[0].'Scramble'} ?></p>
+            </div>
+            <div class="col-12 d-flex">
+              <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= ${$solveToDisplay[0].'Scramble'} ?>" alt="scramble">
+              <div class="w-50">
+                <p><?= ${$solveToDisplay[0].'Time'} ?></p>
+                <p><?= ${$solveToDisplay[0].'Date'} ?></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
     </div>
   </div>
   <?php
