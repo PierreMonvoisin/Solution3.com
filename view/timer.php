@@ -121,8 +121,10 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   require '../share/settings.php';
   // Required scripts
   require '../share/requiredScriptTags.html';
-  // Timer scripts requiredHeadTags
-  require '../share/timerTags.html'; ?>
+  // Timer scripts required
+  require '../share/timerTags.html';
+  // Local Storage scripts required
+  require '../share/localStorageScriptTags.html'; ?>
   <script src="../assets/js/timer.js"></script>
 </body>
 </html>

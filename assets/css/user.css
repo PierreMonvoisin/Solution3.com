@@ -75,6 +75,8 @@ html {
 }
 #solveRepresentation {
   width: 50%;
+  background-color: #e9ecef;
+  border-radius: 20px;
 }
 #solveRepresentation img {
   height: 25vh;

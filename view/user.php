@@ -119,7 +119,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
         <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow">
           <div class="card-body userStat p-2">
             <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
-            <div class="col-12 text-center">
+            <div class="col-12 my-3 text-center">
               <p id="solveScramble"><?= ${$solveToDisplay[0].'Scramble'} ?></p>
             </div>
             <div class="col-12 d-flex">

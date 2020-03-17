@@ -39,10 +39,17 @@ $(function(){
       var ao12 = $('#' + id + ' .ao12Value').html();
       var ao50 = $('#' + id + ' .ao50Value').html();
       var scrambleRepresentation = "../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=" + scramble;
-      
+
       displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTime);
     }
   })
+  $('#scramble').click(function(){
+    // Clear local storage hidden button
+    var secretCode = prompt('Secret Password :');
+    if (secretCode == 'reset'){
+      clearStorage_LS();
+    }
+  });
   // settingsModal
   $('#settingsButton').click(function(){
     $('#settingsModal').modal('show');

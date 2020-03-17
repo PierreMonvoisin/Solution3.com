@@ -65,6 +65,9 @@ function millisecondsToFullTime(milliseconds){
   while (milliseconds >= 1000){
     milliseconds = milliseconds - 1000;
   }
+  if (milliseconds < 100){
+    milliseconds = milliseconds * 10;
+  }
   var fullTime = '';
   if (milliInHours == 0 && milliInMinutes == 0){
     fullTime = prependZero(milliInSeconds, 2) + '. ' + milliseconds;
