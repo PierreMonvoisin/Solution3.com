@@ -36,6 +36,11 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
     }
     if ($NbSolveToDisplay != 0 && count($solveToDisplay) != 0 && $NbSolveToDisplay == count($solveToDisplay)) {
       if ($NbSolveToDisplay == 1){
+        $scramble = ${$solveToDisplay[0].'Scramble'} ?? '';
+        $scramble = trim(preg_replace('/[A-Z]/', ' $0', $scramble));
+        if ($scramble != ''){
+          ${$solveToDisplay[0].'Scramble'} = $scramble;
+        }
         $displaySolve = 1;
       }
     } else {

@@ -120,13 +120,15 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
           <div class="card-body userStat p-2">
             <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
             <div class="col-12 text-center">
-              <p><?= ${$solveToDisplay[0].'Scramble'} ?></p>
+              <p id="solveScramble"><?= ${$solveToDisplay[0].'Scramble'} ?></p>
             </div>
             <div class="col-12 d-flex">
-              <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= ${$solveToDisplay[0].'Scramble'} ?>" alt="scramble">
-              <div class="w-50">
-                <p><?= ${$solveToDisplay[0].'Time'} ?></p>
-                <p><?= ${$solveToDisplay[0].'Date'} ?></p>
+              <div id="solveRepresentation" class="text-center">
+                <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= ${$solveToDisplay[0].'Scramble'} ?>" alt="scramble">
+              </div>
+              <div id="solveStats" class="w-50 text-center">
+                <p id="solveTime" class="my-4 font-weight-bolder"><?= ${$solveToDisplay[0].'Time'} ?></p>
+                <p class="mt-5"><?= ${$solveToDisplay[0].'Date'} ?></p>
               </div>
             </div>
           </div>

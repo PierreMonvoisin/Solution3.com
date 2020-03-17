@@ -61,18 +61,17 @@ function millisecondsToFullTime(milliseconds){
   while (milliInSeconds >= 60){
     milliInSeconds = milliInSeconds - 60;
   }
-  milliseconds = milliseconds.toString();
-  var milli = milliseconds.substring(milliseconds.length - 3, milliseconds.length);
+  milliseconds = milliseconds
   while (milliseconds >= 1000){
     milliseconds = milliseconds - 1000;
   }
   var fullTime = '';
   if (milliInHours == 0 && milliInMinutes == 0){
-    fullTime = prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
+    fullTime = prependZero(milliInSeconds, 2) + '. ' + milliseconds;
   } else if (milliInHours == 0){
-    fullTime = prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
+    fullTime = prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milliseconds;
   } else {
-    fullTime = prependZero(milliInHours, 2) + ': ' + prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milli.toFixed();
+    fullTime = prependZero(milliInHours, 2) + ': ' + prependZero(milliInMinutes, 2) + ': ' + prependZero(milliInSeconds, 2) + '. ' + milliseconds;
   }
   return fullTime;
 }
