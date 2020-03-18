@@ -69,4 +69,68 @@ $(function(){
       $('#seconds').html('00');
     }
   })
+  var solvesLoaded = false;
+  $(document).on('show.bs.modal', '#solveDetailsModal', function() {
+    if (solvesLoaded != true){
+      var id = Number($('#solveId span').html());
+      var ao5SolveArray = [];
+      var ao12SolveArray = [];
+      var ao50SolveArray = [];
+      if (id >= 5){
+        for (var i = id; i > 0; i--){
+          var timeFound = $('#' + i + ' .timeValue').html();
+          var scrambleFound = $('#' + i + ' .timeValue').attr('id');
+          if (Object.keys(ao5SolveArray).length < 5){
+            ao5SolveArray[scrambleFound] = timeFound;
+          }
+          if (Object.keys(ao12SolveArray).length < 12){
+            ao12SolveArray[scrambleFound] = timeFound;
+          }
+          if (Object.keys(ao50SolveArray).length < 50){
+            ao50SolveArray[scrambleFound] = timeFound;
+          }
+        }
+        var solveDisplayed = 0;
+        for (var [scramble, time] of Object.entries(ao5SolveArray)) {
+          displayAo5Details(scramble, time, solveDisplayed);
+          solveDisplayed++;
+        }
+        solvesLoaded = true;
+      }
+    }
+  });
+  // Different Tab display
+  var openTab = 'single';
+  $('#singleTabButton').click(function(){
+    if (openTab != 'single'){
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
+        $('#singleTab').animate({ width: 'toggle' }, 600);
+        openTab = 'single';
+      });
+    }
+  })
+  $('#ao5TabButton').click(function () {
+    if (openTab != 'ao5'){
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
+        $('#ao5Tab').animate({ width: 'toggle' }, 600);
+        openTab = 'ao5';
+      });
+    }
+  });
+  $('#ao12TabButton').click(function(){
+    if (openTab != 'ao12'){
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
+        $('#ao12Tab').animate({ width: 'toggle' }, 600);
+        openTab = 'ao12';
+      });
+    }
+  })
+  $('#ao50TabButton').click(function(){
+    if (openTab != 'ao50'){
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
+        $('#ao50Tab').animate({ width: 'toggle' }, 600);
+        openTab = 'ao50';
+      });
+    }
+  })
 });

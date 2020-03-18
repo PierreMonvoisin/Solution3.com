@@ -1,5 +1,6 @@
 #solveDetailsModal .modal-body {
-  min-height: 30vh;
+  min-height: 50vh;
+  min-width: 100%;
 }
 #solveDetails input[type='text'] {
   width: 100%;
@@ -21,4 +22,10 @@
 }
 #timeTools li {
   font-size: 1.2rem;
+}
+#singleTab, #ao5Tab, #ao12Tab, #ao50Tab {
+  width: 100%;
+}
+#ao5Tab {
+  display: none;
 }

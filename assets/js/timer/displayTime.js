@@ -58,3 +58,23 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   $('#dateChosen').val(dateTime);
   $('#solveDetailsModal').modal('show');
 }
+function displayAo5Details(scramble, time, solveDisplayed){
+  if (solveDisplayed < 5){
+    var currentId = solveDisplayed + 1;
+    var solveDiv = document.createElement('div');
+    solveDiv.setAttribute('id', 'solve' + i);
+    solveDiv.setAttribute('class', 'col-12 d-flex');
+    solveDiv.innerHTML = `<div class="col-2 text-center">
+                            <p class="m-0 p-1">N° ${currentId}</p>
+                          </div>
+                          <div class="col-2">
+                            <label for="ao5_time${currentId}" class="sr-only">time1</label>
+                            <input id="ao5_time${currentId}" class="text-center py-1" type="text" name="ao5_time${currentId}" value="${time}" readonly>
+                          </div>
+                          <div class="col-8">
+                            <label for="ao5_scramble${currentId}" class="sr-only">scramble1</label>
+                            <input id="ao5_scramble${currentId}" class="text-center py-1" type="text" name="ao5_scramble${currentId}" value="${scramble}" readonly>
+                          </div>`;
+    $('#ao5Tab').append(solveDiv);
+  }
+}

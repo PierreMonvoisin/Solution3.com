@@ -8,32 +8,48 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body container-fluid mx-0 px-0 py-4">
-          <div class="col-12">
-            <label for="scrambleChosen" class="sr-only">Mélange</label>
-            <input id="scrambleChosen" class="text-center" type="text" name="scramble" value="U U D D L R L R B A Start" readonly>
+        <div class="modal-body container-fluid mx-0 px-0 pt-1 pb-3">
+          <div class="col-12 px-0 py-1 btn-group border border-dark border-left-0 border-right-0" role="group">
+            <button id="singleTabButton" type="button" class="btn btn-block btn-light my-0">Single</button>
+            <button id="ao5TabButton" type="button" class="btn btn-block btn-light my-0">Moyenne de 5</button>
+            <button id="ao12TabButton" type="button" class="btn btn-block btn-light my-0">Moyenne de 12</button>
+            <button id="ao50TabButton" type="button" class="btn btn-block btn-light my-0">Moyenne de 50</button>
           </div>
-          <div class="d-flex col-12">
-            <div class="col-6 text-center">
-              <img id="scrambleRepresentation" src="../share/visualcube.php?fmt=png&bg=t&pzl=3" alt="Scramble representation">
+          <div id="singleTab">
+            <div class="col-12 pt-3">
+              <label for="scrambleChosen" class="sr-only">Mélange</label>
+              <input id="scrambleChosen" class="text-center" type="text" name="scramble" value="U U D D L R L R B A Start" readonly>
             </div>
-            <div class="col-6">
-              <div class="text-center pt-5">
-                <label for="solveChosen" class="sr-only">Temps</label>
-                <input id="solveChosen" class="text-center font-weight-bold" type="text" name="time" value="-" readonly>
+            <div class="d-flex col-12">
+              <div class="col-6 text-center">
+                <img id="scrambleRepresentation" src="../share/visualcube.php?fmt=png&bg=t&pzl=3" alt="Scramble representation">
               </div>
-              <div class="text-center py-4">
-                <label for="dateChosen" class="sr-only">Date</label>
-                <input id="dateChosen" class="text-center" type="text" name="date" value="01-01-1700 12:00:00" readonly>
+              <div class="col-6">
+                <div class="text-center pt-5">
+                  <label for="solveChosen" class="sr-only">Temps</label>
+                  <input id="solveChosen" class="text-center font-weight-bold" type="text" name="time" value="-" readonly>
+                </div>
+                <div class="text-center py-4">
+                  <label for="dateChosen" class="sr-only">Date</label>
+                  <input id="dateChosen" class="text-center" type="text" name="date" value="01-01-1700 12:00:00" readonly>
+                </div>
               </div>
+            </div>
+            <div id="timeTools" class="col-12 my-2">
+              <ul class="list-group list-group-horizontal text-center">
+                <li id="add2" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">+2</li>
+                <li id="dnf" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">DNF</li>
+                <li id="deleteSolve" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">Supprimer</li>
+              </ul>
             </div>
           </div>
-          <div id="timeTools" class="col-12 my-2">
-            <ul class="list-group list-group-horizontal text-center">
-              <li id="add2" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">+2</li>
-              <li id="dnf" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">DNF</li>
-              <li id="deleteSolve" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">Supprimer</li>
-            </ul>
+          <div id="ao5Tab" class="col-12 px-0">
+          </div>
+          <div id="ao12Tab">
+
+          </div>
+          <div id="ao50Tab">
+
           </div>
         </div>
         <div class="modal-footer p-0 m-0">
