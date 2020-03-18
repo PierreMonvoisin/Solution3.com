@@ -119,3 +119,20 @@ function deleteTimeInAverages(time){
     indexToDelete = -1;
   }
 }
+// Local Storage Section
+function fromLStoAverageArray_LS(time){
+  if (typeof(Storage) != "undefined") {
+    var timeToInput = formattedTimeToMilliseconds(time);
+    if (solves5.length < 5){
+      solves5.push(timeToInput);
+    }
+    if (solves12.length < 12){
+      solves12.push(timeToInput);
+    }
+    if (solves50.length < 50){
+      solves50.push(timeToInput);
+    }
+  } else {
+    console.warn('Impossible d\'enregistrer les résolutions depuis le stockage local du navigateur !');
+  }
+}

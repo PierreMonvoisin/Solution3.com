@@ -112,9 +112,14 @@ $(function(){
     // Delete "no solve" message
     $('#noSolve').hide();
     // Get index of last solve, if none found, attribute 1 to the current index
-    var index = Number($('#solveList tbody tr:first-child').attr('id'));
+    var index = Number($('#solveList tbody tr').attr('id'));
     if (isNaN(index)){
-      index = 1;
+      var possibleIndex_LS = localStorage.getItem('index');
+      if (possibleIndex_LS != null){
+        index = Number(localStorage.getItem('index')) + 1;
+      } else {
+        index = 1;
+      }
     } else {
       index++;
     }

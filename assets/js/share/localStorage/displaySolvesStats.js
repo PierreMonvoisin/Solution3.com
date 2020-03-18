@@ -6,6 +6,7 @@ if (typeof(Storage) != "undefined") {
       $('#noSolve').hide();
       for (numberOfSolve; numberOfSolve >= 1; numberOfSolve--){
         var index_LS = localStorage.getItem(`index_${numberOfSolve}`);
+        index_LS == null ? index_LS = '' : index_LS = Number(index_LS);
         var time_LS = localStorage.getItem(`time_${numberOfSolve}`);
         time_LS == null ? time_LS = '-' : time_LS = millisecondsToFullTime(time_LS);
         var ao5_LS = localStorage.getItem(`ao5_${numberOfSolve}`);
@@ -18,9 +19,6 @@ if (typeof(Storage) != "undefined") {
         scramble_LS == null ? scramble_LS = '' : scramble_LS;
         var dateTime_LS = localStorage.getItem(`dateTime_${numberOfSolve}`);
         dateTime_LS == null ? dateTime_LS = '' : dateTime_LS;
-        // Put averages under timer
-        $('#averageOf5 span').text(ao5_LS);
-        $('#averageOf12 span').text(ao12_LS);
         // Create new line to put the informations in solve history
         var tr = document.createElement('tr');
         tr.setAttribute('id', index_LS);
@@ -37,7 +35,12 @@ if (typeof(Storage) != "undefined") {
           $('#sideStatAo5').html(ao5_LS);
           $('#sideStatAo12').html(ao12_LS);
           $('#sideStatAo50').html(ao50_LS);
+          // Put averages under timer
+          $('#averageOf5 span').html(ao5_LS);
+          $('#averageOf12 span').html(ao12_LS);
         }
+        // Add the informations to the array of averages
+        fromLStoAverageArray_LS(time_LS);
       }
     }
   } else {
