@@ -37,9 +37,25 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
     if ($NbSolveToDisplay != 0 && count($solveToDisplay) != 0 && $NbSolveToDisplay == count($solveToDisplay)) {
       if ($NbSolveToDisplay == 1){
         $scramble = ${$solveToDisplay[0].'Scramble'} ?? '';
-        $scramble = trim(preg_replace('/[A-Z]/', ' $0', $scramble));
         if ($scramble != ''){
-          ${$solveToDisplay[0].'Scramble'} = $scramble;
+          $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scramble));
+        }
+        $dateTime = ${$solveToDisplay[0].'Date'} ?? '';
+        if ($dateTime != ''){
+          $dateTime = explode(' ', $dateTime);
+          [$yyyy, $mm, $dd] = explode('-', $dateTime[0]);
+          $dateFormatted = $dd. ' / ' .$mm. ' / ' .$yyyy;
+          $timeFormatted = $dateTime[1];
+        } else {
+          $dateFormatted = '-- / -- / ----';
+          $timeFormatted = '00:00:00';
+        }
+        $time = ${$solveToDisplay[0].'Time'} ?? '';
+        if ($time != ''){
+          $solveTimeFormatted = trim(preg_replace('/\:/', '$0 ', $time));
+          $solveTimeFormatted = trim(preg_replace('/\./', '$0 ', $solveTimeFormatted));
+        } else {
+
         }
         $displaySolve = 1;
       }

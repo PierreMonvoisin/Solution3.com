@@ -9,6 +9,8 @@ $(function(){
       plusTwoPenalty = false; dnfPenalty = false;
       if (plusTwoPenalty != true && dnfPenalty != true && deletePenalty != true){
         var modalTime = $('#solveChosen').val();
+        addTwoSecondsInAverages(modalTime);
+        addTwoSecondsInLocalStorage_LS(currentSolveIndex);
         var timePlusTwo = addTwoSeconds(modalTime);
         $('#solveChosen').val(timePlusTwo);
         $('#' + currentSolveIndex + ' .timeValue').html(timePlusTwo);
@@ -26,6 +28,7 @@ $(function(){
     if (currentSolveIndex != solveIndex && $('#solveChosen').val() != 'DNF'){
       dnfPenalty = false;
       if (dnfPenalty != true && deletePenalty != true){
+        var modalTime = $('#solveChosen').val();
         $('#solveChosen').val('DNF');
         $('#' + currentSolveIndex + ' .timeValue').html('DNF');
         var sideStatsIndex = $('#sideStatIndex').html();
@@ -41,6 +44,7 @@ $(function(){
     var modalTime = $('#solveChosen').val();
     deleteTimeInAverages(modalTime);
     var currentSolveIndex = $('#solveId span').html();
+    deleteTimeInLocalStorage_LS(currentSolveIndex);
     var sideStatsIndex = $('#sideStatIndex').html();
     $('#solveId span').html('0');
     $('#scrambleChosen').val('U U D D L R L R B A Start');
@@ -53,6 +57,10 @@ $(function(){
       $('#sideStatAo5').html('-');
       $('#sideStatAo12').html('-');
       $('#sideStatAo50').html('-');
+      $('#hours').html('00');
+      $('#minutes').html('00');
+      $('#seconds').html('00');
+      $('#milliseconds').html('000');
     }
     solveIndex = 0;
     if ($('#historyTbody *').length < 5){

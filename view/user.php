@@ -120,15 +120,15 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
           <div class="card-body userStat p-2">
             <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
             <div class="col-12 my-3 text-center">
-              <p id="solveScramble"><?= ${$solveToDisplay[0].'Scramble'} ?></p>
+              <p id="solveScramble"><?= $scrambleFormatted ?></p>
             </div>
             <div class="col-12 d-flex">
               <div id="solveRepresentation" class="text-center">
-                <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= ${$solveToDisplay[0].'Scramble'} ?>" alt="scramble">
+                <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= $scramble ?>" alt="scramble">
               </div>
               <div id="solveStats" class="w-50 text-center">
-                <p id="solveTime" class="my-4 font-weight-bolder"><?= ${$solveToDisplay[0].'Time'} ?></p>
-                <p class="mt-5"><?= ${$solveToDisplay[0].'Date'} ?></p>
+                <p id="solveTime" class="my-4 font-weight-bolder"><?= $solveTimeFormatted ?></p>
+                <p class="mt-5">Le <?= $dateFormatted ?>, à <?= $timeFormatted ?></p>
               </div>
             </div>
           </div>
@@ -148,7 +148,11 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
   // Settings modal
   require '../share/settings.php';
   // Required scripts
-  require '../share/requiredScriptTags.html'; ?>
+  require '../share/requiredScriptTags.html';
+  // Timer scripts required
+  require '../share/timerTags.html';
+  // Local Storage scripts required
+  require '../share/localStorageScriptTags.html'; ?>
   <script src="../assets/js/user.js"></script>
   <script src="../assets/js/personnalInfos.js"></script>
   <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

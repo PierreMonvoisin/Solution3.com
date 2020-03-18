@@ -94,6 +94,25 @@ function averageOf50(time){
   }
   return ao50;
 }
+function addTwoSecondsInAverages(time){
+  var timeToUpdate = formattedTimeToMilliseconds(time);
+  var indexToUpdate = -1;
+  if (solves50.length > 0){
+    indexToUpdate = solves50.indexOf(timeToUpdate);
+    solves50[indexToUpdate] = Number(solves50[indexToUpdate]) + 2000;
+    indexToUpdate = -1
+  }
+  if (solves12.length > 0){
+    indexToUpdate = solves12.indexOf(timeToUpdate);
+    solves12[indexToUpdate] = Number(solves12[indexToUpdate]) + 2000;
+    indexToUpdate = -1
+  }
+  if (solves5.length > 0){
+    indexToUpdate = solves5.indexOf(timeToUpdate);
+    solves5[indexToUpdate] = Number(solves5[indexToUpdate]) + 2000;
+    indexToUpdate = -1
+  }
+}
 function deleteTimeInAverages(time){
   var timeToFind = formattedTimeToMilliseconds(time);
   var indexToDelete = -1;
