@@ -1,6 +1,7 @@
 #solveDetailsModal .modal-body {
-  min-height: 50vh;
+  height: 55vh;
   min-width: 100%;
+  overflow-y: hidden;
 }
 #solveDetails input[type='text'] {
   width: 100%;
@@ -26,6 +27,8 @@
 #singleTab, #ao5Tab, #ao12Tab, #ao50Tab {
   width: 100%;
 }
-#ao5Tab {
+#ao5Tab, #ao12Tab, #ao50Tab {
+  height: 49vh;
+  overflow-y: auto;
   display: none;
 }

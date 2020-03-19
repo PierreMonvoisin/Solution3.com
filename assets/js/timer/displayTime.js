@@ -58,9 +58,9 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   $('#dateChosen').val(dateTime);
   $('#solveDetailsModal').modal('show');
 }
-function displayAo5Details(scramble, time, solveDisplayed){
-  if (solveDisplayed < 5){
-    var currentId = solveDisplayed + 1;
+function displayAo5Details(scramble, time, nbSolveDisplayed){
+  if (nbSolveDisplayed < 5){
+    var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
     solveDiv.setAttribute('id', 'solve' + i);
     solveDiv.setAttribute('class', 'col-12 d-flex');
@@ -68,13 +68,61 @@ function displayAo5Details(scramble, time, solveDisplayed){
                             <p class="m-0 p-1">N° ${currentId}</p>
                           </div>
                           <div class="col-2">
-                            <label for="ao5_time${currentId}" class="sr-only">time1</label>
-                            <input id="ao5_time${currentId}" class="text-center py-1" type="text" name="ao5_time${currentId}" value="${time}" readonly>
+                            <label for="ao5_time${currentId}" class="sr-only">time ${currentId}</label>
+                            <input id="ao5_time${currentId}" class="ao5_time text-center py-1" type="text" name="ao5_time${currentId}" value="${time}" readonly>
                           </div>
                           <div class="col-8">
-                            <label for="ao5_scramble${currentId}" class="sr-only">scramble1</label>
-                            <input id="ao5_scramble${currentId}" class="text-center py-1" type="text" name="ao5_scramble${currentId}" value="${scramble}" readonly>
+                            <label for="ao5_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
+                            <input id="ao5_scramble${currentId}" class="ao5_scramble py-1" type="text" name="ao5_scramble${currentId}" value="${scramble}" readonly>
                           </div>`;
     $('#ao5Tab').append(solveDiv);
   }
+}
+function displayAo12Details(scramble, time, nbSolveDisplayed){
+  if (nbSolveDisplayed < 12){
+    var currentId = nbSolveDisplayed + 1;
+    var solveDiv = document.createElement('div');
+    solveDiv.setAttribute('id', 'solve' + i);
+    solveDiv.setAttribute('class', 'col-12 d-flex');
+    solveDiv.innerHTML = `<div class="col-2 text-center">
+                            <p class="m-0 p-1">N° ${currentId}</p>
+                          </div>
+                          <div class="col-2">
+                            <label for="ao12_time${currentId}" class="sr-only">time ${currentId}</label>
+                            <input id="ao12_time${currentId}" class="ao12_time text-center py-1" type="text" name="ao12_time${currentId}" value="${time}" readonly>
+                          </div>
+                          <div class="col-8">
+                            <label for="ao12_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
+                            <input id="ao12_scramble${currentId}" class="ao12_scramble py-1" type="text" name="ao12_scramble${currentId}" value="${scramble}" readonly>
+                          </div>`;
+    $('#ao12Tab').append(solveDiv);
+  }
+}
+function displayAo50Details(scramble, time, nbSolveDisplayed){
+  if (nbSolveDisplayed < 50){
+    var currentId = nbSolveDisplayed + 1;
+    var solveDiv = document.createElement('div');
+    solveDiv.setAttribute('id', 'solve' + i);
+    solveDiv.setAttribute('class', 'col-12 d-flex');
+    solveDiv.innerHTML = `<div class="col-2 text-center">
+                            <p class="m-0 p-1">N° ${currentId}</p>
+                          </div>
+                          <div class="col-2">
+                            <label for="ao50_time${currentId}" class="sr-only">time ${currentId}</label>
+                            <input id="ao50_time${currentId}" class="ao50_time text-center py-1" type="text" name="ao50_time${currentId}" value="${time}" readonly>
+                          </div>
+                          <div class="col-8">
+                            <label for="ao50_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
+                            <input id="ao50_scramble${currentId}" class="ao50_scramble py-1" type="text" name="ao50_scramble${currentId}" value="${scramble}" readonly>
+                          </div>`;
+    $('#ao50Tab').append(solveDiv);
+  }
+}
+function bestAndWorstInList(list){
+  list = list.map(formattedTimeToMilliseconds);
+  var maxValue = Math.max(...list);
+  var indexMaxValue = list.indexOf(maxValue);
+  var minValue = Math.min(...list);
+  var indexMinValue = list.indexOf(minValue);
+  return [indexMaxValue + 1, indexMinValue + 1];
 }

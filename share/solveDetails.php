@@ -43,12 +43,12 @@
               </ul>
             </div>
           </div>
-          <div id="ao5Tab" class="col-12 px-0">
+          <div id="ao5Tab" class="col-12 pt-3 px-0">
           </div>
-          <div id="ao12Tab">
+          <div id="ao12Tab" class="col-12 pt-3 px-0">
 
           </div>
-          <div id="ao50Tab">
+          <div id="ao50Tab" class="col-12 pt-3 px-0">
 
           </div>
         </div>

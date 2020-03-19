@@ -69,14 +69,20 @@ $(function(){
       $('#seconds').html('00');
     }
   })
-  var solvesLoaded = false;
+  var solvesLoaded = 0;
   $(document).on('show.bs.modal', '#solveDetailsModal', function() {
-    if (solvesLoaded != true){
-      var id = Number($('#solveId span').html());
+    var id = Number($('#solveId span').html());
+    if (solvesLoaded != id){
+      solvesLoaded = id;
+      $('#ao5Tab').empty();
+      $('#ao12Tab').empty();
+      $('#ao50Tab').empty();
       var ao5SolveArray = [];
       var ao12SolveArray = [];
       var ao50SolveArray = [];
       if (id >= 5){
+        var ao5Found = $('#' + id + ' .ao5Value').html();
+        var ao50Found = $('#' + id + ' .ao50Value').html();
         for (var i = id; i > 0; i--){
           var timeFound = $('#' + i + ' .timeValue').html();
           var scrambleFound = $('#' + i + ' .timeValue').attr('id');
@@ -90,10 +96,69 @@ $(function(){
             ao50SolveArray[scrambleFound] = timeFound;
           }
         }
-        var solveDisplayed = 0;
+        var nbSolveDisplayed = 0;
+        var solveDisplayed = [];
+        // Average of 5
         for (var [scramble, time] of Object.entries(ao5SolveArray)) {
-          displayAo5Details(scramble, time, solveDisplayed);
-          solveDisplayed++;
+          // Add spaces to better display scramble
+          scramble = (scramble.split(/(?=[A-Z])/)).join(' ');
+          displayAo5Details(scramble, time, nbSolveDisplayed);
+          solveDisplayed.push(time);
+          nbSolveDisplayed++;
+        }
+        var [worstIndex, bestIndex] = bestAndWorstInList(solveDisplayed);
+        var worstTime = $('#ao5_time' + worstIndex).val();
+        var bestTime = $('#ao5_time' + bestIndex).val();
+        $('#ao5_time' + worstIndex).val('( ' + worstTime + ' )');
+        $('#ao5_time' + bestIndex).val('( ' + bestTime + ' )');
+        var avg5Title = document.createElement('h4');
+        avg5Title.setAttribute('id', 'averageOF5Title');
+        avg5Title.setAttribute('class', 'col-12 text-center');
+        avg5Title.innerHTML = ao5Found;
+        $('#ao5Tab').prepend(avg5Title);
+        nbSolveDisplayed = 0; solveDisplayed = [];
+        // Average of 12
+        if (id >= 12){
+          var ao12Found = $('#' + id + ' .ao12Value').html();
+          for (var [scramble, time] of Object.entries(ao12SolveArray)) {
+            // Add spaces to better display scramble
+            scramble = (scramble.split(/(?=[A-Z])/)).join(' ');
+            displayAo12Details(scramble, time, nbSolveDisplayed);
+            solveDisplayed.push(time);
+            nbSolveDisplayed++;
+          }
+          [worstIndex, bestIndex] = bestAndWorstInList(solveDisplayed);
+          worstTime = $('#ao12_time' + worstIndex).val();
+          bestTime = $('#ao12_time' + bestIndex).val();
+          $('#ao12_time' + worstIndex).val('( ' + worstTime + ' )');
+          $('#ao12_time' + bestIndex).val('( ' + bestTime + ' )');
+          var avg12Title = document.createElement('h4');
+          avg12Title.setAttribute('id', 'averageOF12Title');
+          avg12Title.setAttribute('class', 'col-12 text-center');
+          avg12Title.innerHTML = ao12Found;
+          $('#ao12Tab').prepend(avg12Title);
+          nbSolveDisplayed = 0; solveDisplayed = [];
+          // Average of 50
+          if (id >= 50){
+            var ao50Found = $('#' + id + ' .ao50Value').html();
+            for (var [scramble, time] of Object.entries(ao50SolveArray)) {
+              // Add spaces to better display scramble
+              scramble = (scramble.split(/(?=[A-Z])/)).join(' ');
+              displayAo50Details(scramble, time, nbSolveDisplayed);
+              solveDisplayed.push(time);
+              nbSolveDisplayed++;
+            }
+            [worstIndex, bestIndex] = bestAndWorstInList(solveDisplayed);
+            worstTime = $('#ao50_time' + worstIndex).val();
+            bestTime = $('#ao50_time' + bestIndex).val();
+            $('#ao50_time' + worstIndex).val('( ' + worstTime + ' )');
+            $('#ao50_time' + bestIndex).val('( ' + bestTime + ' )');
+            var avg50Title = document.createElement('h4');
+            avg50Title.setAttribute('id', 'averageOF50Title');
+            avg50Title.setAttribute('class', 'col-12 text-center');
+            avg50Title.innerHTML = ao50Found;
+            $('#ao50Tab').prepend(avg50Title);
+          }
         }
         solvesLoaded = true;
       }
@@ -103,32 +168,32 @@ $(function(){
   var openTab = 'single';
   $('#singleTabButton').click(function(){
     if (openTab != 'single'){
-      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
-        $('#singleTab').animate({ width: 'toggle' }, 600);
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
+        $('#singleTab').animate({ width: 'toggle' }, 550);
         openTab = 'single';
       });
     }
   })
   $('#ao5TabButton').click(function () {
     if (openTab != 'ao5'){
-      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
-        $('#ao5Tab').animate({ width: 'toggle' }, 600);
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
+        $('#ao5Tab').animate({ width: 'toggle' }, 550);
         openTab = 'ao5';
       });
     }
   });
   $('#ao12TabButton').click(function(){
     if (openTab != 'ao12'){
-      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
-        $('#ao12Tab').animate({ width: 'toggle' }, 600);
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
+        $('#ao12Tab').animate({ width: 'toggle' }, 550);
         openTab = 'ao12';
       });
     }
   })
   $('#ao50TabButton').click(function(){
     if (openTab != 'ao50'){
-      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 600, function(){
-        $('#ao50Tab').animate({ width: 'toggle' }, 600);
+      $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
+        $('#ao50Tab').animate({ width: 'toggle' }, 550);
         openTab = 'ao50';
       });
     }
