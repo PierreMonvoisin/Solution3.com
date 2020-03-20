@@ -124,7 +124,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
             </div>
             <div class="col-12 d-flex">
               <div id="solveRepresentation" class="text-center">
-                <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= $scramble ?>" alt="scramble">
+                <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= $scrambleSingle ?>" alt="scramble">
               </div>
               <div id="solveStats" class="w-50 text-center">
                 <p id="solveTime" class="my-4 font-weight-bolder"><?= $solveTimeFormatted ?></p>
@@ -136,20 +136,22 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
       <?php }
       if ( $displayAverage == true ){ ?>
         <div id="savedAverage" class="card col-md-6 my-2 px-0 bg-copper shadow">
-          <div class="card-body">
-            <?php foreach ($averageToDisplay as $averageInfo){
+          <h4 class="text-center font-weight-bold mt-2">Moyenne enregistrée</h4>
+          <div class="card-body container-fluid p-2">
+            <?php
+            foreach ($averageToDisplay as $averageInfo){
               $index = 1; ?>
-              <div id="<?= $averageInfo['averageName'] ?>Saved" class="py-2 row">
-                <div class="col-6 mx-0 text-center"><?= $averageInfo['avgTime'] ?></div>
+              <div id="<?= $averageInfo['averageName'] ?>Saved" class="averageLoaded row col-12 mx-auto px-0 py-2">
+                <div class="col-6 mx-0 text-center"><?= $averageInfo['averageName']. ' : ' .$averageInfo['avgTime'] ?></div>
                 <div class="col-6 mx-0 text-center mb-2 mt-0 py-0">Le <?= $averageInfo['date'] ?>, à <?= $averageInfo['time'] ?></div>
                 <?php foreach ($averageInfo['scramble&Time'] as $scramble => $time) { ?>
-                  <div class="col-2 text-center">
+                  <div class="col-6 bg-secondary text-white text-right">
                     <p class="m-0 p-1">N° <?= $index ?></p>
                   </div>
-                  <div class="col-3 text-center">
+                  <div class="col-6 bg-secondary text-white text-left">
                     <p class="m-0 p-1"><?= $time ?></p>
                   </div>
-                  <div class="col-7 text-center">
+                  <div class="col-12 bg-secondary text-white text-center">
                     <p class="m-0 p-1"><?= $scramble ?></p>
                   </div>
                   <?php $index++;
@@ -180,6 +182,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
   require '../share/localStorageScriptTags.html'; ?>
   <script src="../assets/js/user.js"></script>
   <script src="../assets/js/personnalInfos.js"></script>
+  <script src="../assets/js/averageLoaded.js"></script>
   <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="../assets/js/share/graph.js"></script> -->
 </body>

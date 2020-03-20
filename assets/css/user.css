@@ -87,6 +87,13 @@ html {
 #solveTime{
   font-size: 1.2rem;
 }
+#savedAverage {
+  height: 55vh;
+  overflow-y: auto;
+}
+#savedAverage .averageLoaded {
+  height: auto;
+}
 /* Settings modal */
 #settingsModal {
   min-height: 80vh;

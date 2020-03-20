@@ -38,9 +38,9 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
     }
     if ($NbSolveToDisplay != 0 && count($solveToDisplay) != 0 && $NbSolveToDisplay == count($solveToDisplay)) {
       if ($solveList['single_scramble'] != 'null'){
-        $scramble = ${$solveToDisplay[0].'Scramble'} ?? '';
-        if ($scramble != ''){
-          $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scramble));
+        $scrambleSingle = ${$solveToDisplay[0].'Scramble'} ?? '';
+        if ($scrambleSingle != ''){
+          $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scrambleSingle));
         }
         $dateTime = ${$solveToDisplay[0].'Date'} ?? '';
         if ($dateTime != ''){
