@@ -61,10 +61,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['saveAo5']) || isset(
 
             require '../model/saveAverage_mod.php';
             [$stmtStatus, $stmt] = saveAverage($id, $average, $fullAverage, $averageArray, $dateTime);
-            // var_dump($averageArray);
+            if ($stmtStatus != false){
+              $saveConfirmationMessage = 'Votre moyenne a bien été enregistré !';
+              $saveConfirmation = true;
+              return;
+            }
+          } else {
+            $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+            $saveError = true;
+            return;
           }
+        } else {
+          $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+          $saveError = true;
+          return;
         }
+      } else {
+        $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+        $saveError = true;
+        return;
       }
+    } else {
+      $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+      $saveError = true;
+      return;
     }
+  } else {
+    $saveErrorMessage = 'Veuillez vous connecter pour enregistrer une moyenne';
+    $saveError = true;
   }
 } ?>

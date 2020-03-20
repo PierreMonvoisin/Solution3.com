@@ -65,7 +65,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
                 <td id="bestSingle">-</td>
                 <td id="bestAo5">-</td>
                 <td id="bestAo12">-</td>
-                <td id="best1o50">-</td>
+                <td id="bestAo50">-</td>
               </tr>
               <tr>
                 <th>Pire</th>
@@ -115,7 +115,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
           </table>
         </div>
       </div>
-      <?php if ($displaySolve == 1){ ?>
+      <?php if ( $displaySingle == true ){ ?>
         <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow">
           <div class="card-body userStat p-2">
             <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
@@ -131,6 +131,31 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
                 <p class="mt-5">Le <?= $dateFormatted ?>, à <?= $timeFormatted ?></p>
               </div>
             </div>
+          </div>
+        </div>
+      <?php }
+      if ( $displayAverage == true ){ ?>
+        <div id="savedAverage" class="card col-md-6 my-2 px-0 bg-copper shadow">
+          <div class="card-body">
+            <?php foreach ($averageToDisplay as $averageInfo){
+              $index = 1; ?>
+              <div id="<?= $averageInfo['averageName'] ?>Saved" class="py-2 row">
+                <div class="col-6 mx-0 text-center"><?= $averageInfo['avgTime'] ?></div>
+                <div class="col-6 mx-0 text-center mb-2 mt-0 py-0">Le <?= $averageInfo['date'] ?>, à <?= $averageInfo['time'] ?></div>
+                <?php foreach ($averageInfo['scramble&Time'] as $scramble => $time) { ?>
+                  <div class="col-2 text-center">
+                    <p class="m-0 p-1">N° <?= $index ?></p>
+                  </div>
+                  <div class="col-3 text-center">
+                    <p class="m-0 p-1"><?= $time ?></p>
+                  </div>
+                  <div class="col-7 text-center">
+                    <p class="m-0 p-1"><?= $scramble ?></p>
+                  </div>
+                  <?php $index++;
+                } ?>
+              </div>
+            <?php } ?>
           </div>
         </div>
       <?php } ?>

@@ -1,11 +1,13 @@
 <?php
 $loadError = false; $loadErrorMessage = 'ERROR'; $displaySolve = 0;
+$displaySingle = false; $displayAverage = false;
 if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
   $userId = trim($_SESSION['id']);
   require '../model/loadSavedSolve_mod.php';
   $solveList = loveSavedSolve($userId);
   if (gettype($solveList) != 'boolean'){
     $NbSolveToDisplay = 0; $solveToDisplay = [];
+    $averageToDisplay = []; $averageSolveToDisplay = [];
     if ($solveList['single_scramble'] != 'null'){
       $NbSolveToDisplay++;
       array_push($solveToDisplay,'single');
@@ -35,7 +37,7 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
       $ao50Date = $solveList['ao50_date'];
     }
     if ($NbSolveToDisplay != 0 && count($solveToDisplay) != 0 && $NbSolveToDisplay == count($solveToDisplay)) {
-      if ($NbSolveToDisplay == 1){
+      if ($solveList['single_scramble'] != 'null'){
         $scramble = ${$solveToDisplay[0].'Scramble'} ?? '';
         if ($scramble != ''){
           $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scramble));
@@ -54,10 +56,48 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
         if ($time != ''){
           $solveTimeFormatted = trim(preg_replace('/\:/', '$0 ', $time));
           $solveTimeFormatted = trim(preg_replace('/\./', '$0 ', $solveTimeFormatted));
+          $NbSolveToDisplay--;
+          array_splice($solveToDisplay, 0, 1);
+          $displaySingle = true;
         } else {
-
+          $loadErrorMessage = 'Un problème est servenu, veuillez réessayer plus tard';
+          $loadError = true;
+          return;
         }
         $displaySolve = 1;
+      }
+      if ($NbSolveToDisplay > 0 && count($solveToDisplay) > 0){
+        foreach ($solveToDisplay as $average) {
+          $scramble = ${$average.'Scramble'} ?? '';
+          $dateTime = ${$average.'Date'} ?? '';
+          $time = ${$average.'Time'} ?? '';
+          if ($scramble != '' && $dateTime != '' && $time != ''){
+            $scramble = (array) json_decode($scramble);
+            $keysArray = array_keys($scramble);
+            foreach ($keysArray as $key => $scrambleValue) {
+              $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scrambleValue));
+              $scramble[$scrambleFormatted] = $scramble[$scrambleValue];
+              unset($scramble[$scrambleValue]);
+            }
+            foreach ($scramble as $key => $timeValue) {
+              $timeFormatted = trim(preg_replace('/\:/', '$0 ', $timeValue));
+              $timeFormatted = trim(preg_replace('/\./', '$0 ', $timeFormatted));
+              $scramble[$key] = $timeFormatted;
+            }
+            $dateTime = explode(' ', $dateTime);
+            [$yyyy, $mm, $dd] = explode('-', $dateTime[0]);
+            $dateFormatted = $dd. ' / ' .$mm. ' / ' .$yyyy;
+            $timeFormatted = $dateTime[1];
+            $solveTimeFormatted = trim(preg_replace('/\:/', '$0 ', $time));
+            $solveTimeFormatted = trim(preg_replace('/\./', '$0 ', $solveTimeFormatted));
+            $averageInfo = ['avgTime'=>$solveTimeFormatted,'date'=>$dateFormatted,'time'=>$timeFormatted,'scramble&Time'=>$scramble, 'averageName'=>$average];
+            array_push($averageToDisplay, $averageInfo);
+            $scramble = '';
+          }
+        }
+        if (count($averageToDisplay) == $NbSolveToDisplay && $NbSolveToDisplay != 0){
+          $displayAverage = true;
+        }
       }
     } else {
       $loadErrorMessage = 'Un problème est servenu, veuillez réessayer plus tard';
