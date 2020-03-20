@@ -47,7 +47,7 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   // Rearange date to french format
   dateTime = dateTime.split('_');
   var [yyyy, mm, dd] = dateTime[0].split('-');
-  var dateFormatFR = (dd + '-' + mm + '-' + yyyy);
+  var dateFormatFR = (dd + '/' + mm + '/' + yyyy);
   dateTime = dateFormatFR + ' ' + dateTime[1];
   // Add spaces to better display scramble
   scramble = (scramble.split(/(?=[A-Z])/)).join(' ');
@@ -75,7 +75,7 @@ function displayAo5Details(scramble, time, nbSolveDisplayed){
                             <label for="ao5_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
                             <input id="ao5_scramble${currentId}" class="ao5_scramble py-1" type="text" name="ao5_scramble${currentId}" value="${scramble}" readonly>
                           </div>`;
-    $('#ao5Tab').append(solveDiv);
+    $('#ao5Tab form').append(solveDiv);
   }
 }
 function displayAo12Details(scramble, time, nbSolveDisplayed){
@@ -95,7 +95,7 @@ function displayAo12Details(scramble, time, nbSolveDisplayed){
                             <label for="ao12_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
                             <input id="ao12_scramble${currentId}" class="ao12_scramble py-1" type="text" name="ao12_scramble${currentId}" value="${scramble}" readonly>
                           </div>`;
-    $('#ao12Tab').append(solveDiv);
+    $('#ao12Tab form').append(solveDiv);
   }
 }
 function displayAo50Details(scramble, time, nbSolveDisplayed){
@@ -115,7 +115,7 @@ function displayAo50Details(scramble, time, nbSolveDisplayed){
                             <label for="ao50_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
                             <input id="ao50_scramble${currentId}" class="ao50_scramble py-1" type="text" name="ao50_scramble${currentId}" value="${scramble}" readonly>
                           </div>`;
-    $('#ao50Tab').append(solveDiv);
+    $('#ao50Tab form').append(solveDiv);
   }
 }
 function bestAndWorstInList(list){

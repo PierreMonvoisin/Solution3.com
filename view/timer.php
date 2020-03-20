@@ -2,6 +2,7 @@
 // Store user infos in session storage to use them on all pages
 require '../share/session.php';
 include '../controller/saveSolve_ctrl.php';
+include '../controller/saveAverage_ctrl.php';
 require '../controller/updatePersonnalisations_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -27,7 +28,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
       </div>
       <!-- Scramble -->
       <div class="row text-center mb-0 mx-0 mt-xl-2 mt-lg-5 mt-5">
-        <h2 id="scramble" class="mt-4"><span class="py-2 px-2">Error</span></h2>
+        <h2 id="scramble" class="mt-4"><span class="py-2 px-2"></span></h2>
       </div>
       <!-- Timer -->
       <div class="row text-center mx-auto">

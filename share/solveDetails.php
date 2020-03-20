@@ -1,14 +1,14 @@
 <div class="modal fade" id="solveDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <form id="solveDetails" action="#" method="post">
-        <div class="modal-header d-flex py-0">
-          <h5 id="solveId" class="text-center mr-auto w-50 my-1 font-weight-bold">N°<span>0</span></h5>
-          <button type="button" class="close pb-0 ml-auto" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body container-fluid mx-0 px-0 pt-1 pb-3">
+      <div class="modal-header d-flex py-0">
+        <h5 id="solveId" class="text-center mr-auto w-50 my-1 font-weight-bold">N°<span>0</span></h5>
+        <button type="button" class="close pb-0 ml-auto" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body container-fluid mx-0 px-0 pt-1 pb-3">
+        <form id="singleDetails" action="#" method="post">
           <div class="col-12 px-0 py-1 btn-group border border-dark border-left-0 border-right-0" role="group">
             <button id="singleTabButton" type="button" class="btn btn-block btn-light my-0">Single</button>
             <button id="ao5TabButton" type="button" class="btn btn-block btn-light my-0">Moyenne de 5</button>
@@ -43,20 +43,27 @@
               </ul>
             </div>
           </div>
-          <div id="ao5Tab" class="col-12 pt-3 px-0">
-          </div>
-          <div id="ao12Tab" class="col-12 pt-3 px-0">
+        </form>
+        <div id="ao5Tab" class="col-12">
+          <form id="ao5Details" class="col-12 pt-3 px-0" action="" method="post">
 
-          </div>
-          <div id="ao50Tab" class="col-12 pt-3 px-0">
+          </form>
+        </div>
+        <div id="ao12Tab" class="col-12">
+          <form id="ao12Details" class="col-12 pt-3 px-0" action="" method="post">
 
-          </div>
+          </form>
         </div>
-        <div class="modal-footer p-0 m-0">
-          <button type="button" class="btn btn-secondary btn-block my-0" data-dismiss="modal">Fermer</button>
-          <button type="submit" name="saveSolve" class="btn btn-secondary btn-block my-0">Enregistrer</button>
+        <div id="ao50Tab" class="col-12">
+          <form id="ao50Details" class="col-12 pt-3 px-0" action="" method="post">
+
+          </form>
         </div>
-      </form>
+      </div>
+      <div class="modal-footer p-0 m-0">
+        <button type="button" class="btn btn-secondary btn-block my-0" data-dismiss="modal">Fermer</button>
+        <button id="submitSolveSave" type="submit" form="singleDetails" name="saveSolve" class="btn btn-secondary btn-block my-0">Enregistrer</button>
+      </div>
     </div>
   </div>
 </div>
