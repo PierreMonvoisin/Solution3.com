@@ -8,6 +8,9 @@ function fullTimeToMilliseconds(hours, minutes, seconds, milliseconds){
   return hoursInMilli + minutesInMilli + secondsInMilli + milliseconds;
 }
 function formattedTimeToMilliseconds(formattedTime){
+  if (formattedTime == 'DNF' || formattedTime == '-'){
+    return formattedTime;
+  }
   var timeLength = formattedTime.match(/:/g);
   var solveArray = [];
   if (timeLength == null){
@@ -49,6 +52,9 @@ var milliInHours, milliInMinutes, milliInSeconds;
 milliInHours = milliInMinutes = milliInSeconds = 0;
 // Transform milliseconds to hours, minutes, seconds milliseconds and return full time well formatted
 function millisecondsToFullTime(milliseconds){
+  if (milliseconds == 'DNF'){
+    return milliseconds;
+  }
   var milliInHours = Math.floor(milliseconds / 1000 / 60 / 60);
   if (isNaN(milliInHours)){
     return '-';

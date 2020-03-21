@@ -17,6 +17,20 @@ function averageOf5(time){
     solves5.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves5);
     var indexMinValue = solves5.indexOf(Math.min(...solves5));
+    if (solves5.includes('DNF')){
+      var dnfNumber = 0;
+      for (var i = 0; i < solves5.length; i++){
+        if (solves5[i] == 'DNF'){
+          dnfNumber++;
+        }
+      }
+      if (dnfNumber == 1){
+        minValue = 'DNF';
+        indexMinValue = solves5.indexOf('DNF');
+      } else if (dnfNumber > 1){
+        return 'DNF';
+      }
+    }
     solves5.splice(indexMinValue, 1);
     // Add all values together
     for (var i = 0; i < solves5.length; i++){
@@ -49,6 +63,20 @@ function averageOf12(time){
     solves12.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves12);
     var indexMinValue = solves12.indexOf(Math.min(...solves12));
+    if (solves12.includes('DNF')){
+      var dnfNumber = 0;
+      for (var i = 0; i < solves12.length; i++){
+        if (solves12[i] == 'DNF'){
+          dnfNumber++;
+        }
+      }
+      if (dnfNumber == 1){
+        minValue = 'DNF';
+        indexMinValue = solves12.indexOf('DNF');
+      } else if (dnfNumber > 1){
+        return 'DNF';
+      }
+    }
     solves12.splice(indexMinValue, 1);
     // Add all values together
     for (var i = 0; i < solves12.length; i++){
@@ -81,6 +109,20 @@ function averageOf50(time){
     solves50.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves50);
     var indexMinValue = solves50.indexOf(Math.min(...solves50));
+    if (solves50.includes('DNF')){
+      var dnfNumber = 0;
+      for (var i = 0; i < solves50.length; i++){
+        if (solves50[i] == 'DNF'){
+          dnfNumber++;
+        }
+      }
+      if (dnfNumber == 1){
+        minValue = 'DNF';
+        indexMinValue = solves50.indexOf('DNF');
+      } else if (dnfNumber > 1){
+        return 'DNF';
+      }
+    }
     solves50.splice(indexMinValue, 1);
     // Add all values together
     for (var i = 0; i < solves50.length; i++){
@@ -93,6 +135,25 @@ function averageOf50(time){
     solves50.splice(solves50.length - 1, 1);
   }
   return ao50;
+}
+function dnfTimeInAverages(time){
+  var timeToDnf = formattedTimeToMilliseconds(time);
+  var indexToDnf = -1;
+  if (solves50.length > 0){
+    indexToDnf = solves50.indexOf(timeToDnf);
+    solves50[indexToDnf] = 'DNF';
+    indexToDnf = -1
+  }
+  if (solves12.length > 0){
+    indexToDnf = solves12.indexOf(timeToDnf);
+    solves12[indexToDnf] = 'DNF';
+    indexToDnf = -1
+  }
+  if (solves5.length > 0){
+    indexToDnf = solves5.indexOf(timeToDnf);
+    solves5[indexToDnf] = 'DNF';
+    indexToDnf = -1
+  }
 }
 function addTwoSecondsInAverages(time){
   var timeToUpdate = formattedTimeToMilliseconds(time);

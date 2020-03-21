@@ -26,9 +26,10 @@ $(function(){
   $('#dnf').click(function(){
     var currentSolveIndex = $('#solveId span').html();
     if (currentSolveIndex != solveIndex && $('#solveChosen').val() != 'DNF'){
-      dnfPenalty = false;
-      if (dnfPenalty != true && deletePenalty != true){
+      if (deletePenalty != true){
+        dnfTimeInLocalStorage_LS(currentSolveIndex);
         var modalTime = $('#solveChosen').val();
+        dnfTimeInAverages(modalTime);
         $('#solveChosen').val('DNF');
         $('#' + currentSolveIndex + ' .timeValue').html('DNF');
         var sideStatsIndex = $('#sideStatIndex').html();
@@ -37,7 +38,6 @@ $(function(){
         }
         solveIndex = currentSolveIndex;
       }
-      dnfPenalty = true;
     }
   })
   $('#deleteSolve').click(function(){
