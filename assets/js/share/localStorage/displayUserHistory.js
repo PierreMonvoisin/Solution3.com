@@ -19,15 +19,17 @@ if (typeof(Storage) != "undefined") {
         scramble_LS == null ? scramble_LS = '' : scramble_LS;
         var dateTime_LS = localStorage.getItem(`dateTime_${numberOfSolve}`);
         dateTime_LS == null ? dateTime_LS = '' : dateTime_LS;
-        // Create new line to put the informations in solve history
-        var tr = document.createElement('tr');
-        tr.setAttribute('id', index_LS);
-        tr.innerHTML = `<td id="${dateTime_LS}" class="indexValue py-2">#${index_LS}</td>
-        <td id="${scramble_LS}" class="timeValue py-2">${time_LS}</td>
-        <td class="ao5Value py-2">${ao5_LS}</td>
-        <td class="ao12Value py-2">${ao12_LS}</td>
-        <td class="ao50Value py-2">${ao50_LS}</td>`;
-        $('#history tbody').append(tr);
+        if (index_LS != '' && time_LS != '-' && scramble_LS != '-'){
+          // Create new line to put the informations in solve history
+          var tr = document.createElement('tr');
+          tr.setAttribute('id', index_LS);
+          tr.innerHTML = `<td id="${dateTime_LS}" class="indexValue py-2">#${index_LS}</td>
+          <td id="${scramble_LS}" class="timeValue py-2">${time_LS}</td>
+          <td class="ao5Value py-2">${ao5_LS}</td>
+          <td class="ao12Value py-2">${ao12_LS}</td>
+          <td class="ao50Value py-2">${ao50_LS}</td>`;
+          $('#history tbody').append(tr);
+        }
       }
     }
   }

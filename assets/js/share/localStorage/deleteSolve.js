@@ -2,6 +2,7 @@ function deleteTimeInLocalStorage_LS(index){
   if (typeof(Storage) != "undefined") {
     var timeToDelete = localStorage.getItem('time_' + index);
     if (timeToDelete != null && timeToDelete != 'null'){
+      localStorage.removeItem('index_' + index);
       localStorage.removeItem('time_' + index);
       localStorage.removeItem('scramble_' + index);
       localStorage.removeItem('dateTime_' + index);
@@ -11,6 +12,7 @@ function deleteTimeInLocalStorage_LS(index){
       var currentIndex = localStorage.getItem('index');
       if (currentIndex != null && currentIndex != 'null'){
         if (index == currentIndex){
+          localStorage.removeItem('index');
           localStorage.removeItem('time');
           localStorage.removeItem('scramble');
           localStorage.removeItem('dateTime');

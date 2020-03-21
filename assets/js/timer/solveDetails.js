@@ -42,8 +42,8 @@ $(function(){
   })
   $('#deleteSolve').click(function(){
     var modalTime = $('#solveChosen').val();
-    deleteTimeInAverages(modalTime);
     var currentSolveIndex = $('#solveId span').html();
+    deleteTimeInAverages(modalTime, Number(currentSolveIndex));
     deleteTimeInLocalStorage_LS(currentSolveIndex);
     var sideStatsIndex = $('#sideStatIndex').html();
     $('#solveId span').html('0');

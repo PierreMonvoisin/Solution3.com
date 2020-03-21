@@ -4,6 +4,9 @@ function displayTimer(hours, minutes, seconds, milliseconds){
   $("#hours").html(prependZero(hours, 2));
   $("#minutes").html(prependZero(minutes, 2));
   $("#seconds").html(prependZero(seconds, 2));
+  if (milliseconds < 100){
+    milliseconds = '0' + milliseconds;
+  }
   $("#milliseconds").html(milliseconds);
   //Check if hours and/or minutes are null, not to display them
   if ($("#hours").html() === '00' || $("#hours").html() === '0'){
@@ -59,6 +62,9 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   $('#solveDetailsModal').modal('show');
 }
 function displayAo5Details(scramble, time, nbSolveDisplayed){
+  if (scramble == undefined || time == undefined){
+    return;
+  }
   if (nbSolveDisplayed < 5){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
@@ -79,6 +85,9 @@ function displayAo5Details(scramble, time, nbSolveDisplayed){
   }
 }
 function displayAo12Details(scramble, time, nbSolveDisplayed){
+  if (scramble == undefined || time == undefined){
+    return;
+  }
   if (nbSolveDisplayed < 12){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
@@ -99,6 +108,9 @@ function displayAo12Details(scramble, time, nbSolveDisplayed){
   }
 }
 function displayAo50Details(scramble, time, nbSolveDisplayed){
+  if (scramble == undefined || time == undefined){
+    return;
+  }
   if (nbSolveDisplayed < 50){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');

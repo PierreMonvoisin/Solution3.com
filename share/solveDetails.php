@@ -38,8 +38,8 @@
             <div id="timeTools" class="col-12 my-2">
               <ul class="list-group list-group-horizontal text-center">
                 <li id="add2" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">+2</li>
-                <li id="dnf" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">DNF</li>
-                <li id="deleteSolve" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">Supprimer</li>
+                <li id="dnf" data-dismiss="modal" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">DNF</li>
+                <li id="deleteSolve" data-dismiss="modal" class="list-group-item list-group-item-secondary list-group-item-action col-4 py-2">Supprimer</li>
               </ul>
             </div>
           </div>

@@ -174,7 +174,7 @@ function addTwoSecondsInAverages(time){
     indexToUpdate = -1
   }
 }
-function deleteTimeInAverages(time){
+function deleteTimeInAverages(time, indexOfAverage){
   var timeToFind = formattedTimeToMilliseconds(time);
   var indexToDelete = -1;
   if (solves50.length > 0){
@@ -197,6 +197,41 @@ function deleteTimeInAverages(time){
       solves5.splice(indexToDelete, 1);
     }
     indexToDelete = -1;
+  }
+  var lastAo5Solve, lastAo12Solve, lastAo50Solve;
+  lastAo5Solve = lastAo12Solve = lastAo50Solve = 0;
+  if (indexOfAverage > 5){
+    lastAo5Solve = indexOfAverage - 5;
+    if (indexOfAverage > 12){
+      lastAo12Solve = indexOfAverage - 12;
+      if (indexOfAverage > 50){
+        lastAo50Solve = indexOfAverage - 50;
+      }
+    }
+  }
+  if (lastAo5Solve > 0){
+    var lastAo5 = $('#' + lastAo5Solve + ' .timeValue').html();
+    var lastAo5Value = $('#' + lastAo5Solve + ' .ao5Value').html();
+    if (lastAo5Value != '-' && lastAo5 != 'DNF'){
+      lastAo5 = formattedTimeToMilliseconds(lastAo5);
+      solves5.splice(solves5.length - 1, 0, lastAo5);
+    }
+    if (lastAo12Solve > 0){
+      var lastAo12 = $('#' + lastAo12Solve + ' .timeValue').html();
+      var lastAo12Value = $('#' + lastAo12Solve + ' .ao12Value').html();
+      if (lastAo12Value != '-' && lastAo12 != 'DNF'){
+        lastAo12 = formattedTimeToMilliseconds(lastAo12);
+        solves12.splice(solves12.length - 1, 0, lastAo12);
+        if (lastAo50Solve > 0){
+          var lastAo50 = $('#' + lastAo50Solve + ' .timeValue').html();
+          var lastAo50Value = $('#' + lastAo50Solve + ' .ao50Value').html();
+          if (lastAo50Value != '-' && lastAo50 != 'DNF'){
+            lastAo50 = formattedTimeToMilliseconds(lastAo50);
+            solves50.splice(solves50.length - 1, 0, lastAo50);
+          }
+        }
+      }
+    }
   }
 }
 // Local Storage Section

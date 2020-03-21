@@ -11,6 +11,9 @@ function formattedTimeToMilliseconds(formattedTime){
   if (formattedTime == 'DNF' || formattedTime == '-'){
     return formattedTime;
   }
+  if (formattedTime == undefined){
+    return '';
+  }
   var timeLength = formattedTime.match(/:/g);
   var solveArray = [];
   if (timeLength == null){
@@ -72,7 +75,7 @@ function millisecondsToFullTime(milliseconds){
     milliseconds = milliseconds - 1000;
   }
   if (milliseconds < 100){
-    milliseconds = milliseconds * 10;
+    milliseconds = '0' + milliseconds;
   }
   var fullTime = '';
   if (milliInHours == 0 && milliInMinutes == 0){

@@ -24,10 +24,10 @@ if (typeof(Storage) != "undefined") {
       testSingle = testAo5 = testAo12 = testAo50 = 0;
       for (var i = lastIndex; i >= 1; i--) {
         testSingle = Number(localStorage.getItem('time_' + i));
-        if (testSingle < bestSingle){
+        if (testSingle < bestSingle && testSingle != 0){
           bestSingle = testSingle;
         }
-        if (testSingle >= worstSingle){
+        if (testSingle >= worstSingle && testSingle != 0){
           worstSingle = testSingle;
         }
         testAo5 = Number(localStorage.getItem('ao5_' + i));
