@@ -136,13 +136,19 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
       <?php }
       if ( $displayAverage == true ){ ?>
         <div id="savedAverage" class="card col-md-6 my-2 px-0 bg-copper shadow">
-          <h4 class="text-center font-weight-bold mt-2">Moyenne enregistrée</h4>
+          <h4 id="averageTitle" class="text-center font-weight-bold mt-2">Moyenne enregistrée</h4>
+          <div class="btn-group" role="group">
+            <?php foreach ($averageToDisplay as $averageInfo){
+              $averageNumber = trim(preg_replace('/[ao]/', '', $averageInfo['averageName'])); ?>
+              <button id="<?= $averageInfo['averageName'] ?>Button" type="button" class="btn m-0 btn-block btn-dark border border-light">Moyenne de <?= $averageNumber ?></button>
+            <?php } ?>
+          </div>
           <div class="card-body container-fluid p-2">
             <?php
             foreach ($averageToDisplay as $averageInfo){
               $index = 1; ?>
               <div id="<?= $averageInfo['averageName'] ?>Saved" class="averageLoaded row col-12 mx-auto px-0 py-2">
-                <div class="col-6 mx-0 text-center"><?= $averageInfo['averageName']. ' : ' .$averageInfo['avgTime'] ?></div>
+                <div id="<?= $averageInfo['averageName'] ?>Header" class="col-6 mx-0 text-center"><?= $averageInfo['averageName']. ' : ' .$averageInfo['avgTime'] ?></div>
                 <div class="col-6 mx-0 text-center mb-2 mt-0 py-0">Le <?= $averageInfo['date'] ?>, à <?= $averageInfo['time'] ?></div>
                 <?php foreach ($averageInfo['scramble&Time'] as $scramble => $time) { ?>
                   <div class="col-6 bg-secondary text-white text-right">

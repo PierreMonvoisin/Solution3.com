@@ -89,6 +89,9 @@ html {
 }
 #savedAverage {
   height: 55vh;
+  overflow-y: hidden;
+}
+#savedAverage .card-body {
   overflow-y: auto;
 }
 #savedAverage .averageLoaded {
