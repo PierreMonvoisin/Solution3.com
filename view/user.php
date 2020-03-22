@@ -148,8 +148,8 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
             foreach ($averageToDisplay as $averageInfo){
               $index = 1; ?>
               <div id="<?= $averageInfo['averageName'] ?>Saved" class="averageLoaded row col-12 mx-auto px-0 py-2">
-                <div id="<?= $averageInfo['averageName'] ?>Header" class="col-3 mx-0 py-1 text-light bg-blue text-center"><?= $averageInfo['averageName']. ' : ' .$averageInfo['avgTime'] ?></div>
-                <div class="col-9 mx-0 text-right bg-white py-1">Le <?= $averageInfo['date'] ?>, à <?= $averageInfo['time'] ?></div>
+                <div id="<?= $averageInfo['averageName'] ?>Header" class="col-sm-3 col-4 mx-0 py-1 text-light bg-blue text-center"><?= $averageInfo['averageName']. ' : ' .$averageInfo['avgTime'] ?></div>
+                <div class="col-sm-9 col-8 mx-0 text-right bg-white py-1">Le <?= $averageInfo['date'] ?>, à <?= $averageInfo['time'] ?></div>
                 <?php foreach ($averageInfo['scramble&Time'] as $scramble => $time) { ?>
                   <div class="col-6 bg-secondary text-white text-right">
                     <p class="m-0 p-1">N° <?= $index ?></p>
