@@ -1,5 +1,5 @@
 <div class="modal fade" id="solveDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex py-0">
         <h5 id="solveId" class="text-center mr-auto w-50 my-1 font-weight-bold">N°<span>0</span></h5>
@@ -18,18 +18,18 @@
           <div id="singleTab">
             <div class="col-12 pt-3">
               <label for="scrambleChosen" class="sr-only">Mélange</label>
-              <input id="scrambleChosen" class="text-center" type="text" name="scramble" value="U U D D L R L R B A Start" readonly>
+              <textarea id="scrambleChosen" class="text-center" rows="2" wrap="soft" name="scramble" value="U U D D L R L R B A Start" readonly></textarea>
             </div>
-            <div class="d-flex col-12">
-              <div class="col-6 text-center">
-                <img id="scrambleRepresentation" src="../share/visualcube.php?fmt=png&bg=t&pzl=3" alt="Scramble representation">
+            <div class="d-md-flex col-12">
+              <div class="col-md-6 col-12 d-sm-block d-none text-center">
+                <img id="scrambleRepresentation" class="py-3" src="../share/visualcube.php?fmt=png&bg=t&pzl=3" alt="Scramble representation">
               </div>
-              <div class="col-6">
-                <div class="text-center pt-5">
+              <div class="col-md-6 col-12">
+                <div class="text-center pt-md-5 pt-3">
                   <label for="solveChosen" class="sr-only">Temps</label>
                   <input id="solveChosen" class="text-center font-weight-bold" type="text" name="time" value="-" readonly>
                 </div>
-                <div class="text-center py-4">
+                <div class="text-center py-md-4 py-3">
                   <label for="dateChosen" class="sr-only">Date</label>
                   <input id="dateChosen" class="text-center" type="text" name="date" value="01-01-1700 12:00:00" readonly>
                 </div>

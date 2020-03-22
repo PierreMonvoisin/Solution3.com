@@ -1,9 +1,12 @@
 #solveDetailsModal .modal-body {
-  height: 55vh;
+  height: auto;
   min-width: 100%;
   overflow-y: hidden;
 }
-#singleDetails input[type='text'] {
+#scrambleChosen {
+  resize: none;
+}
+#singleDetails input[type='text'], textarea {
   width: 100%;
   background: transparent;
   border: none;
@@ -37,7 +40,7 @@
   font-size: 1.05rem;
 }
 #scrambleRepresentation {
-  height: 30vh;
+  width: 15vw;
 }
 #timeTools li {
   font-size: 1.2rem;
@@ -49,4 +52,10 @@
   height: 49vh;
   overflow-y: auto;
   display: none;
+}
+/* Media queries */
+@media only screen and (max-width: 768px){
+  #scrambleRepresentation {
+    width: 30vw;
+  }
 }
