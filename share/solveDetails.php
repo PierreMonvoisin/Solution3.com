@@ -44,7 +44,7 @@
             </div>
           </div>
         </form>
-        <div id="ao5Tab" class="col-12">
+        <div id="ao5Tab" class="col-12 px-0">
           <form id="ao5Details" class="col-12 pt-3 px-0" action="" method="post">
 
           </form>

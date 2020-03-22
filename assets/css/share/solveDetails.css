@@ -3,7 +3,7 @@
   min-width: 100%;
   overflow-y: hidden;
 }
-#scrambleChosen {
+#solveDetailsModal textarea {
   resize: none;
 }
 #singleDetails input[type='text'], textarea {
@@ -12,19 +12,19 @@
   border: none;
   outline: none;
 }
-#ao5Details input[type='text'] {
+#ao5Details input[type='text'], textarea {
   width: 100%;
   background: transparent;
   border: none;
   outline: none;
 }
-#ao12Details input[type='text'] {
+#ao12Details input[type='text'], textarea {
   width: 100%;
   background: transparent;
   border: none;
   outline: none;
 }
-#ao50Details input[type='text'] {
+#ao50Details input[type='text'], textarea {
   width: 100%;
   background: transparent;
   border: none;

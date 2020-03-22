@@ -68,18 +68,18 @@ function displayAo5Details(scramble, time, nbSolveDisplayed){
   if (nbSolveDisplayed < 5){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
-    solveDiv.setAttribute('id', 'solve' + i);
-    solveDiv.setAttribute('class', 'col-12 d-flex');
-    solveDiv.innerHTML = `<div class="col-2 text-center">
+    solveDiv.setAttribute('id', 'solve' + currentId);
+    solveDiv.setAttribute('class', 'col-12 row m-0 d-flex');
+    solveDiv.innerHTML = `<div class="col-lg-2 col-6 text-center">
                             <p class="m-0 p-1">N° ${currentId}</p>
                           </div>
-                          <div class="col-2">
+                          <div class="col-lg-2 col-6">
                             <label for="ao5_time${currentId}" class="sr-only">time ${currentId}</label>
                             <input id="ao5_time${currentId}" class="ao5_time text-center py-1" type="text" name="ao5_time${currentId}" value="${time}" readonly>
                           </div>
-                          <div class="col-8">
+                          <div class="col-lg-8 col-12 px-0">
                             <label for="ao5_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
-                            <input id="ao5_scramble${currentId}" class="ao5_scramble py-1" type="text" name="ao5_scramble${currentId}" value="${scramble}" readonly>
+                            <textarea id="ao5_scramble${currentId}" class="ao5_scramble py-1 text-center" rows="2" wrap="soft" name="ao5_scramble${currentId}" value="${scramble}" readonly>${scramble}</textarea>
                           </div>`;
     $('#ao5Tab form').append(solveDiv);
   }
@@ -91,18 +91,18 @@ function displayAo12Details(scramble, time, nbSolveDisplayed){
   if (nbSolveDisplayed < 12){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
-    solveDiv.setAttribute('id', 'solve' + i);
-    solveDiv.setAttribute('class', 'col-12 d-flex');
-    solveDiv.innerHTML = `<div class="col-2 text-center">
+    solveDiv.setAttribute('id', 'solve' + currentId);
+    solveDiv.setAttribute('class', 'col-12 row m-0 d-flex');
+    solveDiv.innerHTML = `<div class="col-lg-2 col-6 text-center">
                             <p class="m-0 p-1">N° ${currentId}</p>
                           </div>
-                          <div class="col-2">
+                          <div class="col-lg-2 col-6">
                             <label for="ao12_time${currentId}" class="sr-only">time ${currentId}</label>
                             <input id="ao12_time${currentId}" class="ao12_time text-center py-1" type="text" name="ao12_time${currentId}" value="${time}" readonly>
                           </div>
-                          <div class="col-8">
+                          <div class="col-lg-8 col-12">
                             <label for="ao12_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
-                            <input id="ao12_scramble${currentId}" class="ao12_scramble py-1" type="text" name="ao12_scramble${currentId}" value="${scramble}" readonly>
+                            <textarea id="ao12_scramble${currentId}" class="ao12_scramble py-1 text-center" rows="2" wrap="soft" name="ao12_scramble${currentId}" value="${scramble}" readonly>${scramble}</textarea>
                           </div>`;
     $('#ao12Tab form').append(solveDiv);
   }
@@ -114,18 +114,18 @@ function displayAo50Details(scramble, time, nbSolveDisplayed){
   if (nbSolveDisplayed < 50){
     var currentId = nbSolveDisplayed + 1;
     var solveDiv = document.createElement('div');
-    solveDiv.setAttribute('id', 'solve' + i);
-    solveDiv.setAttribute('class', 'col-12 d-flex');
-    solveDiv.innerHTML = `<div class="col-2 text-center">
+    solveDiv.setAttribute('id', 'solve' + currentId);
+    solveDiv.setAttribute('class', 'col-12 row m-0 d-flex');
+    solveDiv.innerHTML = `<div class="col-lg-2 col-6 text-center">
                             <p class="m-0 p-1">N° ${currentId}</p>
                           </div>
-                          <div class="col-2">
+                          <div class="col-lg-2 col-6">
                             <label for="ao50_time${currentId}" class="sr-only">time ${currentId}</label>
                             <input id="ao50_time${currentId}" class="ao50_time text-center py-1" type="text" name="ao50_time${currentId}" value="${time}" readonly>
                           </div>
                           <div class="col-8">
                             <label for="ao50_scramble${currentId}" class="sr-only">scramble ${currentId}</label>
-                            <input id="ao50_scramble${currentId}" class="ao50_scramble py-1" type="text" name="ao50_scramble${currentId}" value="${scramble}" readonly>
+                            <textarea id="ao50_scramble${currentId}" class="ao50_scramble py-1 text-center" rows="2" wrap="soft" name="ao50_scramble${currentId}" value="${scramble}" readonly>${scramble}</textarea>
                           </div>`;
     $('#ao50Tab form').append(solveDiv);
   }
