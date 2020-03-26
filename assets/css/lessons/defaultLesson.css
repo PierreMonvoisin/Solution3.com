@@ -1,6 +1,6 @@
 /* Set height of each li to take the whole page */
 #mainLesson li:not(.sectionTitle) {
-  height: 21vh;
+  height: 20vh;
 }
 #mainLesson .sectionTitle {
   font-weight: bold;

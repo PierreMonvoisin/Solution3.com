@@ -23,7 +23,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
         <!--Bottom Left Button-->
         <button id="BottomLeft" type="button" class="btn btn-light shadow" title="Paramètres"><img src="https://image.flaticon.com/icons/svg/1242/1242443.svg" alt="Settings"></button>
       </div>
-      <div id="mainLesson" class="col-lg-9 col-12">
+      <div id="mainLesson" class="col-lg-10 col-12">
         <!-- Personnalisations modal error and confirmations message -->
         <?php if ($updateError != false){ ?>
           <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>

@@ -116,7 +116,10 @@ $(function(){
     if (isNaN(index)){
       var possibleIndex_LS = localStorage.getItem('index');
       if (possibleIndex_LS != null){
-        index = Number(localStorage.getItem('index')) + 1;
+        while (localStorage.getItem('index_' + possibleIndex_LS) == null && possibleIndex_LS > 0){
+          possibleIndex_LS--;
+        }
+        index = Number(possibleIndex_LS) + 1;
       } else {
         index = 1;
       }

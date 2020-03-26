@@ -12,7 +12,6 @@ function deleteTimeInLocalStorage_LS(index){
       var currentIndex = localStorage.getItem('index');
       if (currentIndex != null && currentIndex != 'null'){
         if (index == currentIndex){
-          localStorage.removeItem('index');
           localStorage.removeItem('time');
           localStorage.removeItem('scramble');
           localStorage.removeItem('dateTime');

@@ -1,6 +1,6 @@
 $(function () {
   var currentFile = (window.location.pathname.split('/')).pop();
-  if (currentFile == 'index.php'){
+  if (currentFile == 'index.php' || currentFile == ''){
     $('#homeLink').attr('href', 'index.php');
     $('#timerLink').attr('href', 'view/timer.php');
     $('#lessonsLink').attr('href', 'view/learningMenu.php');

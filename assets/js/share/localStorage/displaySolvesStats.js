@@ -1,6 +1,9 @@
 if (typeof(Storage) != "undefined") {
   if (localStorage.getItem('index')){
     var numberOfSolve = Number(localStorage.getItem('index'));
+    while (localStorage.getItem('index_' + numberOfSolve) == null  && numberOfSolve > 0){
+      numberOfSolve--;
+    }
     if (numberOfSolve > 0){
       // Delete "no solve" message
       $('#noSolve').hide();
