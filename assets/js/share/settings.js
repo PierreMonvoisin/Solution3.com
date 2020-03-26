@@ -9,8 +9,9 @@ $(function () {
   headerBackgroundColor = current_headerBackgroundColor = '#463730';
   statsBackgroundColor = current_statsBackgroundColor = '#BF6B44';
   displayTimer = current_displayTimer = 1;
-  mainFont = current_mainFont = '"Roboto", sans-serif';
-  timerFont = current_timerFont = '"Gugi", cursive';
+  var fonts = ['"Roboto", sans-serif', '"Bitter", serif', '"Gugi", cursive', '"Odibee Sans", cursive', '"Black Ops One", cursive'];
+  mainFont = current_mainFont = 0;
+  timerFont = current_timerFont = 2;
   // Get the name of the current file open
   var current_file = (window.location.pathname.split('/')).pop();
 
@@ -118,10 +119,12 @@ $(function () {
   // Set the correct value on change
   $('#mainFont').change(function () {
     mainFont = $(this).val();
+    mainFont = fonts[Number(mainFont) - 1];
     $('html, body').css('font-family', mainFont);
   });
   $('#timerFont').change(function() {
     timerFont = $(this).val();
+    timerFont = fonts[Number(timerFont) - 1];
     // Change font size with font to better display it
     if (timerFont == '"Gugi", cursive' || timerFont == '"Odibee Sans", cursive'){
       $('#timer').css('font-size', '14vw');
@@ -165,9 +168,9 @@ $(function () {
       $('.statsHr').css('background-color', current_secondaryFontColor);
       $('body').css('background-color', current_secondaryBackgroundColor);
       $('#sideTimer').css('background-color', current_statsBackgroundColor);
-      if (current_timerFont == '"Gugi", cursive' || current_timerFont == '"Odibee Sans", cursive'){
+      if (current_timerFont == '""Gugi"", cursive' || current_timerFont == '""Odibee Sans"", cursive'){
         $('#timer').css('font-size', '14vw');
-      } else if (current_timerFont == '"Black Ops One", cursive'){
+      } else if (current_timerFont == '""Black Ops One"", cursive'){
         $('#timer').css('font-size', '13vw');
       }
       $('#timer').css('font-family', current_timerFont);
@@ -199,9 +202,10 @@ $(function () {
       $('#hideTimer').attr("checked", "checked");
     }
     $('#mainFont').val(current_mainFont);
-    $("option[value='" + current_mainFont +"']").attr('selected', true);
+    // Not working for some reason ?
+    $("option[value=" + (fonts.indexOf(current_mainFont) + 1) + "]").attr('selected', true);
     $('#timerFont').val(current_timerFont);
-    $("option[value='" + current_timerFont +"']").attr('selected', true);
+    $("option[value=" + (fonts.indexOf(current_timerFont) + 1) + "]").attr('selected', true);
   })
   // Need to learn how to works, but it works
   function lightenDarkenHexColor(color,amount) {

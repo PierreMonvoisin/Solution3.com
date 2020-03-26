@@ -1,6 +1,6 @@
 <?php
 $updateError = false; $udpateConfirmation = false; $udpateConfirmationMessage = 'ERROR'; $updateErrorMessage = 'ERROR';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && isset($_SESSION['id_personnalisations'])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges'])){
   $mainFontColor = '#000000'; $secondaryFontColor = '#FFFFFF';
   $mainBackgroundColor = '#E8DCD8'; $secondaryBackgroundColor = '#C1C1C1';
   $headerBackgroundColor = '#463730'; $statsBackgroundColor = '#BF6B44';
@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges']) && i
   ! empty(trim($_POST['secondaryBackgroundColor'])) ? $secondaryBackgroundColor = trim($_POST['secondaryBackgroundColor']) : $secondaryBackgroundColor = null;
   ! empty(trim($_POST['headerBackgroundColor'])) ? $headerBackgroundColor = trim($_POST['headerBackgroundColor']) : $headerBackgroundColor = null;
   ! empty(trim($_POST['statsBackgroundColor'])) ? $statsBackgroundColor = trim($_POST['statsBackgroundColor']) : $statsBackgroundColor = null;
-  ! empty(trim($_POST['mainFont'])) ? $mainFont = trim($_POST['mainFont']) : $mainFont = null;
-  ! empty(trim($_POST['timerFont'])) ? $timerFont = trim($_POST['timerFont']) : $timerFont = null;
+  isset($_POST['mainFont']) && ! empty(trim($_POST['mainFont'])) ? $mainFont = trim($_POST['mainFont']) : $mainFont = null;
+  isset($_POST['timerFont']) && ! empty(trim($_POST['timerFont'])) ? $timerFont = trim($_POST['timerFont']) : $timerFont = null;
   ! empty(trim($_POST['displayTimer'])) ? $displayTimer = trim($_POST['displayTimer']) : $displayTimer = null;
-  ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
+  isset($_SESSION['id_personnalisations']) && ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
   if (strtoupper($mainFontColor) == '#000000' && strtoupper($secondaryFontColor) == '#FFFFFF' && strtoupper($mainBackgroundColor) == '#E8DCD8' && strtoupper($secondaryBackgroundColor) == '#C1C1C1' && strtoupper($headerBackgroundColor) == '#463730' && strtoupper($statsBackgroundColor) == '#BF6B44') {
     if ($mainFont == 1 && $timerFont == 3 && $displayTimer == 1){
       $udpateConfirmationMessage = 'Aucune modification enregistrée';
