@@ -1,7 +1,7 @@
 <?php
-$saveError = false; $saveConfirmation = false; $saveConfirmationMessage = 'ERROR'; $saveErrorMessage = 'ERROR';
+$saveAverageError = false; $saveAverageConfirmation = false; $saveAverageConfirmationMessage = 'ERROR'; $saveAverageErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['saveAo5']) || isset($_POST['saveAo12']) || isset($_POST['saveAo50']) )) {
-  ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
+  isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
   if ($id != null){
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -62,32 +62,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['saveAo5']) || isset(
             require '../model/saveAverage_mod.php';
             [$stmtStatus, $stmt] = saveAverage($id, $average, $fullAverage, $averageArray, $dateTime);
             if ($stmtStatus != false){
-              $saveConfirmationMessage = 'Votre moyenne a bien été enregistré !';
-              $saveConfirmation = true;
+              $saveAverageConfirmationMessage = 'Votre moyenne a bien été enregistré !';
+              $saveAverageConfirmation = true;
               return;
             }
           } else {
-            $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
-            $saveError = true;
+            $saveAverageErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+            $saveAverageError = true;
             return;
           }
         } else {
-          $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
-          $saveError = true;
+          $saveAverageErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+          $saveAverageError = true;
           return;
         }
       } else {
-        $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
-        $saveError = true;
+        $saveAverageErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+        $saveAverageError = true;
         return;
       }
     } else {
-      $saveErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
-      $saveError = true;
+      $saveAverageErrorMessage = 'Une erreur a été rencontré, veuillez réessayer plus tard';
+      $saveAverageError = true;
       return;
     }
   } else {
-    $saveErrorMessage = 'Veuillez vous connecter pour enregistrer une moyenne';
-    $saveError = true;
+    $saveAverageErrorMessage = 'Veuillez vous connecter pour enregistrer une moyenne';
+    $saveAverageError = true;
   }
 } ?>

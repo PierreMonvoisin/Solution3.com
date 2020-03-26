@@ -48,6 +48,10 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
         <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveConfirmationMessage ?></h4>
       <?php } else if ($saveError != false){ ?>
         <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveErrorMessage ?></h4>
+      <?php } else if ($saveAverageError != false){ ?>
+        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveAverageErrorMessage ?></h4>
+      <?php } else if ($saveAverageConfirmation != false){ ?>
+        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveAverageConfirmationMessage ?></h4>
       <?php } ?>
       <!-- Under timer stats -->
       <div class="row text-center mx-auto mb-2 mt-1">

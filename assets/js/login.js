@@ -20,7 +20,7 @@ $(function(){
         message = 'Veuillez renseigner tous les champs';
         validity = false;
       } else {
-        message = 'Merci d\'avoir renseigné tous les champs';
+        message = 'Merci d\'avoir renseigné tous les champs, veuillez confirmer votre connexion';
         validity = true;
       }
       // Return both logs, the validity status and the final message

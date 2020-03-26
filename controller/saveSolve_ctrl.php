@@ -1,7 +1,7 @@
 <?php
 $saveError = false; $saveConfirmation = false; $saveConfirmationMessage = 'ERROR'; $saveErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
-  ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
+  isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
   if ($id != null){
     ! empty(trim($_POST['scramble'])) ? $scramble = trim($_POST['scramble']) : $scramble = null;
     ! empty(trim($_POST['time'])) ? $time = trim($_POST['time']) : $time = null;
@@ -53,5 +53,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
     $saveErrorMessage = 'Veuillez vous connecter pour enregistrer une résolution';
     $saveError = true;
   }
-}
-?>
+} ?>

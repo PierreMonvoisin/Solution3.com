@@ -1,7 +1,7 @@
 // Initiate all variables
 var matchStatus = false, mailStatus = false, usernameStatus = false, passwordStatus = false, formStatus = false;
 // Declare all reg ex
-var regExUsername = /^[\w\u00C0-\u00FF "\'-]{1,15}$/;
+var regExUsername = /^[\w\u00C0-\u00FF "\'-]{2,15}$/;
 var regExMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // Have at least one lowercase and uppercase letter, a number and maybe a special character. Must be at least 8 character long
 var regExPwd = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])?[\w!@#$%^&*]{8,}$/;
@@ -37,13 +37,13 @@ function newUserValidate(array){
   }
   // Check one by one if the values are all validated. If not, return the correct error message
   if (! usernameStatus){
-    return errorMessage = 'Nom d\'utilisateur incorrect';
+    return errorMessage = 'Nom d\'utilisateur incorrect<br><span class="lead">Seulement les lettres minuscules et majuscules ainsi que les ",\',- sont acceptés, de 15 caractères de long maximum.</span>';
   } else if (! mailStatus){
-    return errorMessage = 'Mail incorrect';
+    return errorMessage = 'Mail incorrect<br><span class="lead">Veuillez vérifier qu\'il contient bien un @ et qu\'il finit par .fr ou .com.<br>( ou autre .XX )</span>';
   } else if (! passwordStatus){
-    return errorMessage = 'Mot de passe incorrect';
+    return errorMessage = 'Mot de passe incorrect<br><span class="lead">Il doit contenir au moins un caractère majuscule, minuscule et une lettre, de 8 caractères de long minimum.</span>';
   } else if (! matchStatus){
-    return errorMessage = 'Mot de passe et confirmation différent';
+    return errorMessage = 'Mot de passe et confirmation différents<br><span class="lead">Veuillez vérifier que le mot de passe et la confirmation du mot de passe sont identiques.</span>';
   }
   // If everything is " true ", return the status as true
   if (mailStatus && usernameStatus && passwordStatus && matchStatus){

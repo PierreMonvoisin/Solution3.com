@@ -32,7 +32,7 @@ $(function(){
         message = 'Veuillez renseigner tous les champs';
         validity = false;
       } else {
-        message = 'Merci d\'avoir renseigné tous les champs';
+        message = 'Merci d\'avoir renseigné tous les champs, veuillez confirmer la création de votre compte';
         validity = true;
       }
       // Return both logs, the validity status and the final message
@@ -53,10 +53,10 @@ $(function(){
       newUserValidity = newUserValidate(values);
       // If the returned value is neither a boolean nor and empty string, dispay error message
       if (typeof newUserValidity != 'boolean' && newUserValidity != ''){
-        $('.outputMessage').text(newUserValidity);
+        $('.outputMessage').html(newUserValidity);
         // If returned value is a boolean true, display confirmation message
       } else if (newUserValidity){
-        $('.outputMessage').text(message);
+        $('.outputMessage').html(message);
         $('button[disabled]').attr('disabled', false);
         // Set a new avatar if it isn't already
         if (topAvatar != 'set'){
@@ -68,17 +68,8 @@ $(function(){
           $('#avatarUrl').val(JSON.stringify(userAvatarUrl));
           document.cookie('avatarUrl='+ userAvatarUrl);
           topAvatar = 'set';
-          if (typeof(Storage) != "undefined") {
-            // Add url to the local storage
-            if (localStorage.getItem('storageAuthorization')){
-              localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
-            }
-            // Add url value in the form input
-          } else {
-            // Alert if browser does not support local storage function
-            alert('Désolé, notre navigateur ne supporte pas le local storage');
-            // Redirect the window after 3 seconds
-            setTimeout(function(){ location.href = "https://www.google.com/"; }, 2000);
+          if (localStorage.getItem('storageAuthorization')){
+            localStorage.setItem('userAvatarUrl', userAvatarUrl);
           }
         }
       }
