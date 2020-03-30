@@ -25,16 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirma
       } else {
         $personnalisationsStmtStatus = true;
       }
-      require '../model/deleteUserStats_mod.php';
-      $userStmtStatus = deleteUserStats($id);
       require '../model/deleteUser_mod.php';
       [$stmtStatus, $stmt] = deleteUser($mail);
+      require '../model/deleteUserStats_mod.php';
+      $userStmtStatus = deleteUserStats($id);
       // $stmtStatus = bool
       if ($stmtStatus && $personnalisationsStmtStatus && $userStmtStatus){
         $deleteConfirmationMessage = 'Votre compte a bien été supprimé. Vous allez être déconnecté(e).<br>Merci pour votre confiance, à bientôt !';
         $deleteConfirmation = true;
         signOff();
-        header('refresh:2;url=signin.php');
+        header('refresh:3;url=signin.php');
       }
     } else {
       $deleteErrorMessage = 'Une erreur est survenue. Veuillez vous reconnecter';
