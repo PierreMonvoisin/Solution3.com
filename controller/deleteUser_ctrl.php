@@ -2,9 +2,9 @@
 $deleteError = false; $deleteConfirmation = false; $deleteConfirmationMessage = 'ERROR'; $deleteErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirmation'])) {
   $mail = null; $id_personnalisations = null;
-  ! empty(trim($_SESSION['mail'])) ? $mail = trim($_SESSION['mail']) : $mail = null;
-  ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
-  ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
+  isset($_SESSION['mail']) && ! empty(trim($_SESSION['mail'])) ? $mail = trim($_SESSION['mail']) : $mail = null;
+  isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
+  isset($_SESSION['id_personnalisations']) && ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
   if ($mail != null && $id_personnalisations != null && $id != null){
     $mail = filter_var($mail, FILTER_SANITIZE_EMAIL);
     $id_personnalisations = filter_var($id_personnalisations, FILTER_SANITIZE_NUMBER_INT);

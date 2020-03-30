@@ -118,7 +118,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
       <?php if ( $displaySingle == true ){ ?>
         <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow">
           <div class="card-body userStat p-2">
-            <h4 class="text-center font-weight-bold">Résolution enregistrée</h4>
+            <h4 id="solveTitle" class="text-center font-weight-bold">Résolution enregistrée</h4>
             <div class="col-12 my-3 text-center">
               <p id="solveScramble"><?= $scrambleFormatted ?></p>
             </div>

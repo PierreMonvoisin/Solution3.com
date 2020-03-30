@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges'])){
           $udpateConfirmationMessage = 'Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter pour les mettre en application';
           $udpateConfirmation = true;
           signOff();
-          header('refresh:4;url=login.php');
+          header('refresh:2;url=login.php');
         } else {
           $updateErrorMessage = 'Une erreur a été rencontré avec la base de donnée<br>Veuillez réessayer plus tard';
           $updateError = true;

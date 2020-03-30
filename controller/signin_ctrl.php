@@ -30,7 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newSubmit'])) {
         require '../model/addNewUser_mod.php';
         [$stmtStatus, $stmt] = addNewUser($userInfos);
         // $stmtStatus = bool
-        if ($stmtStatus && $stmt->rowCount() > 0){
+        if ($stmtStatus == 'ERROR'){
+          $errorMessage = $stmt;
+          $error = true;
+        } else if ($stmtStatus && $stmt->rowCount() > 0){
           $cookieName = 'avatarUrl'; $cookieValue = $userInfos['avatarUrl'];
           // Unix timestamp + (86400 seconds in a day * 7 to make a week)
           $cookieExpDate = time() + (86400 * 7);

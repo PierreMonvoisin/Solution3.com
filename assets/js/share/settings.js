@@ -41,7 +41,7 @@ $(function () {
     if (current_file === 'learningMenu.php') {
       $('header a, .sectionTitle').css('color', secondaryFontColor);
     } else if (current_file === 'user.php') {
-      $('.formLabel, #userStats h4, #usernameTitle, header a').css('color', secondaryFontColor);
+      $('.formLabel, #userStats h4, #usernameTitle, header a, #solveTitle, #solveScramble,  #solveStats, #averageTitle').css('color', secondaryFontColor);
     } else if (current_file === 'timer.php') {
       $('#statsTable, #historyTbody, header a').css('color', secondaryFontColor);
       $('#historyTbody td').css('border-color', secondaryFontColor);
@@ -90,7 +90,7 @@ $(function () {
     if (current_file === 'timer.php'){
       $('#sideTimer').css('background-color', statsBackgroundColor);
     } else if (current_file === 'user.php'){
-      $('#personnalInfos, #overview, #settings, #history').css('background-color', statsBackgroundColor);
+      $('#personnalInfos, #overview, #settings, #history, #savedSolve, #savedAverage').css('background-color', statsBackgroundColor);
     }
   });
   // Get the current personnalisation value
@@ -156,10 +156,10 @@ $(function () {
       $('body').css('background-color', current_mainBackgroundColor);
     } else if (current_file == 'user.php'){
       $('.userPersonnalInfos, #overviewStats, #history table, #history table th').css('color', current_mainFontColor);
-      $('.formLabel, #userStats h4, #usernameTitle').css('color', current_secondaryFontColor);
+      $('.formLabel, #userStats h4, #usernameTitle, #solveTitle, #solveScramble, #solveStats, #averageTitle').css('color', current_secondaryFontColor);
       $('body').css('background-color', current_secondaryBackgroundColor);
       $('#avatarHeader').css('background-color', current_headerBackgroundColor);
-      $('#personnalInfos, #overview, #settings, #history').css('background-color', current_statsBackgroundColor);
+      $('#personnalInfos, #overview, #settings, #history, #savedSolve, #savedAverage').css('background-color', current_statsBackgroundColor);
     } else if (current_file == 'timer.php'){
       $('#scramble, #timer, #averageOf5, #averageOf12, #statsInMenu, .solveListTitle').css('color', current_mainFontColor);
       $('#scramble span').css('border-color', current_mainFontColor);

@@ -21,9 +21,15 @@ function addNewUser($userInfos) {
     // Execute query and get the return value in variable
     $stmtStatus = $stmt->execute();
   } catch (PDOException $e) {
-    // If there is an exception, display it
-    echo $e->getMessage();
+    $errorCode = $e->getCode();
+    if ($errorCode == '23000'){
+      $stmtStatus = 'ERROR';
+      $stmt = '- Cette adresse mail est déjà utilisé, veuillez en choisir une autre -';
+    } else {
+      $stmtStatus = 'ERROR';
+      $stmt = '- Erreur inconnue, code de l\'erreur : [' .$errorCode. '] -';
+    }
   }
   // Return the statement return value and the statement
-  return [$stmtStatus,$stmt];
+  return [$stmtStatus, $stmt];
 } ?>

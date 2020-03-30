@@ -49,22 +49,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateConfirmation'])
 $username = $password = $updateError = $updateErrorMessage = $updateConfirmation = $updateConfirmationMessage = null;
 // Detect the name of the submit button of the update form query
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm'])){
+  $error = $confirmation = false;
   $username = $password = $updateError = $updateErrorMessage = $updateConfirmation = $updateConfirmationMessage = null;
   $validatedUsername = ''; $validatedPassword = '';
   $passwordHash = null; $set = []; $whichBind = null;
   $mail = $_SESSION['mail'] ?? null;
   empty(trim($_POST['updatePassword'])) ? $password = null : $password = $_POST['updatePassword'];
-  empty(trim($_POST['confirmUpdatePassword'])) ? $confirmation = null : $confirmation = $_POST['confirmUpdatePassword'];
+  empty(trim($_POST['confirmUpdatePassword'])) ? $passwordConfirmation = null : $passwordConfirmation = $_POST['confirmUpdatePassword'];
   empty(trim($_POST['updateUsername'])) ? $username = null : $username = $_POST['updateUsername'];
   // If every input is empty, do nothing
-  if ($password == null && $confirmation == null && $username == null){
+  if ($password == null && $passwordConfirmation == null && $username == null){
     $updateErrorMessage = 'Aucun changement enregistré';
     $updateError = true;
-  } else if (($password != null && $confirmation == null) || ($password == null && $confirmation != null)){
+  } else if (($password != null && $passwordConfirmation == null) || ($password == null && $passwordConfirmation != null)){
     // If the password or the confirmation is filled but not the other
     $updateErrorMessage = 'Le mot de passe et la confirmation sont différents';
     $updateError = true;
-  } else if (($password != null && $confirmation != null) || $username != null){
+  } else if (($password != null && $passwordConfirmation != null) || $username != null){
     // If the password/confirmation are filled or the username is filled
     require 'validateUpdateInputs_ctrl.php';
     if ($username != null){
@@ -86,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm']))
       $username = '';
     }
     // If the password and the confirmation aren't null
-    if ($password != null && $confirmation != null){
+    if ($password != null && $passwordConfirmation != null){
       // If password and confirmation are the same
-      if($password === $confirmation){
+      if($password === $passwordConfirmation){
         // Sanitize and validate the password input
         $validatedPassword = validateUpdateInputs('password', $password);
         if ($validatedPassword != false ){
@@ -102,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm']))
         $updateError = true;
       }
     } else {
-      $password = $confirmation = '';
+      $password = $passwordConfirmation = '';
     }
     // If the username and the password was changed, transform the array in a string
     if (count($set) === 2){
@@ -130,10 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm']))
     // Send the values to the database and get the return value and SQL statement
     [$stmtStatus,$stmt] = updateUserInfos($mail, $set, $values, $whichBind);
     if ($stmtStatus){
-      $updateConfirmationMessage = "Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter";
+      $updateConfirmationMessage = 'Vos modifications ont bien été enregistré !<br>Veuillez vous reconnecter';
       $updateConfirmation = true;
+      header('refresh:0.5;url=login.php');
       signOff();
-      header('refresh:1;url=signin.php');
     }
   }
 } ?>

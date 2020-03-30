@@ -5,7 +5,7 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
     <h4 class="text-center font-weight-bold px-0 pt-2">Informations personnelles</h4>
     <?php if ($error != false) { ?>
       <h4 class="text-center font-weight-bold px-0 pt-2"><?= $errorMessage ?></h4>
-    <?php } else if ($confirmation != false) { ?>
+    <?php } else if ($confirmation == true) { ?>
       <h4 class="text-center font-weight-bold px-0 pt-2"><?= $confirmationMessage ?></h4>
     <?php } else if ($updateError != false) { ?>
       <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
