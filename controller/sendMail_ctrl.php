@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function sendMail(){
   $to = 'monvoisin.pierr@gmail.com';
   $subject = 'First mail from Solution3';

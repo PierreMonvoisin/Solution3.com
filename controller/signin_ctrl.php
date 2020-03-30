@@ -1,4 +1,5 @@
-<?php // Initiate the error and confirmation booleans and messages
+<?php require '../share/forbiddenPages.php';
+// Initiate the error and confirmation booleans and messages
 $error = false; $confirmation = false; $confirmationMessage = 'ERROR'; $errorMessage = 'ERROR';
 // Check if the post request contains the name of the new user form
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newSubmit'])) {

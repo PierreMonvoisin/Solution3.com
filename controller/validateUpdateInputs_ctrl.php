@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function validateUpdateInputs($name, $value){
   if ($name == 'username'){
     $value = filter_var($value, FILTER_SANITIZE_STRING);

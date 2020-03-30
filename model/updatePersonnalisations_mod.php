@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function updatePersonnalisations($mainFontColor, $secondaryFontColor, $mainBackgroundColor, $secondaryBackgroundColor, $headerBackgroundColor, $statsBackgroundColor, $mainFont, $timerFont, $displayTimer, $id_personnalisations){
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database

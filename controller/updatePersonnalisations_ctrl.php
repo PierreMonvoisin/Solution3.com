@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 $updateError = false; $udpateConfirmation = false; $udpateConfirmationMessage = 'ERROR'; $updateErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges'])){
   $mainFontColor = '#000000'; $secondaryFontColor = '#FFFFFF';

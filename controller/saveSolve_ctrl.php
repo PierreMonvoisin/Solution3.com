@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 $saveError = false; $saveConfirmation = false; $saveConfirmationMessage = 'ERROR'; $saveErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
   isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;

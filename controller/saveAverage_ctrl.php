@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 $saveAverageError = false; $saveAverageConfirmation = false; $saveAverageConfirmationMessage = 'ERROR'; $saveAverageErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['saveAo5']) || isset($_POST['saveAo12']) || isset($_POST['saveAo50']) )) {
   isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;

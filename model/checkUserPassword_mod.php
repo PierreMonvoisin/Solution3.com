@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function checkUserPassword($mail){
   // Initiate connection to database
   require_once 'qUmgqQHW7Wconnection.php';

@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function validateAllNewInputs($array){
   // Initiate variables
   $username = ''; $mail = ''; $password = ''; $avatarUrl = '';

@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 $loadError = false; $loadErrorMessage = 'ERROR'; $displaySolve = 0;
 $displaySingle = false; $displayAverage = false;
 if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){

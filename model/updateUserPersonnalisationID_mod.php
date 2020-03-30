@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function updateUserPersonnalisationID($lastId, $avatar_url){
   $userStmtStatus = null; $userStmt = null;
   // Initiate connection to database

@@ -1,5 +1,6 @@
 <?php // Store user infos in session storage to use them on all pages
-require '../share/session.php'; ?>
+require '../share/session.php';
+require '../share/forbiddenPages.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>

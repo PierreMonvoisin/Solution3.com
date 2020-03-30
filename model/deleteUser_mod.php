@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function deleteUser($mail){
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database

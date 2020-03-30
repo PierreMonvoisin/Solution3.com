@@ -1,3 +1,5 @@
+<?php session_start();
+require 'share/forbiddenPages.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>

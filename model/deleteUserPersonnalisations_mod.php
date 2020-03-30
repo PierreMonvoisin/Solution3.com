@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function deleteUserPersonnalisations($id_personnalisations){
   $personnalisationsStmtStatus = null; $personnalisationsStmt = null;
   // Initiate connection to database

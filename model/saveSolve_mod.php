@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function saveSolve($id, $scramble, $time, $date) {
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database

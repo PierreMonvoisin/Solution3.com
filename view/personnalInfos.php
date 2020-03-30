@@ -1,4 +1,5 @@
-<?php require '../controller/personnalInfos_ctrl.php';
+<?php require '../share/forbiddenPages.php';
+require '../controller/personnalInfos_ctrl.php';
 // If the password is correct or the update form is validated
 if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
   <div id="personnalInfos" class="card mx-auto my-2 col-lg-11 col-12 px-0 bg-copper shadow">

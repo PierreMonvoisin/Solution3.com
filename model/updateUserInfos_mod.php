@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function updateUserInfos($mail, $set, $values, $whichBind){
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database

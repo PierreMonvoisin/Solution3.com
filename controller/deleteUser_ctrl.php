@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 $deleteError = false; $deleteConfirmation = false; $deleteConfirmationMessage = 'ERROR'; $deleteErrorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteAccountConfirmation'])) {
   $mail = null; $id_personnalisations = null;

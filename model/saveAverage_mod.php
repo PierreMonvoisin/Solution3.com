@@ -1,4 +1,4 @@
-<?php
+<?php require '../share/forbiddenPages.php';
 function saveAverage($id, $average, $fullAverage, $averageArray, $dateTime) {
   $stmtStatus = null; $stmt = null;
   $best = '`best_ao'.$average.'`';
