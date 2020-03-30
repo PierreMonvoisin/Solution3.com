@@ -2,11 +2,11 @@
 function updateUserPersonnalisationID($lastId, $avatar_url){
   $userStmtStatus = null; $userStmt = null;
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters
-    $userStmt = $database->prepare("UPDATE `users` SET `id_personnalisations` = :id_personnalisations WHERE `avatar_url` = :avatar_url");
+    $userStmt = $database->prepare("UPDATE `5VAyPO6OaNusers` SET `id_personnalisations` = :id_personnalisations WHERE `avatar_url` = :avatar_url");
     // Bind all parameters to their value with type specification
     $userStmt->bindParam(':id_personnalisations', $lastId, PDO::PARAM_INT);
     $userStmt->bindParam(':avatar_url', $avatar_url, PDO::PARAM_STR);

@@ -5,7 +5,7 @@ function saveAverage($id, $average, $fullAverage, $averageArray, $dateTime) {
   $scramble = '`ao' .$average. '_scramble`';
   $currentDate = '`ao' .$average. '_date`';
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters

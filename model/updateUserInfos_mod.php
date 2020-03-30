@@ -2,11 +2,11 @@
 function updateUserInfos($mail, $set, $values, $whichBind){
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters
-    $stmt = $database->prepare("UPDATE `users` SET $set WHERE `mail` = :mail");
+    $stmt = $database->prepare("UPDATE `5VAyPO6OaNusers` SET $set WHERE `mail` = :mail");
     // Bind all parameters to their value with type specification
     if ($whichBind == 'both'){
       $stmt->bindParam(':username', $values['username'], PDO::PARAM_STR);

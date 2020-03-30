@@ -1,13 +1,13 @@
 <?php
 function userValidity($userInfos){
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters
     $stmt = $database->prepare(
       // Select the informations necessary for the connection
-      'SELECT `mail`, `password`, `avatar_url` FROM `users`
+      'SELECT `mail`, `password`, `avatar_url` FROM `5VAyPO6OaNusers`
       -- Where the mail is the same as the mail in the from
       WHERE `mail` = :mail'
     );

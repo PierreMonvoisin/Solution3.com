@@ -1,13 +1,13 @@
 <?php
 function checkUserPassword($mail){
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters
     $stmt = $database->prepare(
       // Fetch the password assiociated to the mail
-      'SELECT `password` FROM `users` WHERE `mail` = :mail'
+      'SELECT `password` FROM `5VAyPO6OaNusers` WHERE `mail` = :mail'
     );
     // Bind parameter to its value with type specification
     $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);

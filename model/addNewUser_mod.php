@@ -2,14 +2,14 @@
 function addNewUser($userInfos) {
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   // Hash password to store it safely
   $userInfos['password'] = password_hash($userInfos['password'], PASSWORD_BCRYPT);
   try {
     // Declare request with paramaters
     $stmt = $database->prepare(
-      'INSERT INTO `users` (`username`,`mail`,`password`,`avatar_url`,`id_personnalisations`)
+      'INSERT INTO `5VAyPO6OaNusers` (`username`,`mail`,`password`,`avatar_url`,`id_personnalisations`)
       VALUES (:username, :mail, :password, :avatar_url, :id_personnalisations)'
     );
     // Bind all parameters to their value with type specification

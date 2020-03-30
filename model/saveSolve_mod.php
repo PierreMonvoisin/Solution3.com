@@ -2,7 +2,7 @@
 function saveSolve($id, $scramble, $time, $date) {
   $stmtStatus = null; $stmt = null;
   // Initiate connection to database
-  require_once 'connection.php';
+  require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
     // Declare request with paramaters

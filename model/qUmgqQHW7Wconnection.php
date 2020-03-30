@@ -1,7 +1,7 @@
 <?php
 function connectionToDatabase() {
   // Require the constants for the connection
-  require_once 'parameters.php';
+  require_once 'kz17w4S5fOparameters.php';
   try {
     $database = new PDO('mysql:dbname=' .DB. ';host=' .HOST. ';charset=utf8', USER, PASSWORD, [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
     return $database;

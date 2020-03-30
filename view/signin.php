@@ -1,4 +1,6 @@
-<?php require '../controller/signin_ctrl.php'; ?>
+<?php session_start();
+require '../share/forbiddenPages.php';
+require '../controller/signin_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>

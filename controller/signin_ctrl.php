@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newSubmit'])) {
         [$stmtStatus, $stmt] = addNewUser($userInfos);
         // $stmtStatus = bool
         if ($stmtStatus == 'ERROR'){
+          if (!is_string($stmt)){
+            $stmt = implode('', $stmt);
+          }
           $errorMessage = $stmt;
           $error = true;
         } else if ($stmtStatus && $stmt->rowCount() > 0){
