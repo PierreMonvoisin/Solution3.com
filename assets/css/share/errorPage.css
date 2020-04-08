@@ -3,6 +3,13 @@ html, body {
   width: 100vw;
   overflow: hidden;
 }
-#mainTitle {
+.jumbotron {
+  width: 70%;
+}
+h1, #mainTitle {
   width: 100%;
+}
+/* height of little image */
+#notFoundGif {
+  width: 20%;
 }

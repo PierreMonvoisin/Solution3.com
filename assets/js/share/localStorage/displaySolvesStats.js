@@ -1,14 +1,20 @@
+// If the local storage is available
 if (typeof(Storage) != "undefined") {
+  // If there is at least one solve in the local storage
   if (localStorage.getItem('index')){
     var numberOfSolve = Number(localStorage.getItem('index'));
+    // As long as the solve found is null, get the previous solve
     while (localStorage.getItem('index_' + numberOfSolve) == null  && numberOfSolve > 0){
       numberOfSolve--;
     }
     if (numberOfSolve > 0){
       // Delete "no solve" message
       $('#noSolve').hide();
+      // For each solve
       for (numberOfSolve; numberOfSolve >= 1; numberOfSolve--){
+        // Get the index, time, ao5, ao12, ao50 and the date of the solve
         var index_LS = localStorage.getItem(`index_${numberOfSolve}`);
+        // If the value is null, replace it with '-' or '', else format it for display
         index_LS == null ? index_LS = '' : index_LS = Number(index_LS);
         var time_LS = localStorage.getItem(`time_${numberOfSolve}`);
         time_LS == null ? time_LS = '-' : time_LS = millisecondsToFullTime(time_LS);
@@ -22,6 +28,7 @@ if (typeof(Storage) != "undefined") {
         scramble_LS == null ? scramble_LS = '' : scramble_LS;
         var dateTime_LS = localStorage.getItem(`dateTime_${numberOfSolve}`);
         dateTime_LS == null ? dateTime_LS = '' : dateTime_LS;
+        // If the solve has enough information, display it
         if (index_LS != '' && time_LS != '-' && scramble_LS != '-'){
           // Create new line to put the informations in solve history
           var tr = document.createElement('tr');
@@ -32,8 +39,8 @@ if (typeof(Storage) != "undefined") {
           <td class="ao12Value py-1 px-1 border-top-0">${ao12_LS}</td>
           <td class="ao50Value py-1 px-1 border-left-0 border-right-0 border-top-0">${ao50_LS}</td>`;
           $('#solveList tbody').append(tr);
+          // Put the last solve in the statistics
           if (numberOfSolve == Number(localStorage.getItem('index'))){
-            // Put solve in solve statistics
             $('#sideStatIndex').html(index_LS);
             $('#sideStatSingle').html(time_LS);
             $('#sideStatAo5').html(ao5_LS);
@@ -48,8 +55,6 @@ if (typeof(Storage) != "undefined") {
         }
       }
     }
-  } else {
-    // No solve
   }
 } else {
   console.warn('Impossible d\'afficher les résolutions depuis le stockage local du navigateur !');

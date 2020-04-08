@@ -4,7 +4,12 @@ function displayTimer(hours, minutes, seconds, milliseconds){
   $("#hours").html(prependZero(hours, 2));
   $("#minutes").html(prependZero(minutes, 2));
   $("#seconds").html(prependZero(seconds, 2));
-  if (milliseconds < 100){
+  // Prepend zeros to the milliseconds to always have 3 number to stop the time " shaking "
+  milliseconds = milliseconds.toString()
+  if (milliseconds.length < 2){
+    milliseconds = '0' + milliseconds;
+  }
+  if (milliseconds.length < 3){
     milliseconds = '0' + milliseconds;
   }
   $("#milliseconds").html(milliseconds);
@@ -22,6 +27,7 @@ function displayTimer(hours, minutes, seconds, milliseconds){
 }
 // Display averages in history
 function displayCurrentSolve(index, time, ao5, ao12, ao50, currentScramble, dateTime){
+  // Transform time to better display it
   var currentTime = millisecondsToFullTime(time);
   var currentAo5 = millisecondsToFullTime(ao5);
   var currentAo12 = millisecondsToFullTime(ao12);
@@ -62,6 +68,7 @@ function displaySolveDetails(id, time, scramble, scrambleRepresentation, dateTim
   $('#solveDetailsModal').modal('show');
 }
 function displayAo5Details(scramble, time, nbSolveDisplayed){
+  // If the time is deleted or a DNF, return
   if (scramble == undefined || time == undefined){
     return;
   }
@@ -85,6 +92,7 @@ function displayAo5Details(scramble, time, nbSolveDisplayed){
   }
 }
 function displayAo12Details(scramble, time, nbSolveDisplayed){
+  // If the time is deleted or a DNF, return
   if (scramble == undefined || time == undefined){
     return;
   }
@@ -108,6 +116,7 @@ function displayAo12Details(scramble, time, nbSolveDisplayed){
   }
 }
 function displayAo50Details(scramble, time, nbSolveDisplayed){
+  // If the time is deleted or a DNF, return
   if (scramble == undefined || time == undefined){
     return;
   }
@@ -131,10 +140,14 @@ function displayAo50Details(scramble, time, nbSolveDisplayed){
   }
 }
 function bestAndWorstInList(list){
+  // Transform all time into milliseconds
   list = list.map(formattedTimeToMilliseconds);
   var maxValue = Math.max(...list);
+  // Get he index of the worst time in average
   var indexMaxValue = list.indexOf(maxValue);
   var minValue = Math.min(...list);
+  // Get the index of best time in average
   var indexMinValue = list.indexOf(minValue);
+  // Transform the index of array to index of list and return it
   return [indexMaxValue + 1, indexMinValue + 1];
 }

@@ -3,6 +3,7 @@
   min-width: 100%;
   overflow-y: hidden;
 }
+/* No resize button on textarea */
 #solveDetailsModal textarea {
   resize: none;
 }
@@ -12,19 +13,19 @@
   border: none;
   outline: none;
 }
-#ao5Details input[type='text'], textarea {
+#ao5Details input[type='text'] {
   width: 100%;
   background: transparent;
   border: none;
   outline: none;
 }
-#ao12Details input[type='text'], textarea {
+#ao12Details input[type='text'] {
   width: 100%;
   background: transparent;
   border: none;
   outline: none;
 }
-#ao50Details input[type='text'], textarea {
+#ao50Details input[type='text'] {
   width: 100%;
   background: transparent;
   border: none;

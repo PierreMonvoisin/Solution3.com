@@ -1,4 +1,6 @@
+// Clear all the local storage, except the storage authorization, if it is set
 function clearStorage_LS(){
+  // If the local storage is available
   if (typeof(Storage) != "undefined") {
     if (localStorage.getItem('storageAuthorization') == 'true'){
       localStorage.clear();

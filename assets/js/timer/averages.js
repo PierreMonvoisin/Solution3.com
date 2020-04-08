@@ -136,12 +136,18 @@ function averageOf50(time){
   }
   return ao50;
 }
+// Change set time into 'DNF' in averages array
 function dnfTimeInAverages(time){
+  // Get the time in milliseconds
   var timeToDnf = formattedTimeToMilliseconds(time);
   var indexToDnf = -1;
+  // If the solve array contains at least one solve
   if (solves50.length > 0){
+    // Get the index of the solve
     indexToDnf = solves50.indexOf(timeToDnf);
+    // Change value to 'DNF'
     solves50[indexToDnf] = 'DNF';
+    // Reset index
     indexToDnf = -1
   }
   if (solves12.length > 0){
@@ -152,15 +158,20 @@ function dnfTimeInAverages(time){
   if (solves5.length > 0){
     indexToDnf = solves5.indexOf(timeToDnf);
     solves5[indexToDnf] = 'DNF';
-    indexToDnf = -1
   }
 }
+// Add two seconds to set time in averages array
 function addTwoSecondsInAverages(time){
+  // Get the time in milliseconds
   var timeToUpdate = formattedTimeToMilliseconds(time);
   var indexToUpdate = -1;
+  // If the solve array contains at least one solve
   if (solves50.length > 0){
+    // Get the index of the solve
     indexToUpdate = solves50.indexOf(timeToUpdate);
+    // Add 2000 milliseconds to the time
     solves50[indexToUpdate] = Number(solves50[indexToUpdate]) + 2000;
+    // Reset index
     indexToUpdate = -1
   }
   if (solves12.length > 0){
@@ -171,17 +182,22 @@ function addTwoSecondsInAverages(time){
   if (solves5.length > 0){
     indexToUpdate = solves5.indexOf(timeToUpdate);
     solves5[indexToUpdate] = Number(solves5[indexToUpdate]) + 2000;
-    indexToUpdate = -1
   }
 }
+// Delete set time in averages array
 function deleteTimeInAverages(time, indexOfAverage){
+  // Get the time in milliseconds
   var timeToFind = formattedTimeToMilliseconds(time);
   var indexToDelete = -1;
+  // If the solve array contains at least one solve
   if (solves50.length > 0){
+    // Get the index of the solve
     indexToDelete = solves50.indexOf(timeToFind);
+    // If the solve is found, delete it
     if (indexToDelete != -1){
       solves50.splice(indexToDelete, 1);
     }
+    // Reset index
     indexToDelete = -1;
   }
   if (solves12.length > 0){
@@ -196,8 +212,8 @@ function deleteTimeInAverages(time, indexOfAverage){
     if (indexToDelete != -1){
       solves5.splice(indexToDelete, 1);
     }
-    indexToDelete = -1;
   }
+  // Get the first index outside of the array
   var lastAo5Solve, lastAo12Solve, lastAo50Solve;
   lastAo5Solve = lastAo12Solve = lastAo50Solve = 0;
   if (indexOfAverage > 5){
@@ -212,6 +228,7 @@ function deleteTimeInAverages(time, indexOfAverage){
   if (lastAo5Solve > 0){
     var lastAo5 = $('#' + lastAo5Solve + ' .timeValue').html();
     var lastAo5Value = $('#' + lastAo5Solve + ' .ao5Value').html();
+    // Check if the solve isn't a DNF, if so, add it to the end of the array
     if (lastAo5Value != '-' && lastAo5 != 'DNF'){
       lastAo5 = formattedTimeToMilliseconds(lastAo5);
       solves5.splice(solves5.length - 1, 0, lastAo5);
@@ -234,10 +251,15 @@ function deleteTimeInAverages(time, indexOfAverage){
     }
   }
 }
-// Local Storage Section
+// Local Storage Section //
+
+// Put a solve from the local storage to the averages array
 function fromLStoAverageArray_LS(time){
+  // If the local storage is available
   if (typeof(Storage) != "undefined") {
+    // Transform time to milliseconds
     var timeToInput = formattedTimeToMilliseconds(time);
+    // Add the correct amount of solve in each average array
     if (solves5.length < 5){
       solves5.push(timeToInput);
     }

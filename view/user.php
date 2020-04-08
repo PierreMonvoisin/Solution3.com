@@ -1,10 +1,12 @@
-<?php require '../controller/logOff_ctrl.php';
+<?php
+require '../controller/logOff_ctrl.php';
 // Store user infos in session storage to use them on all pages
 require '../share/session.php';
 require '../share/forbiddenPages.php';
 require '../controller/updatePersonnalisations_ctrl.php';
 require '../controller/deleteUser_ctrl.php';
-include '../controller/loadSavedSolve_ctrl.php'; ?>
+include '../controller/loadSavedSolve_ctrl.php';
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -190,7 +192,5 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
   <script src="../assets/js/user.js"></script>
   <script src="../assets/js/personnalInfos.js"></script>
   <script src="../assets/js/averageLoaded.js"></script>
-  <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <script src="../assets/js/share/graph.js"></script> -->
 </body>
 </html>

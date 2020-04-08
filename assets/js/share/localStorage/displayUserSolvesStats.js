@@ -1,8 +1,12 @@
+// If the local storage is available
 if (typeof(Storage) != "undefined") {
+  // If there is at least one solve in the local storage
   if (localStorage.getItem('index')){
     var lastIndex = Number(localStorage.getItem('index'));
     if (lastIndex > 0){
+      // Get the last solve, ao5, ao12 and ao50
       var lastSingle = localStorage.getItem('time');
+      // If the value is null, replace it with '-' or '', else format it for display
       lastSingle == null ? lastSingle = '-' : lastSingle = millisecondsToFullTime(lastSingle);
       var lastAo5 = localStorage.getItem('ao5');
       lastAo5 == null ? lastAo5 = '-' : lastAo5 = millisecondsToFullTime(lastAo5);
@@ -22,7 +26,9 @@ if (typeof(Storage) != "undefined") {
       worstSingle = worstAo5 = worstAo12 = worstAo50 = 0;
       var testSingle, testAo5, testAo12, testAo50;
       testSingle = testAo5 = testAo12 = testAo50 = 0;
+      // For each solve in history
       for (var i = lastIndex; i >= 1; i--) {
+        // Get the time, ao5, a12 and 50 to find if it is the best or worst time or average in storage
         testSingle = Number(localStorage.getItem('time_' + i));
         if (testSingle < bestSingle && testSingle != 0){
           bestSingle = testSingle;
@@ -60,6 +66,7 @@ if (typeof(Storage) != "undefined") {
           }
         }
       }
+      // If the value is a number and isn't the defaut one, format it to better display it
       isNaN(bestSingle) || bestSingle == 999999999999 ? bestSingle = '-' : bestSingle = millisecondsToFullTime(bestSingle);
       isNaN(bestAo5) || bestAo5 == 999999999999 ? bestAo5 = '-' : bestAo5 = millisecondsToFullTime(bestAo5);
       isNaN(bestAo12) || bestAo12 == 999999999999 ? bestAo12 = '-' : bestAo12 = millisecondsToFullTime(bestAo12);
@@ -81,51 +88,4 @@ if (typeof(Storage) != "undefined") {
       $('#worstAo50').text(worstAo50);
     }
   }
-}
-// Check for solves in the local storage on load
-if (localStorage.getItem('indexLog')){
-  // Best solves
-  var testBest, bestSingle, bestAo5, bestAo12, bestAo50;
-  testBest = bestSingle = bestAo5 = bestAo12 = bestAo50 = 999999999999;
-  for (var numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
-    testBest = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
-    testBest < bestSingle ? bestSingle = testBest : bestSingle;
-    testBest = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
-    testBest < bestAo5 ? bestAo5 = testBest : bestAo5;
-    testBest = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
-    testBest < bestAo12 ? bestAo12 = testBest : bestAo12;
-    testBest = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
-    testBest < bestAo50 ? bestAo50 = testBest : bestAo50;
-  }
-  // Check if there was not enough solve to calculate worst time
-  // Not enough solve mean '-' in localStorage which return 0 in variable
-  (bestAo5 == 0 || bestAo5 == 999999999999) ? bestAo5 = '-' : bestAo5 = correctTime(bestAo5);
-  (bestAo12 == 0 || bestAo12 == 999999999999) ? bestAo12 = '-' : bestAo12 = correctTime(bestAo12);
-  (bestAo50 == 0 || bestAo50 == 999999999999) ? bestAo50 = '-' : bestAo50 = correctTime(bestAo50);
-  // Put worst solves in stats
-  $('#bestSingle').text(correctTime(bestSingle));
-  $('#bestAo5').text(bestAo5);
-  $('#bestAo12').text(bestAo12);
-  $('#bestAo50').text(bestAo50);
-  // Worst solves
-  var testWorst, worstSingle, worstAo5, worstAo12, worstAo50;
-  testWorst = worstSingle = worstAo5 = worstAo12 = worstAo50 = 0;
-  for (numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
-    testWorst = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
-    testWorst > worstSingle ? worstSingle = testWorst : worstSingle;
-    testWorst = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
-    testWorst > worstAo5 ? worstAo5 = testWorst : worstAo5;
-    testWorst = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
-    testWorst > worstAo12 ? worstAo12 = testWorst : worstAo12;
-    testWorst = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
-    testWorst > worstAo50 ? worstAo50 = testWorst : worstAo50;
-  }
-  worstAo5 == 0 ? worstAo5 = '-' : worstAo5 = correctTime(worstAo5);
-  worstAo12 == 0 ? worstAo12 = '-' : worstAo12 = correctTime(worstAo12);
-  worstAo50 == 0 ? worstAo50 = '-' : worstAo50 = correctTime(worstAo50);
-  // Put worst solves in stats
-  $('#worstSingle').text(correctTime(worstSingle));
-  $('#worstAo5').text(worstAo5);
-  $('#worstAo12').text(worstAo12);
-  $('#worstAo50').text(worstAo50);
 }

@@ -32,9 +32,7 @@ $(function(){
     // Launch the function to collect, sanitize and validate all inputs values
     var results = checkInputs();
     var loginValidity = '';
-    // Debug lines
-    // console.log('final result is :');
-    // console.log(results);
+    // Debug lines // console.log(results);
     var [values, errors, status, message] = results;
     // If the status is true, the error log is empty and the value log has 2 values
     if (status && errors.length == 0 && values.length == 2 ){

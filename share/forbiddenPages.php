@@ -10,6 +10,7 @@ if ($pageName != false || $_SERVER['REQUEST_URI'] == '/'){
     $pageName = '/';
   }
   if (in_array($pageName, $allowedPages)){
+    // var_dump($pageName);
     isset($_SESSION['mail']) && ! empty(trim($_SESSION['mail'])) ? $mail = trim($_SESSION['mail']) : $mail = null;
     isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
     if ($mail != null && $id != null){
