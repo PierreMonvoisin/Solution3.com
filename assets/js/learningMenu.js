@@ -14,8 +14,9 @@ $(function() {
   // Recognition of which button was pushed and launch the right function
   $('button').click(function () {
     var whichButton = $(this).attr('id');
+    var buttonName = [];
     if (whichButton != undefined) {
-      var buttonName = whichButton.split(/(?=[A-Z])/);
+      buttonName = whichButton.split(/(?=[A-Z])/);
     } else {
       return;
     }

@@ -148,12 +148,12 @@ function dnfTimeInAverages(time){
     // Change value to 'DNF'
     solves50[indexToDnf] = 'DNF';
     // Reset index
-    indexToDnf = -1
+    indexToDnf = -1;
   }
   if (solves12.length > 0){
     indexToDnf = solves12.indexOf(timeToDnf);
     solves12[indexToDnf] = 'DNF';
-    indexToDnf = -1
+    indexToDnf = -1;
   }
   if (solves5.length > 0){
     indexToDnf = solves5.indexOf(timeToDnf);
@@ -172,12 +172,12 @@ function addTwoSecondsInAverages(time){
     // Add 2000 milliseconds to the time
     solves50[indexToUpdate] = Number(solves50[indexToUpdate]) + 2000;
     // Reset index
-    indexToUpdate = -1
+    indexToUpdate = -1;
   }
   if (solves12.length > 0){
     indexToUpdate = solves12.indexOf(timeToUpdate);
     solves12[indexToUpdate] = Number(solves12[indexToUpdate]) + 2000;
-    indexToUpdate = -1
+    indexToUpdate = -1;
   }
   if (solves5.length > 0){
     indexToUpdate = solves5.indexOf(timeToUpdate);

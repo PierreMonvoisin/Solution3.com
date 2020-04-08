@@ -6,9 +6,9 @@ $(function () {
     $('#lessonsLink').attr('href', 'view/learningMenu.php');
     $('#multiplayerLink').attr('href', 'view/multiplayer.php');
     if ($('#accountLink').attr('href') == 'signin.php'){
-      $('#accountLink').attr('href', 'view/signin.php')
+      $('#accountLink').attr('href', 'view/signin.php');
     } else {
-      $('#accountLink').attr('href', 'view/user.php')
+      $('#accountLink').attr('href', 'view/user.php');
     }
   }
   // Set default position as open
@@ -17,10 +17,10 @@ $(function () {
     if (position === 'closed'){
       $('#scrollButton').css({'transition': '0.5s', 'transform': 'scale(1.15)'});
     }
-  })
+  });
   $('#scrollButton').mouseleave(function(){
     $('#scrollButton').css({'transition': '0.5s', 'transform': 'scale(1)'});
-  })
+  });
   // On button click, execute the right function
   $('#scrollButton').click(function () {
     if (position === 'closed') {
@@ -35,7 +35,7 @@ $(function () {
     if (position === 'open') {
       headerClosing();
     }
-  })
+  });
   // Open the top menu
   function headerOpening() {
     $('header').slideDown('slow', function () {
@@ -51,7 +51,7 @@ $(function () {
       // Set position as closed at the end of the animation
       position = 'closed';
       // Change direction of arrow button
-      $('#scrollButton img').attr('src', 'https://image.flaticon.com/icons/svg/32/32195.svg')
+      $('#scrollButton img').attr('src', 'https://image.flaticon.com/icons/svg/32/32195.svg');
     });
   }
   // Close header on page load

@@ -88,12 +88,11 @@ function millisecondsToFullTime(milliseconds){
   while (milliInSeconds >= 60){
     milliInSeconds = milliInSeconds - 60;
   }
-  milliseconds = milliseconds
   while (milliseconds >= 1000){
     milliseconds = milliseconds - 1000;
   }
   // Prepend zeros to the milliseconds to always have 3 number to stop the time ' shaking '
-  milliseconds = milliseconds.toString()
+  milliseconds = milliseconds.toString();
   if (milliseconds.length < 2){
     milliseconds = '0' + milliseconds;
   }

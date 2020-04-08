@@ -63,7 +63,7 @@ $(function(){
           // Generate a random scramble to create a unique picture for the user
           var scramble = newScramble(15); // 15 letters long
           // Creation of url to put as randomly created scramble of image
-          userAvatarUrl = '../share/visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
+          var userAvatarUrl = '../share/visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
           // Set the status of the avatar as set
           $('#avatarUrl').val(JSON.stringify(userAvatarUrl));
           document.cookie('avatarUrl='+ userAvatarUrl);

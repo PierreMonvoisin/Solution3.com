@@ -105,12 +105,12 @@ $(function () {
     if (localStorage.getItem('storageAuthorization')){
       localStorage.setItem('displayTimer', 'yep');
     }
-  })
+  });
   $('#hideTimer').change(function(){
     if (localStorage.getItem('storageAuthorization')){
       localStorage.setItem('displayTimer', 'nope');
     }
-  })
+  });
   // Get the current personnalisation value
   current_mainFont = $('html').css('font-family');
   if (current_file == 'timer.php'){
@@ -132,14 +132,14 @@ $(function () {
       $('#timer').css('font-size', '13vw');
     }
     $('#timer').css('font-family', timerFont);
-  })
+  });
   // Media query for button text
   var windowWidth = $(window).width();
   mediaQueryButton(windowWidth);
   $(window).resize(function(){
     windowWidth = $(window).width();
     mediaQueryButton(windowWidth);
-  })
+  });
   function mediaQueryButton(windowWidth){
     // Change the text of the " save " button if the width is higher or lower than 576 px
     if (windowWidth <= 576){
@@ -206,7 +206,7 @@ $(function () {
     $("option[value=" + (fonts.indexOf(current_mainFont) + 1) + "]").attr('selected', true);
     $('#timerFont').val(current_timerFont);
     $("option[value=" + (fonts.indexOf(current_timerFont) + 1) + "]").attr('selected', true);
-  })
+  });
   // Need to learn how to works, but it works
   function lightenDarkenHexColor(color,amount) {
     var usePound = false;

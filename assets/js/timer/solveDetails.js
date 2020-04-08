@@ -22,7 +22,7 @@ $(function(){
       }
       solveIndex = currentSolveIndex;
     }
-  })
+  });
   // On DNF button click
   $('#dnf').click(function(){
     // Get the index of the solve chosen
@@ -43,7 +43,7 @@ $(function(){
       }
       solveIndex = currentSolveIndex;
     }
-  })
+  });
   // On delete button click
   $('#deleteSolve').click(function(){
     // Get the index and time of the solve chosen
@@ -78,11 +78,11 @@ $(function(){
       $('#milliseconds').html('000');
       $('#seconds').html('00');
     }
-  })
+  });
   $(document).on('hidden.bs.modal', '#solveDetailsModal', function() {
     // Reset scramble representation on modal close
     $('#scrambleRepresentation').attr('src', '../share/visualcube.php?fmt=png&bg=t&pzl=3');
-  })
+  });
   var solvesLoaded = 0;
   // On modal opening
   $(document).on('show.bs.modal', '#solveDetailsModal', function() {
@@ -217,7 +217,7 @@ $(function(){
         openTab = 'single';
       });
     }
-  })
+  });
   $('#ao5TabButton').click(function () {
     if (openTab != 'ao5'){
       $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
@@ -237,7 +237,7 @@ $(function(){
         openTab = 'ao12';
       });
     }
-  })
+  });
   $('#ao50TabButton').click(function(){
     if (openTab != 'ao50'){
       $('#'+ openTab +'Tab').animate({ width: 'toggle' }, 550, function(){
@@ -247,5 +247,5 @@ $(function(){
         openTab = 'ao50';
       });
     }
-  })
+  });
 });

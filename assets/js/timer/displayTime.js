@@ -5,7 +5,7 @@ function displayTimer(hours, minutes, seconds, milliseconds){
   $("#minutes").html(prependZero(minutes, 2));
   $("#seconds").html(prependZero(seconds, 2));
   // Prepend zeros to the milliseconds to always have 3 number to stop the time " shaking "
-  milliseconds = milliseconds.toString()
+  milliseconds = milliseconds.toString();
   if (milliseconds.length < 2){
     milliseconds = '0' + milliseconds;
   }

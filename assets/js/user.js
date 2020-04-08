@@ -2,10 +2,10 @@ $(function(){
   // deleteAccountModal
   $('#deleteAccountButton').click(function(){
     $('#deleteAccountModal').modal('show');
-  })
+  });
   $('#cancelDeleteAccount').click(function(){
     $('#deleteAccountModal').modal('hide');
-  })
+  });
   // signOffModal
   $('#signOffButton').click(function(){
     $('#signOffModal').modal('show');

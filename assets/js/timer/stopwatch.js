@@ -66,7 +66,7 @@ $(function(){
       // Stop the timer
       clearInterval(timeUpdate);
       // Display the time
-      displayTimer(hours, minutes, seconds, milliseconds)
+      displayTimer(hours, minutes, seconds, milliseconds);
       currentScramble = $('#scramble span').text();
       // Add the solve to the log
       addToLog(hours, minutes, seconds, milliseconds, currentScramble);
