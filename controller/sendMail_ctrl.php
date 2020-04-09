@@ -1,8 +1,9 @@
 <?php require '../share/forbiddenPages.php';
 function sendMail(){
-  $to = 'monvoisin.pierr@gmail.com';
+  // Destination
+  $to = 'monvoisin.pierre@gmail.com';
   $subject = 'First mail from Solution3';
-  $message = 'Mega Proot';
+  $message = 'sendMail_ctrl.php is functionnal';
   $headers = 'From: solution3.contact@gmail.com';
   $sent = mail($to, $subject, $message, $headers);
   if (!$sent) {

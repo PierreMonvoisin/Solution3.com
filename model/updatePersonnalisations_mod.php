@@ -5,6 +5,7 @@ function updatePersonnalisations($mainFontColor, $secondaryFontColor, $mainBackg
   require_once 'qUmgqQHW7Wconnection.php';
   $database = connectionToDatabase();
   try {
+    // If the user already has a personnalisation line in the database, update its line
     if ($id_personnalisations != 1){
       // Declare request with paramaters
       $stmt = $database->prepare(" UPDATE `personnalisations`
@@ -15,6 +16,7 @@ function updatePersonnalisations($mainFontColor, $secondaryFontColor, $mainBackg
         WHERE `id` = :id");
       $stmt->bindParam(':id', $id_personnalisations, PDO::PARAM_INT);
     } else {
+      // Else create a new line for it
       $stmt = $database->prepare(" INSERT INTO `personnalisations` (`main_font_color`,`secondary_font_color`,`main_background_color`,`secondary_background_color`,`header_background_color`, `stats_background_color`, `display_timer`, `id_fonts_main`, `id_fonts_timer`)
       VALUES (:main_font_color, :secondary_font_color, :main_background_color, :secondary_background_color, :header_background_color, :stats_background_color, :display_timer, :id_fonts_main, :id_fonts_timer)");
     }

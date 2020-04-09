@@ -21,6 +21,7 @@ function DBInfosToSessionStorage($url){
     $stmt->bindParam(':url', $url, PDO::PARAM_STR);
     // Execute query
     $stmtStatus = $stmt->execute();
+    // If the execute() return true, fetch all informations in associative array
     if ($stmtStatus){
       return $stmt->fetch(PDO::FETCH_ASSOC);
     } else {

@@ -1,4 +1,5 @@
 <?php
+// Change url depending on the page openned
 $pageUrl = explode('/', $_SERVER['SCRIPT_NAME']);
 $page = end($pageUrl);
 if ($page == 'index.php'){

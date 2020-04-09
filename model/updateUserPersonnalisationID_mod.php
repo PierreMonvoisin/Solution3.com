@@ -16,6 +16,6 @@ function updateUserPersonnalisationID($lastId, $avatar_url){
     // If there is an exception, display it
     echo $e->getMessage();
   }
-  // Return the statement return value and the statement
+  // Return the statement return value
   return $userStmtStatus;
 } ?>

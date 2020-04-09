@@ -2,7 +2,7 @@
 $pageUrl = explode('/', $_SERVER['SCRIPT_NAME']);
 $page = end($pageUrl);
 if ($page == 'index.php'){
-  include 'controller/userAuthorization_ctrl.php'; 
+  include 'controller/userAuthorization_ctrl.php';
 } else {
   include '../controller/userAuthorization_ctrl.php';
 }
@@ -29,4 +29,3 @@ if ($page == 'index.php'){
     </div>
   </div>
 </div>
-<script src="../assets/js/share/getCookie.js"></script>

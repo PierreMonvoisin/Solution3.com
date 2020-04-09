@@ -1,5 +1,5 @@
 <ul id="default" class="list-group shadow">
-  <!--! Always keep the " TopLeft " class in first !-->
+  <!-- ! Always keep the " TopLeft " class in first ! -->
   <li class="TopLeft list-group-item bg-blue text-center sectionTitle m-0 py-1">Comment résoudre un rubik's cube</li>
   <li class="TopLeft list-group-item list-group-item-primary text-justify">
     Vous pouvez trouver ici un tutoriel étape par étape pour apprendre à résoudre simplement un rubik’s cube 3x3x3.<br>Il est composé de définitions, descriptions et illustrations afin d’apprendre pas à pas à comprendre comment le rubik’s cube fonctionne et comment le résoudre.

@@ -22,8 +22,11 @@ function saveAverage($id, $average, $fullAverage, $averageArray, $dateTime) {
     $stmtStatus = $stmt->execute();
   } catch (PDOException $e) {
     $stmtStatus = null; $stmt = null;
+    // If there is an error, get the code
     $errorCode = $e->getCode();
+    // Error code 23000 = id_users already existing in database
     if ($errorCode == '23000'){
+      // Instead of creating new line, update existing line
       try {
         // Declare request with paramaters
         $stmt = $database->prepare("UPDATE `stats`
@@ -44,6 +47,6 @@ function saveAverage($id, $average, $fullAverage, $averageArray, $dateTime) {
       echo 'unknown error : ' .$e->getMessage();
     }
   }
-  // Return the statement return value and the statement
-  return [$stmtStatus,$stmt];
+  // Return the statement return value 
+  return $stmtStatus;
 } ?>

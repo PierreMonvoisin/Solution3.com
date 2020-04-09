@@ -1,17 +1,21 @@
 <?php require '../share/forbiddenPages.php';
 $saveError = false; $saveConfirmation = false; $saveConfirmationMessage = 'ERROR'; $saveErrorMessage = 'ERROR';
+// On form post and saveSolve button pressed
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
+  // If the user is connected
   isset($_SESSION['id']) && ! empty(trim($_SESSION['id'])) ? $id = trim($_SESSION['id']) : $id = null;
   if ($id != null){
+    // Check if all values are set and aren't empty
     ! empty(trim($_POST['scramble'])) ? $scramble = trim($_POST['scramble']) : $scramble = null;
     ! empty(trim($_POST['time'])) ? $time = trim($_POST['time']) : $time = null;
     ! empty(trim($_POST['date'])) ? $date = trim($_POST['date']) : $date = null;
     if ($scramble != null && $time != null && $date != null){
+      // Sanitize all values
       $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
       $scramble = filter_var($scramble, FILTER_SANITIZE_STRING);
       $time = filter_var($time, FILTER_SANITIZE_STRING);
       $date = filter_var($date, FILTER_SANITIZE_STRING);
-      // Validate all inputs
+      // Validate all values
       $id = filter_var($id, FILTER_VALIDATE_INT);
       // If validate return boolean, set value as null
       gettype($id) != 'boolean' ?: $id = null;
@@ -26,15 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveSolve'])) {
       // If validate return boolean, set value as null
       gettype($date) != 'boolean' ?: $date = null;
       if ($id != null && $time != null && $date != null){
+        // Delete all spaces in the scramble and time
         $scramble = preg_replace('/\s+/', '', $scramble);
         $time = preg_replace('/\s+/', '', $time);
+        // Put date in English format
         $dateArray = explode(' ', $date);
         [$dd, $mm, $yyyy] = explode('/', $dateArray[0]);
         $correctDateFormat = ($yyyy. '-' .$mm. '-' .$dd);
         $date = $correctDateFormat. ' ' .$dateArray[1];
         require '../model/saveSolve_mod.php';
-        [$stmtStatus, $stmt] = saveSolve($id, $scramble, $time, $date);
+        // Save the solve in the database
+        $stmtStatus = saveSolve($id, $scramble, $time, $date);
         if ($stmtStatus != false){
+          // Display confirmation message if all went well
           $saveConfirmationMessage = 'Votre résolution a bien été enregistré !';
           $saveConfirmation = true;
           return;

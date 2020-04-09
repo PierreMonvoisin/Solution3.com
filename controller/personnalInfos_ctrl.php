@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmUpdateForm']))
   $username = $password = $updateError = $updateErrorMessage = $updateConfirmation = $updateConfirmationMessage = null;
   $validatedUsername = ''; $validatedPassword = '';
   $passwordHash = null; $set = []; $whichBind = null;
+  // Check if all values are set and aren't empty
   $mail = $_SESSION['mail'] ?? null;
   empty(trim($_POST['updatePassword'])) ? $password = null : $password = $_POST['updatePassword'];
   empty(trim($_POST['confirmUpdatePassword'])) ? $passwordConfirmation = null : $passwordConfirmation = $_POST['confirmUpdatePassword'];

@@ -22,6 +22,7 @@
     </button>
   </div>
 </header>
+<!-- Up arrow as the scroll button -->
 <div id="scrollButton" class="w-100 text-center p-0 m-0">
   <img class="p-0 m-0" src="https://image.flaticon.com/icons/svg/271/271239.svg" alt="down arrow">
 </div>

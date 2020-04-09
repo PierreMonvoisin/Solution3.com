@@ -3,14 +3,16 @@
 if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
     $userAvatarUrl = explode('alg=', $_COOKIE['avatarUrl']);
     $userScramble = array_pop($userAvatarUrl);
+    // If the session isn't started or one of the value isn't set
   if (empty($_COOKIE['PHPSESSID']) || ! isset($_SESSION['mail'])){
     session_start();
     $url = $_COOKIE['avatarUrl'];
+    // Get all informations about the user form it's avatar url
     require '../model/DBInfosToSessionStorage_mod.php';
     $userInfos = DBInfosToSessionStorage($url);
-    // isset($_COOKIE['PHPSESSID'])
+    // If the user and its infos were found
     if (gettype($userInfos) != 'boolean'){
-      // Reset the cookie
+      // Re-set the cookie
       $cookieName = 'avatarUrl'; $cookieValue = $userInfos['avatar_url'];
       // Unix timestamp + (86400 seconds in a day * 7 to make a week)
       $cookieExpDate = time() + (86400 * 7);
@@ -33,6 +35,7 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       $_SESSION['display_timer'] = $userInfos['display_timer'];
       $_SESSION['main_font'] = $userInfos['main_font'];
       $_SESSION['timer_font'] = $userInfos['timer_font'];
+      // Need to put all personnalisations informations into the JS and then the CSS
     }
   }
 } else {

@@ -11,6 +11,7 @@ function validateAllPersonnalisationsInputs($colors, $mainFont, $timerFont, $dis
   if (in_array(null, $colors)){
     return false;
   } else {
+    // Sanitize all other vakyes
     $mainFont = filter_var($mainFont, FILTER_SANITIZE_NUMBER_INT);
     $timerFont = filter_var($timerFont, FILTER_SANITIZE_NUMBER_INT);
     $displayTimer = filter_var($displayTimer, FILTER_SANITIZE_NUMBER_INT);
@@ -19,6 +20,7 @@ function validateAllPersonnalisationsInputs($colors, $mainFont, $timerFont, $dis
     if ($displayTimer == null){
       return false;
     } else {
+      // Return all cleaned values
       return ['colors'=>$colors, 'mainFont'=>$mainFont, 'timerFont'=>$timerFont, 'displayTimer'=>$displayTimer, 'id_personnalisations'=>$id_personnalisations];
     }
   }

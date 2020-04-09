@@ -44,6 +44,7 @@
             </div>
           </div>
         </form>
+        <!-- Empty tabs that will be filled by the JS -->
         <div id="ao5Tab" class="col-12 px-0">
           <form id="ao5Details" class="col-12 pt-3 px-0" action="" method="post">
 
