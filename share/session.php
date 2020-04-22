@@ -1,4 +1,5 @@
 <?php
+$personnalisationsArray = [];
 // Get avater url if user is connected and the session didn't start yet
 if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
     $userAvatarUrl = explode('alg=', $_COOKIE['avatarUrl']);
@@ -7,6 +8,10 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
   if (empty($_COOKIE['PHPSESSID']) || ! isset($_SESSION['mail'])){
     session_start();
     $url = $_COOKIE['avatarUrl'];
+    $avatarUrlOptions = ['options'=>['regexp'=>"/^(\.\.\/share\/visualcube\.php\?fmt=png&bg=t&pzl=3&alg=)+([A-Z2']{15,30})+$/"]];
+    if (! filter_var($url, FILTER_VALIDATE_REGEXP, $avatarUrlOptions)){
+      return;
+    }
     // Get all informations about the user form it's avatar url
     require '../model/DBInfosToSessionStorage_mod.php';
     $userInfos = DBInfosToSessionStorage($url);
@@ -26,16 +31,8 @@ if (isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl'])){
       $_SESSION['mail'] = $userInfos['mail'];
       $_SESSION['avatar_url'] = $userInfos['avatar_url'];
       $_SESSION['id_personnalisations'] = $userInfos['id_personnalisations'];
-      $_SESSION['main_font_color'] = $userInfos['main_font_color'];
-      $_SESSION['secondary_font_color'] = $userInfos['secondary_font_color'];
-      $_SESSION['main_background_color'] = $userInfos['main_background_color'];
-      $_SESSION['secondary_background_color'] = $userInfos['secondary_background_color'];
-      $_SESSION['header_background_color'] = $userInfos['header_background_color'];
-      $_SESSION['stats_background_color'] = $userInfos['stats_background_color'];
-      $_SESSION['display_timer'] = $userInfos['display_timer'];
-      $_SESSION['main_font'] = $userInfos['main_font'];
-      $_SESSION['timer_font'] = $userInfos['timer_font'];
       // Need to put all personnalisations informations into the JS and then the CSS
+      $personnalisationsArray = ['main_font_color'=>$userInfos['main_font_color'],'secondary_font_color'=>$userInfos['secondary_font_color'],'main_background_color'=>$userInfos['main_background_color'],'secondary_background_color'=>$userInfos['secondary_background_color'],'header_background_color'=>$userInfos['header_background_color'],'stats_background_color'=>$userInfos['stats_background_color'],'display_timer'=>$userInfos['display_timer'],'main_font'=>$userInfos['main_font'],'timer_font'=>$userInfos['timer_font']];
     }
   }
 } else {

@@ -192,5 +192,13 @@ include '../controller/loadSavedSolve_ctrl.php';
   <script src="../assets/js/user.js"></script>
   <script src="../assets/js/personnalInfos.js"></script>
   <script src="../assets/js/averageLoaded.js"></script>
+  <script type="text/javascript">
+  <?php
+  $personnalisationsJSArray = json_encode($personnalisationsArray);
+  echo 'var userPersonnalisations = ' .$personnalisationsJSArray. ';';
+  ?>
+  </script>
+  <script src="../assets/js/share/localStorage/storePersonnalisations.js"></script>
+  <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
 </body>
 </html>
