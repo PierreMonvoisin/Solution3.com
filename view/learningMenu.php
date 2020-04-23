@@ -15,7 +15,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/learningMenu.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/lessons/defaultLesson.css">
 </head>
-<body class="bg-gainsboro">
+<body class="bg-gainsboro main_background_color">
   <?php include '../share/header.php'; ?>
   <div id="mainMenu" class="container-fluid p-0">
     <div class="row w-100 p-0 m-0">
@@ -49,5 +49,6 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   // Required scripts
   require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/learningMenu.js"></script>
+  <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
 </body>
 </html>

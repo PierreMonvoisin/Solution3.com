@@ -17,7 +17,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/timer.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/share/solveDetails.css">
 </head>
-<body class="bg-silver">
+<body class="bg-silver secondary_background_color">
   <?php include '../share/header.php'; ?>
   <!-- Main container -->
   <div id="timerContainer" class="d-flex">
@@ -30,11 +30,11 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
       </div>
       <!-- Scramble -->
       <div class="row text-center mb-0 mx-0 mt-xl-2 mt-lg-5 mt-5">
-        <h2 id="scramble" class="mt-4"><span class="py-2 px-2"></span></h2>
+        <h2 id="scramble" class="mt-4 main_font_color"><span class="py-2 px-2"></span></h2>
       </div>
       <!-- Timer -->
       <div class="row text-center mx-auto">
-        <h1 class="p-0 m-0 timer_font" id="timer">
+        <h1 class="p-0 m-0 timer_font main_font_color" id="timer">
           <span id="hours">00</span><span id="separatorHours">:</span>
           <span id="minutes">00</span><span id="separatorMinutes">:</span>
           <span id="seconds">00</span><span id="separatorSeconds">.</span>
@@ -43,26 +43,26 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
       </div>
       <!-- Personnalisations modal error and confirmations message -->
       <?php if ($updateError != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $updateErrorMessage ?></h4>
       <?php } else if ($udpateConfirmation != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $udpateConfirmationMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $udpateConfirmationMessage ?></h4>
       <?php } else if ($saveConfirmation != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveConfirmationMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $saveConfirmationMessage ?></h4>
       <?php } else if ($saveError != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveErrorMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $saveErrorMessage ?></h4>
       <?php } else if ($saveAverageError != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveAverageErrorMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $saveAverageErrorMessage ?></h4>
       <?php } else if ($saveAverageConfirmation != false){ ?>
-        <h4 class="text-center font-weight-bold px-0 pt-2"><?= $saveAverageConfirmationMessage ?></h4>
+        <h4 class="text-center font-weight-bold px-0 pt-2 main_font_color"><?= $saveAverageConfirmationMessage ?></h4>
       <?php } ?>
       <!-- Under timer stats -->
       <div class="row text-center mx-auto mb-2 mt-1">
-        <h2 class="p-0 m-0">
-          <span id="averageOf5">Average of 5 : <span>-</span></span>
+        <h2 class="p-0 m-0 main_font_color">
+          <span id="averageOf5 ">Average of 5 : <span>-</span></span>
         </h2>
       </div>
       <div class="row text-center mx-auto">
-        <h2 class="p-0 m-0">
+        <h2 class="p-0 m-0 main_font_color">
           <span id="averageOf12">Average of 12 : <span>-</span></span>
         </h2>
       </div>
@@ -71,11 +71,11 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
         <button id="start_stop" class="btn btn-light">Start</button>
       </div>
       <!-- Stats menu -->
-      <div id="sideTimer" class="row m-0 bg-copper">
+      <div id="sideTimer" class="row m-0 bg-copper stats_background_color">
         <div id="sideStats">
-          <p id="statsInMenu" class="bg-light font-weight-bold text-center mb-0 py-1">Statistique</p>
+          <p id="statsInMenu" class="bg-light font-weight-bold text-center mb-0 py-1 main_font_color">Statistique</p>
           <div id="statsTable" class="d-flex py-2">
-            <div class="text-left ml-4 mr-0 w-50">
+            <div class="text-left ml-4 mr-0 w-50 secondary_font_color">
               <div>Numéro : </div>
               <hr class="p-0 m-0 statsHr">
               <div>Temps : </div>
@@ -86,7 +86,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
               <hr class="p-0 m-0 statsHr">
               <div>Average of 50 : </div>
             </div>
-            <div class="text-center mr-3 w-50">
+            <div class="text-center mr-3 w-50 secondary_font_color">
               <div>n° <span id="sideStatIndex">0</span></div>
               <hr class="p-0 m-0 statsHr">
               <div><span id="sideStatSingle">-</span></div>
@@ -102,7 +102,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
 
         <!-- Solve history -->
         <table id="solveList" class="table table-hover text-center mb-0">
-          <thead class="bg-light">
+          <thead class="bg-light main_font_color">
             <tr>
               <th class="solveListTitle py-1 px-2 border-bottom-0">N°</th>
               <th class="solveListTitle py-1 px-2 border-bottom-0">Time</th>
@@ -113,7 +113,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
           </thead>
           <tbody id="historyTbody">
             <tr id="noSolve">
-              <td colspan="5" class="border-left-0 border-right-0 border-top-0">Pas de statistique</td>
+              <td colspan="5" class="border-left-0 border-right-0 border-top-0 secondary_font_color">Pas de statistique</td>
             </tr>
           </tbody>
         </table>
@@ -133,5 +133,6 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   // Local Storage scripts required
   require '../share/localStorageScriptTags.html'; ?>
   <script src="../assets/js/timer.js"></script>
+  <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
 </body>
 </html>

@@ -80,5 +80,7 @@ require '../controller/signin_ctrl.php'; ?>
   <script src="../assets/js/share/newScramble.js"></script>
   <script src="../assets/js/share/getCookie.js"></script>
   <script src="../assets/js/signin.js"></script>
+  <script src="../assets/js/share/settings.js"></script>
+  <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
 </body>
 </html>

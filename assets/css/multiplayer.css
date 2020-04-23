@@ -12,6 +12,9 @@ body {
 #algoCard, #friendsCard, #newsCard, #battleCard {
   height: 41vh;
 }
+#algoCard > h3, #friendsCard > h3, #newsCard > h3, #battleCard > h3, #button1v1 > h4, #button2v2 > h4 {
+  color: white;
+}
 #algoCard .card-body {
   overflow-y: auto;
 }
