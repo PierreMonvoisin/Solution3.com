@@ -2,24 +2,24 @@
 require '../controller/personnalInfos_ctrl.php';
 // If the password is correct or the update form is validated
 if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
-  <div id="personnalInfos" class="card mx-auto my-2 col-lg-11 col-12 px-0 bg-copper shadow">
-    <h4 class="text-center font-weight-bold px-0 pt-2">Informations personnelles</h4>
+  <div id="personnalInfos" class="card mx-auto my-2 col-lg-11 col-12 px-0 bg-copper shadow stats_background_color">
+    <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color">Informations personnelles</h4>
     <?php if ($error != false) { ?>
-      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $errorMessage ?></h4>
+      <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color"><?= $errorMessage ?></h4>
     <?php } else if ($confirmation == true) { ?>
-      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $confirmationMessage ?></h4>
+      <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color"><?= $confirmationMessage ?></h4>
     <?php } else if ($updateError != false) { ?>
-      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateErrorMessage ?></h4>
+      <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color"><?= $updateErrorMessage ?></h4>
     <?php } else if ($updateConfirmation != false) { ?>
-      <h4 class="text-center font-weight-bold px-0 pt-2"><?= $updateConfirmationMessage ?></h4>
+      <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color"><?= $updateConfirmationMessage ?></h4>
     <?php } ?>
     <div class="card-body d-lg-flex text-center px-2">
       <div class="col-lg-6 col-12 d-flex px-0">
         <ul class="list-group userInfosTitle w-50">
-          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mail</li>
-          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mot de passe</li>
+          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mail</li>
+          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mot de passe</li>
         </ul>
-        <ul class="list-group userPersonnalInfos">
+        <ul class="list-group userPersonnalInfos main_font_color">
           <?php if (! empty($_SESSION['mail'])){
             $fullMail = trim($_SESSION['mail']);
             $add = '<wbr>';
@@ -32,10 +32,10 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
       </div>
       <div class="col-lg-6 col-12 d-flex px-0">
         <ul class="list-group userInfosTitle w-50">
-          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Nom d'utilisateur</li>
-          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mélange identifiant</li>
+          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Nom d'utilisateur</li>
+          <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mélange identifiant</li>
         </ul>
-        <ul class="list-group userPersonnalInfos">
+        <ul class="list-group userPersonnalInfos main_font_color">
           <li class="list-group-item px-md-3 px-1"><?= $_SESSION['username'] ?? 'Johnny Doey' ?></li>
           <?php if (! empty($userScramble)){
             $fullScramble = trim($userScramble);
@@ -54,15 +54,15 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
 <?php } else { ?>
   <div id="personnalInfos" class="card mx-auto my-2 col-lg-11 col-12 px-0 bg-copper shadow">
     <form action="#" method="post">
-      <h4 class="text-center font-weight-bold px-0 pt-2">Modifiez vos informations personnelles</h4>
+      <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color">Modifiez vos informations personnelles</h4>
       <div class="card-body d-lg-flex text-center px-2">
         <div class="col-lg-6 col-12 d-flex px-0">
           <ul class="list-group userInfosTitle w-50">
-            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mail</li>
-            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mot de passe</li>
-            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Confirmation</li>
+            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mail</li>
+            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mot de passe</li>
+            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Confirmation</li>
           </ul>
-          <ul class="list-group userPersonnalInfos">
+          <ul class="list-group userPersonnalInfos main_font_color">
             <li class="list-group-item px-md-3 px-1 text-muted"><?= $_SESSION['mail'] ?? 'john.doe@mail.com' ?></li>
             <li class="list-group-item px-md-3 px-1">
               <label for="updatePassword" class="sr-only">Entrer votre nouveau mot de passe</label>
@@ -76,10 +76,10 @@ if (! isset($_POST['updateConfirmation']) || $formValidity != true){ ?>
         </div>
         <div class="col-lg-6 col-12 d-flex px-0">
           <ul class="list-group userInfosTitle w-50">
-            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Nom d'utilisateur</li>
-            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel">Mélange identifiant</li>
+            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Nom d'utilisateur</li>
+            <li class="list-group-item bg-transparent border-0 font-weight-bold formLabel secondary_font_color">Mélange identifiant</li>
           </ul>
-          <ul class="list-group userPersonnalInfos">
+          <ul class="list-group userPersonnalInfos main_font_color">
             <li class="list-group-item px-md-3 px-1">
               <label for="updateUsername" class="sr-only">Entrer votre nouveau nom d'utilisateur</label>
               <input id="updateUsername" type="text" name="updateUsername" placeholder="<?= $_SESSION['username'] ?? 'Johnny Doey' ?>">

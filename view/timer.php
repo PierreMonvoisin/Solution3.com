@@ -34,7 +34,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
       </div>
       <!-- Timer -->
       <div class="row text-center mx-auto">
-        <h1 class="p-0 m-0" id="timer">
+        <h1 class="p-0 m-0 timer_font" id="timer">
           <span id="hours">00</span><span id="separatorHours">:</span>
           <span id="minutes">00</span><span id="separatorMinutes">:</span>
           <span id="seconds">00</span><span id="separatorSeconds">.</span>

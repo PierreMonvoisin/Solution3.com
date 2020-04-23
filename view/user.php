@@ -17,15 +17,15 @@ include '../controller/loadSavedSolve_ctrl.php';
   include '../share/fonts.html'; ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/user.css">
 </head>
-<body class="bg-silver">
+<body class="bg-silver secondary_background_color">
   <!-- Header -->
   <?php require '../share/header.php'; ?>
   <div class="container-fluid w-100">
-    <div id="avatarHeader" class="row bg-taupe">
+    <div id="avatarHeader" class="row bg-taupe header_background_color">
       <img id="topAvatar" class="mx-auto my-2 bg-light border border-dark"
       src="<?= isset($_COOKIE['avatarUrl']) && !empty($_COOKIE['avatarUrl']) ? $_COOKIE['avatarUrl'] : '../share/visualcube.php?fmt=png&bg=t&pzl=3' ?>"
       alt="Avatar Picture">
-      <h1 id="usernameTitle" class="col-6 text-center my-auto pr-5 pl-0"><?= $_SESSION['username'] ?? 'Compte personnel' ?></h1>
+      <h1 id="usernameTitle" class="col-6 text-center my-auto pr-5 pl-0 secondary_font_color"><?= $_SESSION['username'] ?? 'Compte personnel' ?></h1>
     </div>
   </div>
   <?php if ($deleteError != false) { ?>
@@ -42,10 +42,10 @@ include '../controller/loadSavedSolve_ctrl.php';
     <div class="row justify-content-between">
       <!-- General info -->
       <?php include 'personnalInfos.php'; ?>
-      <div id="overview" class="card my-2 col-12 px-0 bg-copper shadow">
-        <h4 class="text-center font-weight-bold px-0 pt-2">Statistiques</h4>
+      <div id="overview" class="card my-2 col-12 px-0 bg-copper shadow stats_background_color">
+        <h4 class="text-center font-weight-bold px-0 pt-2 secondary_font_color">Statistiques</h4>
         <div class="card-body pt-1 pb-3 px-0 userStat d-flex justify-content-around">
-          <table id="overviewStats" class="col-5 table bg-light mb-0 text-center">
+          <table id="overviewStats" class="col-5 table bg-light mb-0 text-center main_font_color">
             <thead>
               <tr>
                 <th>/</th>
@@ -84,9 +84,9 @@ include '../controller/loadSavedSolve_ctrl.php';
         </div>
       </div>
       <!-- Settings -->
-      <div id="settings" class="card col-xl-3 col-lg-4 col-md-5 my-2 px-0 bg-copper shadow">
+      <div id="settings" class="card col-xl-3 col-lg-4 col-md-5 my-2 px-0 bg-copper shadow stats_background_color">
         <div class="card-body p-2 userStat">
-          <h4 class="text-center font-weight-bold">Outils</h4>
+          <h4 class="text-center font-weight-bold secondary_font_color">Outils</h4>
           <div class="card">
             <div class="btn-group-vertical" role="group">
               <button id="settingsButton" type="button" class="btn btn-secondary btn-lg">Paramètres</button>
@@ -97,17 +97,17 @@ include '../controller/loadSavedSolve_ctrl.php';
         </div>
       </div>
       <!-- History log -->
-      <div id="history" class="card col-xl-8 col-md-7 col-12 my-2 px-0 bg-copper shadow">
+      <div id="history" class="card col-xl-8 col-md-7 col-12 my-2 px-0 bg-copper shadow stats_background_color">
         <div class="card-body userStat p-2">
-          <h4 class="text-center font-weight-bold">Historique</h4>
-          <table class="table text-center">
+          <h4 class="text-center font-weight-bold secondary_font_color">Historique</h4>
+          <table class="table text-center main_font_color">
             <thead class="thead-light">
               <tr>
-                <th class="py-1">N°</th>
-                <th class="py-1">Time</th>
-                <th class="py-1">Ao5</th>
-                <th class="py-1">Ao12</th>
-                <th class="py-1">Ao50</th>
+                <th class="py-1 main_font_color">N°</th>
+                <th class="py-1 main_font_color">Time</th>
+                <th class="py-1 main_font_color">Ao5</th>
+                <th class="py-1 main_font_color">Ao12</th>
+                <th class="py-1 main_font_color">Ao50</th>
               </tr>
             </thead>
             <tbody>
@@ -119,26 +119,26 @@ include '../controller/loadSavedSolve_ctrl.php';
         </div>
       </div>
       <?php if ( $displaySingle == true ){ ?>
-        <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow">
+        <div id="savedSolve" class="card col-md-6 my-2 px-0 bg-copper shadow stats_background_color">
           <div class="card-body userStat p-2">
-            <h4 id="solveTitle" class="text-center font-weight-bold">Résolution enregistrée</h4>
+            <h4 id="solveTitle" class="text-center font-weight-bold secondary_font_color">Résolution enregistrée</h4>
             <div class="col-12 my-3 text-center">
-              <p id="solveScramble"><?= $scrambleFormatted ?></p>
+              <p id="solveScramble" class="secondary_font_color"><?= $scrambleFormatted ?></p>
             </div>
             <div class="col-12 d-flex">
               <div id="solveRepresentation" class="text-center">
                 <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= $scrambleSingle ?>" alt="scramble">
               </div>
               <div id="solveStats" class="w-50 text-center">
-                <p id="solveTime" class="my-4 font-weight-bolder"><?= $solveTimeFormatted ?></p>
-                <p class="mt-5">Le <?= $dateFormatted ?>, à <?= $timeFormatted ?></p>
+                <p id="solveTime" class="my-4 font-weight-bolder secondary_font_color"><?= $solveTimeFormatted ?></p>
+                <p class="mt-5 secondary_font_color">Le <?= $dateFormatted ?>, à <?= $timeFormatted ?></p>
               </div>
             </div>
           </div>
         </div>
       <?php }
       if ( $displayAverage == true ){ ?>
-        <div id="savedAverage" class="card col-md-6 my-2 px-0 bg-copper shadow">
+        <div id="savedAverage" class="card col-md-6 my-2 px-0 bg-copper shadow stats_background_color">
           <h4 id="averageTitle" class="text-center font-weight-bold mt-2">Moyenne enregistrée</h4>
           <div class="btn-group px-1" role="group">
             <?php foreach ($averageToDisplay as $averageInfo){
