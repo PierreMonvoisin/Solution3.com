@@ -97,7 +97,7 @@ $(function(){
   }
   // Set the time in html page
   function setStopwatch(hours, minutes, seconds, milliseconds){
-    if (localStorage.getItem('displayTimer') == 'nope') {
+    if (localStorage.getItem('hideTimer')) {
       $('#seconds, #separatorSeconds').hide();
       // Maybe change the message
       $('#milliseconds').html('solving');

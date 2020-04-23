@@ -103,12 +103,12 @@ $(function () {
   // Set the correct value on change
   $('#displayTimer').change(function(){
     if (localStorage.getItem('storageAuthorization')){
-      localStorage.setItem('displayTimer', 'yep');
+      localStorage.removeItem('hideTimer');
     }
   });
   $('#hideTimer').change(function(){
     if (localStorage.getItem('storageAuthorization')){
-      localStorage.setItem('displayTimer', 'nope');
+      localStorage.setItem('hideTimer', 'true');
     }
   });
   // Get the current personnalisation value

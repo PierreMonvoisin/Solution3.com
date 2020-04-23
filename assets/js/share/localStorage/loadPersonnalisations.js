@@ -7,7 +7,7 @@ $(function(){
     var secondaryBackgroundColor = localStorage.getItem('secondary_background_color').trim();
     var headerBackgroundColor = localStorage.getItem('header_background_color').trim();
     var statsBackgroundColor = localStorage.getItem('stats_background_color').trim();
-    var displayTimer = localStorage.getItem('display_timer').trim();
+    var displayTimer = Number(localStorage.getItem('display_timer').trim());
     var mainFont = localStorage.getItem('main_font').trim();
     var timerFont = localStorage.getItem('timer_font').trim();
 
@@ -18,7 +18,11 @@ $(function(){
     $('.header_background_color').css('background-color', headerBackgroundColor);
     $('.button_header_background_color').css('background-color', lightenDarkenHexColor(headerBackgroundColor, 40));
     $('.stats_background_color').css('background-color', statsBackgroundColor);
-    // Display timer
+    if (! displayTimer){
+      localStorage.setItem('hideTimer', 'true');
+    } else {
+      localStorage.removeItem('hideTimer');
+    }
     $('body, html').css('font-family', mainFont);
     $('.timer_font').css('font-family', timerFont);
   }
