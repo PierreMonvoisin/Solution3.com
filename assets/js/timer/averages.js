@@ -260,13 +260,13 @@ function fromLStoAverageArray_LS(time){
     // Transform time to milliseconds
     var timeToInput = formattedTimeToMilliseconds(time);
     // Add the correct amount of solve in each average array
-    if (solves5.length < 5){
+    if (solves5.length < 4){
       solves5.push(timeToInput);
     }
-    if (solves12.length < 12){
+    if (solves12.length < 11){
       solves12.push(timeToInput);
     }
-    if (solves50.length < 50){
+    if (solves50.length < 49){
       solves50.push(timeToInput);
     }
   } else {

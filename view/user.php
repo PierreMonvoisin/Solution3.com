@@ -5,8 +5,7 @@ require '../share/forbiddenPages.php';
 require '../controller/logOff_ctrl.php';
 require '../controller/updatePersonnalisations_ctrl.php';
 require '../controller/deleteUser_ctrl.php';
-include '../controller/loadSavedSolve_ctrl.php';
-?>
+include '../controller/loadSavedSolve_ctrl.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
