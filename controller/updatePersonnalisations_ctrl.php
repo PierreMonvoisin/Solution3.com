@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges'])){
   ! empty(trim($_POST['statsBackgroundColor'])) ? $statsBackgroundColor = trim($_POST['statsBackgroundColor']) : $statsBackgroundColor = null;
   isset($_POST['mainFont']) && ! empty(trim($_POST['mainFont'])) ? $mainFont = trim($_POST['mainFont']) : $mainFont = null;
   isset($_POST['timerFont']) && ! empty(trim($_POST['timerFont'])) ? $timerFont = trim($_POST['timerFont']) : $timerFont = null;
-  ! empty(trim($_POST['displayTimer'])) ? $displayTimer = trim($_POST['displayTimer']) : $displayTimer = null;
+  trim($_POST['displayTimer']) == '0' || ! empty(trim($_POST['displayTimer'])) ? $displayTimer = trim($_POST['displayTimer']) : $displayTimer = null;
   isset($_SESSION['id_personnalisations']) && ! empty(trim($_SESSION['id_personnalisations'])) ? $id_personnalisations = trim($_SESSION['id_personnalisations']) : $id_personnalisations = null;
   // If all the inputs are default values, return " no modification " message
   if (strtoupper($mainFontColor) == '#000000' && strtoupper($secondaryFontColor) == '#FFFFFF' && strtoupper($mainBackgroundColor) == '#E8DCD8' && strtoupper($secondaryBackgroundColor) == '#C1C1C1' && strtoupper($headerBackgroundColor) == '#463730' && strtoupper($statsBackgroundColor) == '#BF6B44') {
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitChanges'])){
         [$stmtStatus, $stmt, $lastId] = updatePersonnalisations($mainFontColor, $secondaryFontColor, $mainBackgroundColor, $secondaryBackgroundColor, $headerBackgroundColor, $statsBackgroundColor, $mainFont, $timerFont, $displayTimer, $id_personnalisations);
         $userStmtStatus = null;
         // If the id in the personnalisations table is new, update it in the user table
-        if ($lastId != $id_personnalisations){
+        if ($lastId != '0'){
           $avatar_url = null;
           ! empty(trim($_SESSION['avatar_url'])) ? $avatar_url = trim($_SESSION['avatar_url']) : $avatar_url = null;
           if ($avatar_url != null){
