@@ -52,8 +52,8 @@
             <label class="offset-sm-1 col-sm-5 text-center" for="mainFont">Police principale:</label>
             <div class="col-sm-6 d-flex">
               <select name="mainFont" id="mainFont" class="custom-select mx-auto w-auto">
-                <option value='1' selected>'Roboto', sans-serif</option>
-                <option value='2'>'Bitter', serif</option>
+                <option value='1' selected>Roboto, sans-serif</option>
+                <option value='2'>Bitter, serif</option>
               </select>
             </div>
           </div>
@@ -61,9 +61,9 @@
             <label class="offset-sm-1 col-sm-5 text-center" for="timerFont">Police du chronomètre:</label>
             <div class="col-sm-6 d-flex">
               <select name="timerFont" id="timerFont" class="custom-select mx-auto w-auto">
-                <option value='3' selected>'Gugi', cursive</option>
-                <option value='4'>'Odibee Sans', cursive</option>
-                <option value='5'>'Black Ops One', cursive</option>
+                <option value='3' selected>Gugi, cursive</option>
+                <option value='4'>Odibee Sans, cursive</option>
+                <option value='5'>Black Ops One, cursive</option>
               </select>
             </div>
           </div>
