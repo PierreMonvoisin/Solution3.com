@@ -9,9 +9,9 @@ $(function () {
   headerBackgroundColor = current_headerBackgroundColor = '#463730';
   statsBackgroundColor = current_statsBackgroundColor = '#BF6B44';
   displayTimer = current_displayTimer = 1;
-  var fonts = ['"Roboto", sans-serif', '"Bitter", serif', '"Gugi", cursive', '"Odibee Sans", cursive', '"Black Ops One", cursive'];
   mainFont = current_mainFont = 0;
   timerFont = current_timerFont = 2;
+  var fonts = ['Roboto, sans-serif', 'Bitter, serif', 'Gugi, cursive', 'Odibee Sans, cursive', 'Black Ops One, cursive'];
   // Get the name of the current file open
   var current_file = (window.location.pathname.split('/')).pop();
 
@@ -126,9 +126,9 @@ $(function () {
     timerFont = $(this).val();
     timerFont = fonts[Number(timerFont) - 1];
     // Change font size with font to better display it
-    if (timerFont == '"Gugi", cursive' || timerFont == '"Odibee Sans", cursive'){
+    if (timerFont == 'Gugi, cursive' || timerFont == 'Odibee Sans, cursive'){
       $('#timer').css('font-size', '14vw');
-    } else if (timerFont == '"Black Ops One", cursive'){
+    } else if (timerFont == 'Black Ops One, cursive'){
       $('#timer').css('font-size', '13vw');
     }
     $('#timer').css('font-family', timerFont);
@@ -150,6 +150,18 @@ $(function () {
   }
   // cancel function
   $('#cancel').click(function(){
+    // Check if there are personnalisations in the localStorage to update the values
+    if (localStorage.getItem('main_font_color') != null){
+      current_mainFontColor = localStorage.getItem('main_font_color').trim();
+      current_secondaryFontColor = localStorage.getItem('secondary_font_color').trim();
+      current_mainBackgroundColor = localStorage.getItem('main_background_color').trim();
+      current_secondaryBackgroundColor = localStorage.getItem('secondary_background_color').trim();
+      current_headerBackgroundColor = localStorage.getItem('header_background_color').trim();
+      current_statsBackgroundColor = localStorage.getItem('stats_background_color').trim();
+      current_displayTimer = Number(localStorage.getItem('display_timer').trim());
+      current_mainFont = localStorage.getItem('main_font').trim();
+      current_timerFont = localStorage.getItem('timer_font').trim();
+    }
     // Set the settings back to before the changes
     if (current_file == 'learningMenu.php'){
       $('.sectionTitle').css('color', current_secondaryFontColor);
@@ -168,9 +180,9 @@ $(function () {
       $('.statsHr').css('background-color', current_secondaryFontColor);
       $('body').css('background-color', current_secondaryBackgroundColor);
       $('#sideTimer').css('background-color', current_statsBackgroundColor);
-      if (current_timerFont == '""Gugi"", cursive' || current_timerFont == '""Odibee Sans"", cursive'){
+      if (current_timerFont == 'Gugi, cursive' || current_timerFont == 'Odibee Sans, cursive'){
         $('#timer').css('font-size', '14vw');
-      } else if (current_timerFont == '""Black Ops One"", cursive'){
+      } else if (current_timerFont == 'Black Ops One, cursive'){
         $('#timer').css('font-size', '13vw');
       }
       $('#timer').css('font-family', current_timerFont);
