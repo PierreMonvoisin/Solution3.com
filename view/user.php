@@ -79,7 +79,11 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
             </tbody>
           </table>
           <!-- Chart -->
-          <div class="col-6 p-0" id="chartContainer"></div>
+          <div class="col-6 p-0" id="chartContainer">
+            <canvas id="statsChart" width="200" height="200" aria-label="graphique de statistiques" role="img">
+              <p>Le graphique de statistiques n'est pas disponible</p>
+            </canvas>
+          </div>
         </div>
       </div>
       <!-- Settings -->
@@ -199,5 +203,6 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
   </script>
   <script src="../assets/js/share/localStorage/storePersonnalisations.js"></script>
   <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
+  <script src="../assets/js/chart.js"></script>
 </body>
 </html>
