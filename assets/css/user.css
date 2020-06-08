@@ -41,10 +41,7 @@ html {
 }
 #chartContainer {
   width: 100%;
-  max-height: 32vh;
-}
-#statsChart {
-  max-height: 32vh;
+  max-height: 100%;
 }
 #settings {
   max-height: 29vh;

@@ -79,9 +79,7 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
             </tbody>
           </table>
           <!-- Chart -->
-          <div class="col-6 p-0 mx-0 bg-light" id="chartContainer">
-            <div id="statsChart" aria-label="graphique de statistiques" role="img">
-            </div>
+          <div class="col-6 px-0 py-1 mx-0 bg-light" id="chartContainer">
           </div>
         </div>
       </div>
