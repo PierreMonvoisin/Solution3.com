@@ -79,10 +79,9 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
             </tbody>
           </table>
           <!-- Chart -->
-          <div class="col-6 p-0 mx-0" id="chartContainer">
-            <canvas id="statsChart" width="200" height="100" aria-label="graphique de statistiques" role="img">
-              <p>Le graphique de statistiques n'est pas disponible</p>
-            </canvas>
+          <div class="col-6 p-0 mx-0 bg-light" id="chartContainer">
+            <div id="statsChart" aria-label="graphique de statistiques" role="img">
+            </div>
           </div>
         </div>
       </div>

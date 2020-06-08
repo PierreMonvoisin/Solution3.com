@@ -34,17 +34,17 @@ html {
   width: 65%;
 }
 #overview {
-  height: 35vh;
+  height: 40vh;
 }
 #overviewStats {
   height: 100%;
 }
 #chartContainer {
   width: 100%;
-  height: 28vh;
+  max-height: 32vh;
 }
 #statsChart {
-  max-height: 28vh; 
+  max-height: 32vh;
 }
 #settings {
   max-height: 29vh;
