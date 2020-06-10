@@ -1,17 +1,17 @@
-window.onload = function () {
   var chart = new CanvasJS.Chart('chartContainer', {
+    interactivityEnabled: false,
     theme: 'light2',
     animationEnabled: true,
     animationDuration: 1250,
-    title: {
-      text: 'Graphique de résolutions',
-      fontWeight: 'normal'
+    legend: {
+      fontSize: 13,
+      verticalAlign: 'top'
     },
+    exportFileName: "Graphique des résolutions et moyennes",
+		exportEnabled: true,
     axisX: {
-      lineColor: 'black',
-      lineThickness: 0.75,
-      labelFontColor: 'grey',
-      labelFontSize: 13
+      lineThickness: 0,
+      labelFontSize: 0
     },
     axisY: {
       includeZero: false,
@@ -19,7 +19,12 @@ window.onload = function () {
       gridThickness: 0.5,
       gridColor: 'black',
       labelFontColor: 'black',
-      labelFontSize: 13
+      labelFontSize: 13,
+      labelFormatter: function(e){
+        var timeFormatted = millisecondsToFullTime(e.value);
+        timeFormatted = (timeFormatted.split('.'))[0];
+        return timeFormatted;
+      }
     },
     data: [{
       name: 'résolutions',
@@ -29,17 +34,18 @@ window.onload = function () {
       showInLegend: true,
       markerType: 'none',
       dataPoints: [
-        {y: 16.05},
-        {y: 17.11},
-        {y: 15.54},
-        {y: 16.44},
-        {y: 14.41},
-        {y: 20.04},
-        {y: 16.63},
-        {y: 17.08},
-        {y: 19.11},
-        {y: 16.66},
-        {y: 20.74}
+        {y: 16524},
+        {y: 16093},
+        {y: 15056},
+        {y: 15062},
+        {y: 19897},
+        {y: 25205},
+        {y: 19019},
+        {y: 17192},
+        {y: 20119},
+        {y: 17400},
+        {y: 20042},
+        {y: 15306}
       ]
     },
     {
@@ -50,17 +56,18 @@ window.onload = function () {
       showInLegend: true,
       markerType: 'none',
       dataPoints: [
-        {y: 16.01},
-        {y: 16.36},
-        {y: 16.20},
-        {y: 16.72},
-        {y: 17.61},
-        {y: 17.62},
-        {y: 17.62},
-        {y: 18.98},
-        {y: 18.88},
-        {y: 18.27},
-        {y: 18.27}
+        {y: 15893},
+        {y: 17017},
+        {y: 17993},
+        {y: 18703},
+        {y: 19678},
+        {y: 18846},
+        {y: 18820},
+        {y: 18211},
+        {y: 17583},
+        {y: 16282},
+        {y: 16031},
+        {y: 16009}
       ]
     },
     {
@@ -71,20 +78,20 @@ window.onload = function () {
       showInLegend: true,
       markerType: 'none',
       dataPoints: [
-        {y: 17.54},
-        {y: 17.61},
-        {y: 17.63},
-        {y: 17.54},
-        {y: 17.38},
-        {y: 17.53},
-        {y: 17.20},
-        {y: 16.99},
-        {y: 16.69},
-        {y: 16.48},
-        {y: 16.42}
+        {y: 16059},
+        {y: 15927},
+        {y: 15231},
+        {y: 16076},
+        {y: 16213},
+        {y: 16213},
+        {y: 16067},
+        {y: 16307},
+        {y: 16056},
+        {y: 15697},
+        {y: 15634},
+        {y: 15582}
       ]
     }]
   });
   // Render chart
   chart.render();
-}
