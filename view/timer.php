@@ -58,7 +58,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
       <!-- Under timer stats -->
       <div class="row text-center mx-auto mb-2 mt-1">
         <h2 class="p-0 m-0 main_font_color">
-          <span id="averageOf5 ">Average of 5 : <span>-</span></span>
+          <span id="averageOf5">Average of 5 : <span>-</span></span>
         </h2>
       </div>
       <div class="row text-center mx-auto">

@@ -47,24 +47,24 @@ if (isset($_SESSION['id']) && ! empty($_SESSION['id'])){
         $scrambleSingle = ${$solveToDisplay[0].'Scramble'} ?? '';
         if ($scrambleSingle != ''){
           // Add spaces before every uppercase letter to better display
-          $scrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scrambleSingle));
+          $singleScrambleFormatted = trim(preg_replace('/[A-Z]/', ' $0', $scrambleSingle));
         }
         $dateTime = ${$solveToDisplay[0].'Date'} ?? '';
         if ($dateTime != ''){
           // Transform dateTime into French date and HH:MM:SS time
           $dateTime = explode(' ', $dateTime);
           [$yyyy, $mm, $dd] = explode('-', $dateTime[0]);
-          $dateFormatted = $dd. ' / ' .$mm. ' / ' .$yyyy;
-          $timeFormatted = $dateTime[1];
+          $singleDateFormatted = $dd. ' / ' .$mm. ' / ' .$yyyy;
+          $singleTimeFormatted = $dateTime[1];
         } else {
-          $dateFormatted = '-- / -- / ----';
-          $timeFormatted = '00:00:00';
+          $singleDateFormatted = '-- / -- / ----';
+          $singleTimeFormatted = '00:00:00';
         }
         $time = ${$solveToDisplay[0].'Time'} ?? '';
         if ($time != ''){
           // Add spaces after separators in the time to better display
           $solveTimeFormatted = trim(preg_replace('/\:/', '$0 ', $time));
-          $solveTimeFormatted = trim(preg_replace('/\./', '$0 ', $solveTimeFormatted));
+          $singleSolveTimeFormatted = trim(preg_replace('/\./', '$0 ', $solveTimeFormatted));
           $displaySingle = true;
           // Delete the single from the array of stats to be displayed
           $NbSolveToDisplay--;

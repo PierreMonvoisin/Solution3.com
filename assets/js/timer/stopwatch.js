@@ -10,18 +10,18 @@ $(function(){
       // Keycode 32 = Spacebar
       if (e.keyCode == 32) {
         // Check if the user is holding the spacebar
-        if(! $("#timer").hasClass('holding')){
+        if(! $('#timer').hasClass('holding')){
           // Timer not ready so red
-          $("#timer").addClass('text-danger');
+          $('#timer').addClass('text-danger');
           // Don't let the timer start until the timeout is over
           timerReady = setTimeout(function(){
-            $("#timer").removeClass('text-danger');
+            $('#timer').removeClass('text-danger');
             // Timer ready so green
-            $("#timer").addClass('text-success');
+            $('#timer').addClass('text-success');
             // Set timer as ready
             timerValidity = true;
             // Add the holding class after the first detection of a press
-            $("#timer").addClass('holding');
+            $('#timer').addClass('holding');
           }, delay);
         }
       }
@@ -29,22 +29,55 @@ $(function(){
   });
   // On every key up event
   $(document).keyup(function(e) {
-    // If the user
+    // If the key is the spacebar
     if (e.keyCode == 32) {
       // On timer launch, clear all the classes and the timeout for the color
-      $("#timer").removeClass('text-danger');
-      $("#timer").removeClass('text-success');
-      $("#timer").removeClass('holding');
+      $('#timer').removeClass('text-danger');
+      $('#timer').removeClass('text-success');
+      $('#timer').removeClass('holding');
       // Clear the time out for the color of the text
       clearTimeout(timerReady);
-      $("#start_stop").button().click();
+      $('#start_stop').button().click();
       return;
     }
     // On any key up
-    if ($("#start_stop").text() == "Stop"){
-      $("#start_stop").button().click();
+    if ($('#start_stop').text() == 'Stop'){
+      $('#start_stop').button().click();
     }
   });
+  $('#timerBody :not(#sideTimer)').on('touchstart', function(){
+    // Indicator that timer is ready
+    if ($('#start_stop').text() == 'Start'){
+      // Check if the user is holding the spacebar
+      if(! $('#timer').hasClass('holding')){
+        // Timer not ready so red
+        $('#timer').addClass('text-danger');
+        // Don't let the timer start until the timeout is over
+        timerReady = setTimeout(function(){
+          $('#timer').removeClass('text-danger');
+          // Timer ready so green
+          $('#timer').addClass('text-success');
+          // Set timer as ready
+          timerValidity = true;
+          // Add the holding class after the first detection of a press
+          $('#timer').addClass('holding');
+        }, delay);
+      }
+    }
+  })
+  $('#timerBody :not(#sideTimer)').on('touchend', function(){
+    if ($('#start_stop').text() == 'Start') {
+      // On timer launch, clear all the classes and the timeout for the color
+      $('#timer').removeClass('text-danger');
+      $('#timer').removeClass('text-success');
+      $('#timer').removeClass('holding');
+      // Clear the time out for the color of the text
+      clearTimeout(timerReady);
+      $('#start_stop').button().click();
+    } else if ($('#start_stop').text() == 'Stop'){
+      $('#start_stop').button().click();
+    }
+  })
   // Set variables for timer
   var hours, minutes, seconds, milliseconds;
   hours = minutes = seconds = milliseconds = 0;
@@ -52,17 +85,17 @@ $(function(){
   prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
   var timeUpdate; var currentScramble;
   // Start/Stop button
-  $("#start_stop").button().click(function(){
+  $('#start_stop').button().click(function(){
     // Start button ( if the spacebar was pressed too quickly, the function doesn't launch )
-    if($(this).text() == "Start" && timerValidity == true){ // check button label
-      $(this).html("<span>Stop</span>");
+    if($(this).text() == 'Start' && timerValidity == true){ // check button label
+      $(this).html('<span>Stop</span>');
       // Launch the timer
       updateTime(0,0,0,0);
       timerValidity = false;
     }
     // Stop button
-    else if($(this).text() == "Stop"){
-      $(this).html("<span>Start</span>");
+    else if($(this).text() == 'Stop'){
+      $(this).html('<span>Start</span>');
       // Stop the timer
       clearInterval(timeUpdate);
       // Display the time
@@ -109,7 +142,7 @@ $(function(){
   index = ao5 = ao12 = ao50 = 0;
   // Add solve to stats menu
   function addToLog(hours, minutes, seconds, milliseconds, currentScramble){
-    // Delete "no solve" message
+    // Delete 'no solve' message
     $('#noSolve').hide();
     // Get index of last solve, if none found, attribute 1 to the current index
     var index = Number($('#solveList tbody tr').attr('id'));

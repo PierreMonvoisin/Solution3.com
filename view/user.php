@@ -123,15 +123,15 @@ include '../controller/loadSavedSolve_ctrl.php'; ?>
           <div class="card-body userStat p-2">
             <h4 id="solveTitle" class="text-center font-weight-bold secondary_font_color">Résolution enregistrée</h4>
             <div class="col-12 my-3 text-center">
-              <p id="solveScramble" class="secondary_font_color"><?= $scrambleFormatted ?></p>
+              <p id="solveScramble" class="secondary_font_color"><?= $singleScrambleFormatted ?></p>
             </div>
             <div class="col-12 d-flex">
               <div id="solveRepresentation" class="text-center">
                 <img src="../share/visualcube.php?fmt=png&bg=t&pzl=3&alg=<?= $scrambleSingle ?>" alt="scramble">
               </div>
               <div id="solveStats" class="w-50 text-center">
-                <p id="solveTime" class="my-4 font-weight-bolder secondary_font_color"><?= $solveTimeFormatted ?></p>
-                <p class="mt-5 secondary_font_color">Le <?= $dateFormatted ?>, à <?= $timeFormatted ?></p>
+                <p id="solveTime" class="my-4 font-weight-bolder secondary_font_color"><?= $singleSolveTimeFormatted ?></p>
+                <p class="mt-5 secondary_font_color">Le <?= $singleDateFormatted ?>, à <?= $singleTimeFormatted ?></p>
               </div>
             </div>
           </div>

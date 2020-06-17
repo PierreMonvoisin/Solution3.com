@@ -1,8 +1,9 @@
+// Declare empty data array
 var dataSingle = [];
 var dataAo5 = [];
 var dataAo12 = [];
 // If the local storage is available
-if (typeof(Storage) != "undefined") {
+if (typeof(Storage) != 'undefined') {
   // If there is at least one solve in the local storage
   if (localStorage.getItem('index')){
     var numberOfSolve = Number(localStorage.getItem('index'));
