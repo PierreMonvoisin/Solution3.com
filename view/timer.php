@@ -22,7 +22,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   <!-- Main container -->
   <div id="timerContainer" class="d-flex">
     <div id="timerBody" class="d-flex flex-column">
-      <div class="p-0 m-0 d-flex mt-1">
+      <div id="topButtons" class="p-0 m-0 d-flex mt-1">
         <!-- Stats button -->
         <button id="menuToggle" type="button" class="btn btn-dark btn-block font-weight-bold">Cacher les statistiques</button>
         <!-- Settings button -->

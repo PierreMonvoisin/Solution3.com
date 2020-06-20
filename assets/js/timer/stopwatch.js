@@ -45,7 +45,7 @@ $(function(){
       $('#start_stop').button().click();
     }
   });
-  $('#timerBody :not(#sideTimer)').on('touchstart', function(){
+  $('#timerBody :not(#sideTimer) :not(#topButtons)').on('touchstart', function(){
     // Indicator that timer is ready
     if ($('#start_stop').text() == 'Start'){
       // Check if the user is holding the spacebar
@@ -64,20 +64,16 @@ $(function(){
         }, delay);
       }
     }
-  })
-  $('#timerBody :not(#sideTimer)').on('touchend', function(){
-    if ($('#start_stop').text() == 'Start') {
-      // On timer launch, clear all the classes and the timeout for the color
-      $('#timer').removeClass('text-danger');
-      $('#timer').removeClass('text-success');
-      $('#timer').removeClass('holding');
-      // Clear the time out for the color of the text
-      clearTimeout(timerReady);
-      $('#start_stop').button().click();
-    } else if ($('#start_stop').text() == 'Stop'){
-      $('#start_stop').button().click();
-    }
-  })
+  });
+  $('#timerBody :not(#sideTimer) :not(#topButtons)').on('touchend', function(){
+    // On timer launch, clear all the classes and the timeout for the color
+    $('#timer').removeClass('text-danger');
+    $('#timer').removeClass('text-success');
+    $('#timer').removeClass('holding');
+    // Clear the time out for the color of the text
+    clearTimeout(timerReady);
+    $('#start_stop').button().click();
+  });
   // Set variables for timer
   var hours, minutes, seconds, milliseconds;
   hours = minutes = seconds = milliseconds = 0;
