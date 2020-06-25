@@ -14,6 +14,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   include '../share/fonts.html'; ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/learningMenu.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/lessons/defaultLesson.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/lessons/beginnerTutorial_3x3.css">
 </head>
 <body class="bg-gainsboro main_background_color">
   <?php include '../share/header.php'; ?>
@@ -21,7 +22,7 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
     <div class="row w-100 p-0 m-0">
       <div id="leftButtons" class="col-lg col-12 p-0 m-0">
         <!--Top Left Button-->
-        <button id="TopLeft" type="button" class="btn bg-blue shadow" title="Comment résoudre un rubik's cube"><img src="https://i.pinimg.com/originals/4f/37/4c/4f374c5803ccb759755066a8e887e623.png" alt="3x3 cube"></button>
+        <button id="TopLeft" type="button" class="btn bg-blue shadow" title="Comment résoudre un rubik's cube"><a href="?3x3_beginner="><img src="https://i.pinimg.com/originals/4f/37/4c/4f374c5803ccb759755066a8e887e623.png" alt="3x3 cube"></a></button>
         <!--Bottom Left Button-->
         <button id="BottomLeft" type="button" class="btn btn-light shadow" title="Paramètres"><img src="https://image.flaticon.com/icons/svg/1242/1242443.svg" alt="Settings"></button>
       </div>
@@ -32,7 +33,12 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
         <?php } else if ($udpateConfirmation != false){ ?>
           <h4 class="text-center font-weight-bold px-0 pt-2"><?= $udpateConfirmationMessage ?></h4>
         <?php } ?>
-        <?php include 'lessons/defaultLesson.php'; ?>
+        <!-- Lesson section -->
+        <?php if (isset($_GET['3x3_beginner'])){
+          include 'lessons/beginnerTutorial_3x3.php';
+        } else {
+          include 'lessons/defaultLesson.php';
+        } ?>
       </div>
       <div id="rightButtons" class="col-lg col-12 p-0 ml-auto mr-0 my-0">
         <!--Top Right Button-->

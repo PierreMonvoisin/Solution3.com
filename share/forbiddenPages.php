@@ -1,9 +1,10 @@
 <?php // Check if user is connected or not and block some pages in consequence
 // Get the url page link
 $pagePath = explode('/', $_SERVER['REQUEST_URI']);
+$pageName = explode('?', array_pop($pagePath))[0];
 // Create the options array with the reg ex for the page
 $pageNameOptions = ['options'=>['regexp'=>'/^([a-zA-Z_-]{3,35})(\.php)$/']];
-$pageName = filter_var(array_pop($pagePath), FILTER_VALIDATE_REGEXP, $pageNameOptions);
+$pageName = filter_var($pageName, FILTER_VALIDATE_REGEXP, $pageNameOptions);
 // Declare all pages allowed in the filter
 $allowedPages = ['/', 'index.php', 'timer.php', 'learningMenu.php', 'multiplayer.php', 'signin.php', 'login.php', 'user.php'];
 $forbiddenConnectedPages = ['signin.php', 'login.php'];
@@ -32,7 +33,7 @@ if ($pageName != false || $_SERVER['REQUEST_URI'] == '/'){
     header('Location: /');
   }
 } else {
-  echo 'page non reconnue<br>Page : '; var_dump($pageName);
+  // echo 'page non reconnue<br>Page : '; var_dump($pageName);
   // Wait before the refresh to check wich page it is
   header('refresh:1;url=/');
 } ?>
