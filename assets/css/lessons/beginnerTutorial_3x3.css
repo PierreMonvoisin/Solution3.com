@@ -1,3 +1,15 @@
 #BeginnerLesson3x3 {
   overflow: auto;
 }
+.roofpig-container {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+.roofpig {
+  width: 200px;
+  border: 0 !important;
+}
+.roofpig-picture {
+  height: 200px;
+}
