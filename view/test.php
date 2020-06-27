@@ -8,12 +8,8 @@
   include '../share/fonts.html'; ?>
 </head>
 <body>
-  <div class="roofpig" data-config="colored=U|solved=U-|hover=none"></div>
-  <div class="roofpig" data-config="colored=U Ul Ub|solved=U-|hover=none"></div>
-  <div class="roofpig" data-config="colored=U Ul Ur|solved=U-|hover=none"></div>
-  <div class="roofpig" data-config="colored=U Ul Ub Ur Uf|solved=U-|hover=none"></div>
-
-
+  <div class="roofpig" data-config="colored=U U*/e U-|hover=none|pov=Ubl"></div>
+  <div class="roofpig" data-config="colored=U U*/e U-|tweaks=F:Bu B:Lu|hover=none|pov=Ubl"></div>
   <?php require '../share/requiredScriptTags.html'; ?>
 </body>
 </html>

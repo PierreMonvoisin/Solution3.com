@@ -94,22 +94,39 @@
       <h4 class="text-center font-weight-bold">Positionner les arêtes correctement</h4>
       <p>La croix jaune correctement construit, il faut maintenant aligner ses branches aux bonnes couleurs sur le cube. Vous pouvez faire face à trois cas différents; les branches déjà alignées ( parfait, avancé à la prochaine étape ), des arêtes résolues opposées ou des arêtes résolues adjacentes.</p>
       <p>Si vous pouvez connecter deux arêtes à leur couleur respective, c’est parfait, vous pouvez appliquer une seule suite de mouvement pour résoudre cette étape.</p>
+      <div class="roofpig-container">
+        <img class="roofpig-picture" src="../assets/img/3x3_PLL_good_cross.png" alt="3x3 croix jaune bien orientée">
+        <img class="roofpig-picture" src="../assets/img/3x3_PLL_bad_cross.png" alt="3x3 croix jaune mal orientée">
+      </div>
       <p>Si vous avez deux arêtes l’une à côté de l’autre, et que leur couleur autre que Jaune correspondent au couleurs des centres, alors vous pouvez appliquer la suite de mouvement si dessous. Attention, comme cet algorithme échange les arêtes face à vous et à votre gauche, il faut que vous placiez les arêtes résolues à l’arrière et sur votre droite, afin qu’elles soient conservées.</p>
+      <div class="roofpig-container">
+        <div class="roofpig" data-config="colored=U U*/e U-|alg=y2 y2 R U R' U R U2 R' U|speed=1000|flags=showalg|hover=none|pov=Ufl"></div>
+      </div>
       <p>Si vous avez deux arêtes similaires mais à chaque côtés opposés du cube, vous pouvez appliquer ces mouvements une première fois dans n’importe quel sens, puis trouver les arêtes adjacentes et suivre la méthode présentée précédemment.</p>
       <hr>
     </div>
     <div class="col-9 mx-auto text-justify">
       <h4 class="text-center font-weight-bold">Positionner les coins correctement</h4>
       <p>Nous sommes à deux étapes de la fin du cube. Nous n’avons plus qu’à nous occuper des coins de la face jaune. Tout d’abord, il faut les mettre à leur place correct. Observez les trois couleurs d’un coin, prenez les deux couleurs autres que le jaune. Vous devez positionner ce coin au dessus des deux faces avec ces couleurs.</p>
+      <div class="roofpig-container">
+        <div class="roofpig" data-config="colored=U UFR U*/e U-|tweaks=F:Urf R:Fur U:Rfu|hover=none"></div>
+      </div>
       <p>Le but est de placer tous les coins à leur endroit respectif, sans rien casser, et même si ces coins ne sont pas bien orienté. ( C’est à dire que le côté Jaune pointe vers le haut, ce sera la prochaine étape )</p>
       <p>La première étape est de chercher si vous avez un à sa bonne place sans oublier de garder la croix jaune bien orientée, afin que les bras de la croix reste connectés aux bonnes couleurs. Une fois que vous en trouvez un, tourner tout votre cube pour qu’il soit placé face à vous et à votre droite. Il vous suffit d'exécuter cette suite de mouvement jusqu'à ce que les quatre coin soit à leur bonne place.</p>
+      <div class="roofpig-container">
+        <div class="roofpig" data-config="colored=U U*/e U*/c U-|solved=UFR|alg=U R U' L' U R' U' L|speed=1000|flags=showalg|hover=none"></div>
+        <div class="roofpig" data-config="colored=U U*/e U*/c U-|tweaks=F:Urf R:Fur U:Rfu F:Luf L:Ufl U:Flu B:Rub R:Ubr U:Bru|alg=U R U' L' U R' U' L|speed=850|flags=showalg|hover=none"></div>
+      </div>
       <p>Si malheureusement vous n’avez aucun coin de bien positionné, vous pouvez simplement faire cette suite de mouvements depuis l’orientation que vous voulez, puis chercher le coin qui est maintenant résolu pour enchaîner sur la même méthode que précédemment.</p>
       <hr>
     </div>
     <div class="col-9 mx-auto text-justify">
       <h4 class="text-center font-weight-bold">Résoudre le cube ( orienter les coins )</h4>
       <p>Enfin, nous sommes à la dernière étape avant d’avoir résolu le cube complètement ! Si vous êtes arrivé à cette étape, vous pouvez déjà vous féliciter ! Vous êtes aller plus loin dans la résolution du Rubik’s Cube que la majorité de la population. Il est maintenant temps de finir cette leçon !</p>
-      <p>Pour finir, il nous faut orienter les coins pour que leur côté Jaune pointe vers le haut. Cette étape est assez précise, ainsi, prenez autant de temps que vous le souhaitez quand vous allez commencer cette suite de mouvement. Positionner un coin en face de vous à droite, puis commencer l’enchaînement en cyclant avec les coins non résolu.</p>
+      <p>Pour finir, il nous faut orienter les coins pour que leur côté Jaune pointe vers le haut. Cette étape est assez précise, ainsi, prenez autant de temps que vous le souhaitez quand vous allez commencer cette suite de mouvement. Positionner un coin mal orienté en face de vous à droite, puis commencer l’enchaînement en cyclant avec les coins non résolu.</p>
+      <div class="roofpig-container">
+        <div class="roofpig" data-config="colored=U U*/e U*/c U-|alg=R' D' R D R' D' R D U R' D' R D R' D' R D U R' D' R D R' D' R D U2|speed=800|flags=showalg|hover=none"></div>
+      </div>
       <hr>
     </div>
     <div class="col-10 mx-auto text-center">
