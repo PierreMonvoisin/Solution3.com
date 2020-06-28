@@ -56,5 +56,6 @@ require '../controller/updatePersonnalisations_ctrl.php'; ?>
   require '../share/requiredScriptTags.html'; ?>
   <script src="../assets/js/learningMenu.js"></script>
   <script src="../assets/js/share/localStorage/loadPersonnalisations.js"></script>
+  <script src="../assets/js/share/roofpig/roofpig_and_three.min.js"></script>
 </body>
 </html>
