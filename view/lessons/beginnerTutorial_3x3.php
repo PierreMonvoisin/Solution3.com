@@ -76,7 +76,7 @@
       <h4 class="text-center font-weight-bold">La croix jaune</h4>
       <p>Nous avons déjà résolu la plus grande partie du cube et il ne nous reste que quelques étapes avant de l’avoir entièrement résolu !</p>
       <p>La première chose à faire une fois que les deux premières couches sont résolues est de créer une croix jaune avec les arêtes de la face jaune. Une fois à cette étape, vous pouvez vous retrouver dans quatre cas différents; en fixant les arêtes avec un côté jaune et le centre jaune, vous pouvez voir un point, un “ L “, une barre ou une croix.</p>
-      <div class="roofpig-container">
+      <div class="roofpig-container wrap justify-content-center">
         <img class="roofpig-picture" src="../assets/img/3x3_OLL_dot.png" alt="3x3 point jaune">
         <img class="roofpig-picture" src="../assets/img/3x3_OLL_L.png" alt="3x3 L jaune">
         <img class="roofpig-picture" src="../assets/img/3x3_OLL_line.png" alt="3x3 ligne jaune">

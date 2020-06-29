@@ -8,12 +8,15 @@
 }
 .roofpig {
   width: 200px;
-  margin: 10%;
+  margin: 7%;
   border: 0 !important;
 }
 .roofpig-picture {
   height: 200px;
-  margin: 10%;
+  margin: 7%;
+}
+.wrap{
+  flex-wrap: wrap;
 }
  @media only screen and (max-width: 600px) {
    .roofpig-container{
@@ -23,6 +26,18 @@
      width:63vw;
    }
    .roofpig-picture{
-     margin: 10%;
+     margin: 7%;
+   }
+ }
+ @media only screen and (max-width: 1024px) {
+   .roofpig-container{
+     display: flex;
+     flex-wrap: wrap;
+   }
+   .roofpig{
+     width:23vw;
+   }
+   .roofpig-picture{
+     margin: 7%;
    }
  }
