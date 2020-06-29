@@ -1,12 +1,12 @@
-<div id="BeginnerLesson3x3" class="container-fluid bg-silver p-2">
+<div id="BeginnerLesson3x3" class="container-fluid bg-white p-2">
   <div class="row w-100">
     <div class="col-12 text-center">
-      <h1>Comment résoudre un Rubik's Cube 3x3</h1>
+      <h1 class="pt-3">Comment résoudre un Rubik's Cube 3x3</h1>
       <h2>- Méthode débutant -</h2>
       <hr>
     </div>
     <div class="col-9 mx-auto text-justify">
-      <h5 class="text-center font-weight-bold">Le fonctionnement du cube</h5>
+      <h4 class="text-center font-weight-bold pb-2">Le fonctionnement du cube</h4>
       <p>Le cube se compose de seulement trois pièces différentes. Les huits coins du cube, composés de trois couleurs différentes; les douze arêtes composées de deux couleurs différentes et les six centres d’une seule couleur. Les centres, ne peuvent pas être mélangés, jaune sera toujours opposé à blanc, bleu à vert, et rouge à orange. Ils définissent donc la couleur de toute la face.</p>
       <div class="roofpig-container">
         <img class="roofpig-picture" src="../assets/img/3x3_centers_only.png" alt="3x3 seulement avec les centres">
@@ -40,7 +40,7 @@
       <hr>
     </div>
     <div class="col-9 mx-auto text-justify">
-      <h4 class="text-center font-weight-bold">Quatres coins blanc</h4>
+      <h4 class="text-center font-weight-bold">Quatre coins blancs</h4>
       <p>L’étape suivante à la croix sert à terminer la face blanche. Ils faut insérer les quatre coins possédant un côté blanc aux bons endroits autour de la croix blanche. Je vous conseille maintenant de retourner votre cube pour avoir la face Jaune qui pointe vers le haut. Les algorithmes seront plus facile à exécuter. Pour réussir cette étape, il suffit de suivre une simple suite de quatre mouvements !</p>
       <div class="roofpig-container">
         <img class="roofpig-picture" src="../assets/img/3x3_simple_first_layer.png" alt="3x3 première couche">

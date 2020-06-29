@@ -8,8 +8,21 @@
 }
 .roofpig {
   width: 200px;
+  margin: 10%;
   border: 0 !important;
 }
 .roofpig-picture {
   height: 200px;
+  margin: 10%;
 }
+ @media only screen and (max-width: 600px) {
+   .roofpig-container{
+     display: block;
+   }
+   .roofpig{
+     width:63vw;
+   }
+   .roofpig-picture{
+     margin: 10%;
+   }
+ }
